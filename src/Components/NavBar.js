@@ -4,7 +4,7 @@ const NavBar = () => {
     return (
         <nav>
             <NavLink to="/logs">Captain's Logs</NavLink>
-            <NavLink to="/logs/new">Add new Log</NavLink>
+            <NavLink to="/logs/new">New Log</NavLink>
         </nav>
     )
 }
