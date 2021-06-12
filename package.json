@@ -6,8 +6,9 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "express": "^4.17.1",
     "react": "^17.0.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^1.1.5",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -36,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^6.7.0",
+    "cypress": "^6.9.1",
     "fast-glob": "^3.2.5",
     "junitxml-to-javascript": "^1.1.4",
     "node-fetch": "^2.6.1"
