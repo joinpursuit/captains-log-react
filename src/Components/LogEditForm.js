@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 
-import { apiURL } from '../util/apiURL';
+import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
 const LogEditForm = (props) => {
@@ -10,11 +10,11 @@ const LogEditForm = (props) => {
   let history = useHistory();
 
   const [log, setLog] = useState({
-    name: "",
-    url: "",
-    category: "",
-    description: "",
-    isFavorite: false,
+    captainName: "",
+    title: "",
+    post: "",
+    mistakesWereMadeToday: false,
+    daysSinceLastCrisis: 0,
   });
 
   const handleTextChange = (event) => {
@@ -22,7 +22,7 @@ const LogEditForm = (props) => {
   };
 
   const handleCheckboxChange = () => {
-    setLog({ ...log, isFavorite: !log.isFavorite });
+    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
   const fetchlog = async () => {
@@ -32,15 +32,15 @@ const LogEditForm = (props) => {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     fetchlog();
-  },);
+  },[]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await props.updatelog(log, index);
+    await props.updateLog(log, index);
     history.push(`/logs/${index}`);
   };
 
@@ -74,20 +74,21 @@ const LogEditForm = (props) => {
           placeholder="educational, inspirational, ..."
           onChange={handleTextChange}
         />
-        <label htmlFor="mistakesWereMadeToday">Mistakes Were Made Today: </label>
+        <label htmlFor="mistakesWereMadeToday">
+          Mistakes Were Made Today:{" "}
+        </label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={log.description}
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+        <input
+          id="daysSinceLastCrisis"
+          name="daysSinceLastCrisis"
+          value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder="Describe why you loged this site"
         />
         <br />
 
@@ -98,6 +99,6 @@ const LogEditForm = (props) => {
       </Link>
     </div>
   );
-}
+};
 
 export default LogEditForm;

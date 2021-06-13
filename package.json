@@ -38,7 +38,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^6.7.0",
+    "cypress": "^6.9.1",
     "fast-glob": "^3.2.5",
     "junitxml-to-javascript": "^1.1.4",
     "node-fetch": "^2.6.1"
