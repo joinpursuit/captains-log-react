@@ -11,6 +11,16 @@ const API = apiURL();
 function App() {
   const [logs, setLogs] = useState([]);
 
+  const addLog = async (newLog) => {
+let res
+try {
+res = await axios.post(`${API}/logs` , newLog)
+setLogs(prevLogs => [...prevLogs, res.data])
+} catch (err){
+  console.log(err)
+}
+  }
+
   const fetchLogs = async () => {
     let res;
     try {
@@ -32,10 +42,10 @@ function App() {
         <NavBar />
         <Switch>
           <Route path={"/logs/new"}>
-            <NewLog />
+            <NewLog addLog={addLog}/>
           </Route>
           <Route path={"/logs"}>
-            <Logs logs={logs} />
+            <Logs  logs={logs} />
           </Route>
         </Switch>
       </Router>

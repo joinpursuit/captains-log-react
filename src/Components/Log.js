@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Log = ({ title, index }) => {
+const Log = ({ title, index  }) => {
   return (
     //   <a href={`logs/${index}`}><li key={index}>{title}</li></a>
     <div>
