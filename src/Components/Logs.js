@@ -1,9 +1,11 @@
+
+
 const Logs = ({ logs }) => {
   return (
     <section>
       <ul>
         {logs.map((log) => {
-          return <li>{log.title}</li>;
+          return <li><a href="/logs/:index">{log.title}</a></li>;
         })}
       </ul>
     </section>

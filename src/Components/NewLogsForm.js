@@ -21,7 +21,7 @@ function LogNewForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addLog(log);
-    props.history.push("/Logs");
+    props.history.push("/logs");
   };
 
   return (
@@ -65,7 +65,7 @@ function LogNewForm(props) {
         <textarea
           id="daysSinceLastCrisis"
           name="daysSinceLastCrisis"
-          value={log.post}
+          value={log.daysSinceLastCrisis}
           onChange={handleChange}
           placeholder="Days Since Last Crisis..."
         />

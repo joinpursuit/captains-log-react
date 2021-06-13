@@ -4,7 +4,7 @@ function New({ addLog }) {
   return (
     <div className="New">
       <h2>New Log</h2>
-      <NewLogsForm addBookmark={addLog} />
+      <NewLogsForm addLog={addLog} />
     </div>
   );
 }

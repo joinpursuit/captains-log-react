@@ -11,12 +11,13 @@ const URL = apiURL();
 const App = () => {
   const [logs, setLogs] = useState([]);
 
-  const addLog = (newLog) => {};
+  const addLog = (newLog) => {setLogs({...newLog})};
 
   const fetchLogs = async () => {
     try {
       const res = await axios.get(`${URL}/logs`);
       setLogs(res.data);
+      debugger
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +35,7 @@ const App = () => {
           <Index logs={logs} />
         </Route>
         <Route path="/logs/new">
-          <New addBookmark={addLog} />
+          <New addLog={addLog} />
         </Route>
       </Switch>
     </div>
