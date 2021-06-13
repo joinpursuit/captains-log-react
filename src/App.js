@@ -31,6 +31,17 @@ const App = () => {
     }
   };
 
+  const deleteLog = async (index) => {
+    try {
+    await axios.delete(`${API}/logs/${index}/`);
+    const dummyState = [...logs];
+    dummyState = logs.splice(index, 1)
+    setLogs(dummyState)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const fetchLogs = async () => {
     try {
       const res = await axios.get(`${API}/logs`);
@@ -58,7 +69,7 @@ const App = () => {
           <Edit updateLog={updateLog} />
         </Route>
         <Route exact path="/logs/:index">
-          <Show />
+          <Show deleteLog={deleteLog}/>
         </Route>
       </Switch>
     </div>

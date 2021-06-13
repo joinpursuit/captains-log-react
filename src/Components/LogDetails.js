@@ -5,7 +5,7 @@ import { Link, useParams, useHistory, withRouter } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
-const LogDetails = ({ deletelog }) => {
+const LogDetails = ({ deleteLog }) => {
   const [log, setlog] = useState({});
   let { index } = useParams();
   let history = useHistory();
@@ -21,10 +21,10 @@ const LogDetails = ({ deletelog }) => {
 
   useEffect(() => {
     fetchlog();
-  },);
+  }, []);
 
   const handleDelete = () => {
-    deletelog(index);
+    deleteLog(index);
     history.push("/logs");
   };
 

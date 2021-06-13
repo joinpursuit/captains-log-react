@@ -63,7 +63,7 @@ function LogNewForm(props) {
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
         <textarea
           id="post"
           type="number"
