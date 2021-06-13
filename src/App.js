@@ -1,6 +1,7 @@
 import NavBar from "./Components/NavBar";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
+import Show from "./Pages/Show";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "./util/apiURL";
@@ -17,7 +18,6 @@ const App = () => {
     try {
       const res = await axios.get(`${URL}/logs`);
       setLogs(res.data);
-      // debugger
     } catch (error) {
       console.log(error);
     }
@@ -37,6 +37,10 @@ const App = () => {
         <Route path="/logs/new">
           <New addLog={addLog} />
         </Route>
+        <Route path="/logs/:index">
+         <Show />
+        </Route>
+
       </Switch>
     </div>
   );
