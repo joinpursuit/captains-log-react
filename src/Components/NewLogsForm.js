@@ -20,10 +20,12 @@ function LogNewForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addLog(log);
-    props.history.push("/logs");
+    const { addLog, history } = props;
+    addLog(log);
+    history.push("/logs");
   };
-
+  
+  
   return (
     <div className="new-log">
       <form onSubmit={handleSubmit}>

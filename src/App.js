@@ -1,23 +1,28 @@
 import NavBar from "./Components/NavBar";
-import Index from "./Pages/Index.js";
+import Index from "./Pages/Index";
 import New from "./Pages/New";
+import Show from "./Pages/Show";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { apiURL } from "./util/apiURL";
+import axios from "axios";
 
-const URL = apiURL();
+const API = apiURL();
 
 const App = () => {
   const [logs, setLogs] = useState([]);
 
-  const addLog = (newLog) => {setLogs({...newLog})};
+  const addLog = async (newLog) => {
+    try {
+      const res = await axios.post(`${API}/logs`, newLog);
+      setLogs(prevLogs => [...prevLogs, res.data]);
+    } catch (error) {}
+  };
 
   const fetchLogs = async () => {
     try {
-      const res = await axios.get(`${URL}/logs`);
+      const res = await axios.get(`${API}/logs`);
       setLogs(res.data);
-      debugger
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +41,9 @@ const App = () => {
         </Route>
         <Route path="/logs/new">
           <New addLog={addLog} />
+        </Route>
+        <Route path="/logs/:index">
+          <Show />
         </Route>
       </Switch>
     </div>
