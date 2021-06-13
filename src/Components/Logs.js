@@ -27,6 +27,8 @@ function Logs() {
 
     return (
         <div className="Home">
+            <h1>Captain's Log </h1>
+            <p>Index</p>
             <ul>
                 {logs.map((log, index)=>{
                    return  <li key={index}><Link to={`/logs/${index}`}>{log.title}</Link></li>

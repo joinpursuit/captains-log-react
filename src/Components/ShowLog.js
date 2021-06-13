@@ -28,6 +28,7 @@ export default function ShowLog() {
 
     return (
         <div>
+            <h1>Captain's Log</h1>
             <h1>{log.captainName}</h1> 
             <h2>{log.title}</h2>
             <h3>{log.post}</h3>

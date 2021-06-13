@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import axios from "axios";
 import { apiURL } from "../util/apiURL"
 import {useHistory} from "react-router-dom"
@@ -30,24 +30,23 @@ function NewLogs() {
   const handleCheckboxChange = () => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    addLog(log)
+    await addLog(log)
     history.push("/logs");
   }
   const addLog = async (newLog) => {
-    let res;
     try {
-      res = await axios.post(`${API}/logs`, newLog);
-      
+      await axios.post(`${API}/logs`, newLog);
     } catch (err) {
       console.log(err);
     }
   };
   return (
     <div className="Home">
+      <h1>Captain's Log</h1>
       <form onSubmit={handleSubmit} >
-        <label htmlFor="captainName">Captain Name:</label>
+        <label htmlFor="captainName">Captain's Name:</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -66,7 +65,7 @@ function NewLogs() {
           required
         />
         <label htmlFor="post">Post:</label>
-        <input
+        <textarea
           id="post"
           value={log.post}
           type="text"
@@ -81,7 +80,7 @@ function NewLogs() {
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-         <label htmlFor="daysSinceLastCrisis">daysSinceLastCrisis:</label>
+         <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
         <input
           id="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
