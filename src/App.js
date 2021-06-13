@@ -4,22 +4,22 @@ import axios from "axios";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import Logs from "./Components/Logs";
+import Show from "./Components/Show";
 import { apiURL } from "./util/apiURL";
 
 // further down..., but still above `App` component
 const API = apiURL();
 
 function App() {
-  const { logs, setLogs } = useState;
+  const [ logs, setLogs ] = useState([]);
 
   const fetchLogs = async () => {
-    axios
-      .get(`${API}/logs`)
-      .then(
-        (response) => setLogs(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
+    try {
+      const res = await axios.get(`${API}/logs`);
+      setLogs(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -37,11 +37,13 @@ function App() {
           <Route exact path="/logs">
             <Logs logs={logs} />
           </Route>
+          <Route exact path="/logs/:index">
+            <Show logs={logs} 
+            // deleteLog={deleteLog}
+             />
+          </Route>
           {/* <Route path="/logs/new">
             <New addBookmark={addBookmark} />
-          </Route>
-          <Route exact path="/logs/:index">
-            <Show bookmarks={bookmarks} deleteBookmark={deleteBookmark} />
           </Route>
           <Route path="*">
             <FourOFour />

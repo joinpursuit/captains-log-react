@@ -9,9 +9,9 @@ export default class Logs extends Component {
     return (
       <div>
         <h1>Captain's Log</h1>
-        <ul>{logs.map((log, i) => {
+        {/* <ul>{logs.map((log, i) => {
            return <li key={log.title}><NavLink to={`/logs/${i}`}>{log.title}</NavLink></li>
-        })}</ul>
+        })}</ul> */}
       </div>
     );
   }
