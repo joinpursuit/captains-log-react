@@ -74,11 +74,11 @@ function App() {
             <Route path="/logs/new">
               <New addLog={addLog} />
             </Route>
-            <Route path="/logs/:index">
-              <Show logs={logs} deleteLog={deleteLog} />
-            </Route>
             <Route path="/logs/:index/edit">
               <Edit logs={logs} updateLog={updateLog} />
+            </Route>
+            <Route path="/logs/:index">
+              <Show logs={logs} deleteLog={deleteLog} />
             </Route>
             <Route path="*">
               <FourOFour />

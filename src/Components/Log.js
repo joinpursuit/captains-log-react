@@ -12,7 +12,7 @@ const Log = ({ log, index }) => {
       </td>
       <td>
         {/* <a href={log.title} target="_blank" rel="noreferrer"> */}
-          {log.title}
+        <Link to={`/logs/${index}`}>{log.title}</Link>     
         {/* </a> */}
       </td>
       <td>

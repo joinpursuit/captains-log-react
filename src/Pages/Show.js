@@ -7,7 +7,7 @@ const Show = ({ deleteLog, logs }) => {
   const [log] = useState(logs[index]);
   return (
     <div className="Show">
-      <h2>Show</h2>
+      <h2>Captain's Log Show</h2>
       <section>
         <LogDetails
           log={log}

@@ -21,6 +21,10 @@ function LogEditForm(props) {
     setLog({ ...log, [event.target.id]: event.target.value });
   };
 
+  const handleNumberChange = (event) => {
+    setLog({ ...log, [event.target.id]: Number(event.target.value) });
+  }
+  
   const handleCheckboxChange = () => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
@@ -28,6 +32,7 @@ function LogEditForm(props) {
   const fetchLog = async () => {
     try {
       const res = await axios.get(`${API}/logs/${index}`);
+      debugger
       setLog(res.data);
     } catch (err) {
       console.log(err);
@@ -39,6 +44,7 @@ function LogEditForm(props) {
   }, []);
 
   const handleSubmit = async (event) => {
+      debugger
     event.preventDefault();
     await props.updateLog(log, index);
     history.push(`/logs/${index}`);
@@ -65,7 +71,7 @@ function LogEditForm(props) {
           onChange={handleTextChange}
         />
         <label htmlFor="post">Post:</label>
-        <input
+        <textarea
           id="post"
           type="text"
           name="post"
@@ -84,9 +90,9 @@ function LogEditForm(props) {
         <input
           id="daysSinceLastCrisis"
           name="daysSinceLastCrisis"
-          type="number"
+          type="text"
           value={log.daysSinceLastCrisis}
-          onChange={handleTextChange}
+          onChange={handleNumberChange}
           placeholder="Days Since Last Crisis"
         />
         <br />

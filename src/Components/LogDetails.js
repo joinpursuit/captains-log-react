@@ -36,12 +36,13 @@ function LogDetails(props) {
       <h5>
         <span>
           {/* <a href={log.post}>{log.title}</a> */}
-          {log.title}
+          {log.title} - By {log.captainName}
         </span>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </h5>
       <h6>{log.post}</h6>
       <p>{log.mistakesWereMadeToday}</p>
+      <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
       <div className="showNavigation">
         <div>
           {" "}

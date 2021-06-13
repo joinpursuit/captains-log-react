@@ -14,6 +14,10 @@ const LogNewForm = ({addLog, history}) => {
         setLog({ ...log, [event.target.id]: event.target.value });
       };
     
+      const handleNumberChange = (event) => {
+        setLog({ ...log, [event.target.id]: Number(event.target.value) });
+      };
+
       const handleCheckboxChange = () => {
         setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
       };
@@ -26,7 +30,7 @@ const LogNewForm = ({addLog, history}) => {
       return (
         <div className="New">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="captainName">Captain Name:</label>
+            <label htmlFor="captainName">Captain's Name</label>
             <input
               id="captainName"
               value={log.captainName}
@@ -44,7 +48,7 @@ const LogNewForm = ({addLog, history}) => {
               onChange={handleTextChange}
             />
             <label htmlFor="post">Post:</label>
-            <input
+            <textarea
               id="post"
               type="text"
               name="post"
@@ -52,7 +56,7 @@ const LogNewForm = ({addLog, history}) => {
               placeholder="Write post"
               onChange={handleTextChange}
             />
-            <label htmlFor="mistakesWereMadeToday">Mistakes Were Made Today:</label>
+            <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
             <input
               id="mistakesWereMadeToday"
               type="checkbox"
@@ -65,7 +69,7 @@ const LogNewForm = ({addLog, history}) => {
               name="daysSinceLastCrisis"
               type="number"
               value={log.daysSinceLastCrisis}
-              onChange={handleTextChange}
+              onChange={handleNumberChange}
               placeholder="Days Since Last Crisis"
             />
             <br />
