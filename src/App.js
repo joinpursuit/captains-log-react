@@ -15,7 +15,7 @@ function App() {
     let res;
     try {
       res = await axios.get(`${API}/logs`);
-      debugger;
+     
       setLogs(res.data);
     } catch (err) {
       console.log(err);
@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchLogs();
-  });
+  },[]);
 
   return (
     <div className="app">
