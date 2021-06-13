@@ -17,7 +17,7 @@ function App() {
           <Logs />
         </Route>
         <Route path="/logs/new">
-          <NewLogs  />
+          <NewLogs />
         </Route>
         <Route path="/logs/:index/edit">
           <Edit />

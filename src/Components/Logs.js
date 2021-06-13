@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import axios from "axios";
-import {apiURL} from "../util/apiURL"
+import { apiURL } from "../util/apiURL"
 const API = apiURL();
 
 function Logs() {
@@ -12,7 +12,7 @@ function Logs() {
         try {
             const res = await axios.get(`${API}/logs`);
             setLogs(res.data)
-        } catch(error) {
+        } catch (error) {
             setLogs([])
             console.log(error)
         }
@@ -30,8 +30,8 @@ function Logs() {
             <h1>Captain's Log </h1>
             <p>Index</p>
             <ul>
-                {logs.map((log, index)=>{
-                   return  <li key={index}><Link to={`/logs/${index}`}>{log.title}</Link></li>
+                {logs.map((log, index) => {
+                    return <li key={index}><Link to={`/logs/${index}`}>{log.title}</Link></li>
                 })}
             </ul>
         </div>

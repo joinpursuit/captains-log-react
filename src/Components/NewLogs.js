@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { apiURL } from "../util/apiURL"
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 const API = apiURL();
 
 function NewLogs() {
@@ -73,14 +73,14 @@ function NewLogs() {
           placeholder="post"
           required
         />
-         <label htmlFor="mistakesWereMadeToday">Mistakes were made today?</label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today?</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-         <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
         <input
           id="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
@@ -89,10 +89,10 @@ function NewLogs() {
           placeholder="daysSinceLastCrisis"
           required
         />
-         <button>submit</button>
+        <button>submit</button>
       </form>
     </div>
   );
-  }
+}
 
-  export default NewLogs;
+export default NewLogs;

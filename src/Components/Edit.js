@@ -6,7 +6,6 @@ import {useHistory} from "react-router-dom"
 import {useParams} from "react-router-dom"
 const API = apiURL();
 
-
 export default function Edit() {
     const history = useHistory()
     const {index} = useParams()
@@ -97,5 +96,4 @@ export default function Edit() {
             </form>
         </div>
     );
-
 }
