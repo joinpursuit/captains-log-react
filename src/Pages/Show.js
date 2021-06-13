@@ -1,14 +1,10 @@
-import { useState } from "react";
-import { useParams } from "react-router";
 import LogDetails from "../Components/LogDetails";
 
-const Show = ({ logs }) => {
-  let { index } = useParams();
-  const [log] = useState(logs[index]);
+const Show = ({ deleteLog }) => {
   return (
     <main>
       <h1>Show</h1>
-      <LogDetails log={log} index={index} />
+      <LogDetails deleteLog={deleteLog}/>
     </main>
   );
 };
