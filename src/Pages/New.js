@@ -2,10 +2,10 @@ import LogNewForm from "../Components/LogNewForm";
 
 function New({ addLog }) {
   return (
-    <main className="New">
+    <section className="New">
       <h2>New</h2>
       <LogNewForm addLog={addLog} />
-    </main>
+    </section>
   );
 }
 

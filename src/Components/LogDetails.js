@@ -30,20 +30,24 @@ const LogDetails = ({ deleteLog }) => {
 
   return (
     <section>
-      <Link to={`/logs`}>
-        <button>Back</button>
-      </Link>
-      <button onClick={handleDelete}>Delete</button>
+      <div>
+        <Link to={`/logs`}>
+          <button>Back</button>
+        </Link>
+        <Link to={`/logs/${index}/edit`}>
+          <button>Edit</button>
+        </Link>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
       <table>
+        <thead>
+          <tr>
+            <th>
+              {log.title} - By {log.captainName}
+            </th>
+          </tr>
+        </thead>
         <tbody>
-          <tr>
-            <td>Captain's Name</td>
-            <td>{log.captainName}</td>
-          </tr>
-          <tr>
-            <td>Title</td>
-            <td>{log.title}</td>
-          </tr>
           <tr>
             <td>Entry</td>
             <td>{log.post}</td>
@@ -53,8 +57,7 @@ const LogDetails = ({ deleteLog }) => {
             <td>{log.mistakesWereMadeToday ? <div>😱</div> : <div>😎</div>}</td>
           </tr>
           <tr>
-            <td>Days since last crisis</td>
-            <td>{log.daysSinceLastCrisis}</td>
+            <td>Days since last crisis: {log.daysSinceLastCrisis}</td>
           </tr>
         </tbody>
       </table>

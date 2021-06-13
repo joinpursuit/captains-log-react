@@ -1,0 +1,9 @@
+nav {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    font-size: 24px;
+    border-bottom: 1px solid rgb(126, 125, 125);
+}

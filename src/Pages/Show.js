@@ -2,10 +2,10 @@ import LogDetails from "../Components/LogDetails";
 
 const Show = ({ deleteLog }) => {
   return (
-    <main>
+    <section>
       <h1>Show</h1>
       <LogDetails deleteLog={deleteLog}/>
-    </main>
+    </section>
   );
 };
 

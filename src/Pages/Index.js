@@ -2,10 +2,10 @@ import Logs from "../Components/Logs";
 
 const Index = ({logs}) => {
     return (
-        <main>
+        <section>
             <h1>Index</h1>
             <Logs logs={logs}/>
-        </main>
+        </section>
     )
 }
 

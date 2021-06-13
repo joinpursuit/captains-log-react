@@ -1,7 +1,6 @@
 import { Route, Switch } from "react-router";
 import Home from "./Pages/Home";
 import NavBar from "./Components/NavBar";
-
 import { apiURL } from "./util/apiURL";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,6 +8,8 @@ import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import New from "./Pages/New";
 import FourOFour from "./Pages/FourOhFour";
+import Edit from "./Pages/Edit";
+import "./App.css"
 const API = apiURL();
 
 function App() {
@@ -25,6 +26,18 @@ function App() {
       console.log(err);
     }
   };
+
+  //Update a specific log
+  const updateLog = async (logToUpdate, index) => {
+    try {
+      await axios.put(`${API}/logs/${index}`, logToUpdate);
+      const newLogs = [...logs]
+      newLogs[index] = logToUpdate
+      setLogs(newLogs)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   // Deletes a specific log
   const deleteLog = async (index) => {
@@ -52,7 +65,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <main className="app">
       <NavBar />
       <Switch>
         <Route exact path={"/"} component={Home} />
@@ -65,11 +78,14 @@ function App() {
         <Route exact path={"/logs/:index"}>
           <Show deleteLog={deleteLog} />
         </Route>
+        <Route exact path={"/logs/:index/edit"}>
+          <Edit updateLog={updateLog} />
+        </Route>
         <Route path="*">
           <FourOFour />
         </Route>
       </Switch>
-    </div>
+    </main>
   );
 }
 
