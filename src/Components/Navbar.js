@@ -3,11 +3,12 @@ import Logs from "./Logs";
 
 export default function Navbar() {
   return (
-    <nav>
-      <NavLink to="/logs">Bookmarks</NavLink>
-      <button>
-        <NavLink to="/logs/new">New Bookmark</NavLink>
-      </button>
+    <nav className="NavBar">
+      <NavLink to="/logs">Logs</NavLink>
+      <p>_____</p>
+      <NavLink to="/logs/new">Logs New</NavLink>
+      <p>___</p>
+      <NavLink to="/logs/:index">Index</NavLink>
     </nav>
   );
 }
