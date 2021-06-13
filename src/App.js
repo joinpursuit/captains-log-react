@@ -3,29 +3,37 @@ import Home from "./Pages/Home";
 import NavBar from "./Components/NavBar";
 
 import { apiURL } from './util/apiURL';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import Index from "./Pages/Index";
+import Show from "./Pages/Show";
 const API = apiURL();
 
 function App() {
+  const [logs, setLogs] = useState([]);
+
   const fetchData = async () => {
-    let res;
     try {
-      res = await axios.get(`${API}/logs`);
-      console.log(res.data)
+      const res = await axios.get(`${API}/logs`);
+      setLogs(res.data);
     } catch(err){
       console.log(err);
     }
   }
   useEffect(() => {
-    fetchData()
-  }, []);
+    fetchData();
+  },[]);
+
   return (
     <div>
       <NavBar />
       <Switch>
         <Route exact path={"/"} component={Home} />
         <Route exact path={"/logs"}>
+          <Index logs={logs}/>
+        </Route>
+        <Route exact path={"/logs/:index"}>
+          <Show logs={logs}/>
         </Route>
       </Switch>
     </div>
