@@ -21,6 +21,15 @@ export default function ShowLog() {
 
     }
 
+    const handleDelete = async ()=>{
+        try{
+            await axios.delete(`${API}/logs/${index}`)
+            history.push("/logs")
+        }catch(error){
+
+        }
+    }
+
     useEffect(()=>{
         getLog();
 
@@ -29,13 +38,13 @@ export default function ShowLog() {
     return (
         <div>
             <h1>Captain's Log</h1>
-            <h1>{log.captainName}</h1> 
-            <h2>{log.title}</h2>
+            <p>Show</p>
+            <h1>{log.title} - By {log.captainName}</h1> 
             <h3>{log.post}</h3>
             <h3>{log.mistakesWereMadeToday ? "true" : "false"}</h3>
             <h3>{log.daysSinceLastCrisis}</h3>
-            <button onClick={()=>history.push("/logs")}>Back</button>
-            <button>Delete</button>
+            <a onClick={()=>history.push("/logs")}>Back</a>
+            <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
