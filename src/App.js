@@ -1,10 +1,10 @@
 import NavBar from "./Components/NavBar";
-import Index from "./Pages/Index.js";
+import Index from "./Pages/Index";
 import New from "./Pages/New";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { apiURL } from "./util/apiURL";
+import axios from "axios";
 
 const URL = apiURL();
 
@@ -17,7 +17,7 @@ const App = () => {
     try {
       const res = await axios.get(`${URL}/logs`);
       setLogs(res.data);
-      debugger
+      // debugger
     } catch (error) {
       console.log(error);
     }

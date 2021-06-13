@@ -1,5 +1,3 @@
-
-
 const Logs = ({ logs }) => {
   return (
     <section>
