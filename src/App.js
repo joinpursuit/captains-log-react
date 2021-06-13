@@ -11,6 +11,10 @@ function App() {
 
   const [logs, setLogs] = useState([])
 
+  const addLog = (newLog) => {};
+  const deleteLog = (index) => {};
+  const updateLog = (updatedLog, index) => {};
+
   const fetchData = async() =>{
     try {
       const response = await axios.get(`${API}/logs`)
@@ -31,15 +35,24 @@ function App() {
         <NavBar />
          <main>
           <Switch>
+          <Route exact path="/">
+              <Home />
+            </Route>
             <Route exact path="/logs">
               <Index logs={logs} />
             </Route> 
-             {/* <Route path="/logs/new">
+            <Route path="/logs/new">
               <New addLogs={addLogs} />
+            </Route> 
+             <Route path="/logs/:index">
+              <New logs={Logs} deleteLog={deleteLog}/>
+            </Route>
+            <Route path="/logs/:index/edit">
+              <Edit logs={logs} updateLog={updateLog} />
             </Route>
             <Route path="*">
               <FourOFour />
-            </Route>  */}
+            </Route> 
           </Switch> 
            </main> 
       </Router>
