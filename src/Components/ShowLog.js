@@ -33,7 +33,7 @@ export default function ShowLog() {
     useEffect(()=>{
         getLog();
 
-    })
+    }, [])
 
     return (
         <div>
