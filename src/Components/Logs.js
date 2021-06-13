@@ -11,7 +11,6 @@ function Logs() {
 
         try {
             const res = await axios.get(`${API}/logs`);
-            debugger
             setLogs(res.data)
         } catch(error) {
             setLogs([])
