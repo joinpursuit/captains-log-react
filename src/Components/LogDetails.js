@@ -5,7 +5,7 @@ import { Link, useParams, useHistory, withRouter } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
-function LogDetails({ deletelog }) {
+const LogDetails = ({ deletelog }) => {
   const [log, setlog] = useState({});
   let { index } = useParams();
   let history = useHistory();
