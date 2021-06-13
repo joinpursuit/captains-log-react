@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { withRouter } from "react-router-dom";
 
-const LogNewForm = (props) => {
+const LogNewForm = ({addLog, history}) => {
     const [log, setLog] = useState({
         captainName: "",
         title: "",
@@ -20,15 +20,15 @@ const LogNewForm = (props) => {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        props.addLog(log);
-        props.history.push("/logs");
+        addLog(log);
+        history.push("/logs");
       };
       return (
         <div className="New">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Captain Name:</label>
+            <label htmlFor="captainName">Captain Name:</label>
             <input
-              id="name"
+              id="captainName"
               value={log.captainName}
               type="text"
               onChange={handleTextChange}
@@ -59,13 +59,14 @@ const LogNewForm = (props) => {
               onChange={handleCheckboxChange}
               checked={log.mistakesWereMadeToday}
             />
-            <label htmlFor="description">Description:</label>
-            <textarea
-              id="description"
-              name="description"
-              value={bookmark.description}
+            <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+            <input
+              id="daysSinceLastCrisis"
+              name="daysSinceLastCrisis"
+              type="number"
+              value={log.daysSinceLastCrisis}
               onChange={handleTextChange}
-              placeholder="Describe why you bookmarked this site"
+              placeholder="Days Since Last Crisis"
             />
             <br />
             <input type="submit" />
@@ -73,3 +74,5 @@ const LogNewForm = (props) => {
         </div>
       );
 }
+
+export default withRouter(LogNewForm);

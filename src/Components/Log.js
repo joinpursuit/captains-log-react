@@ -4,16 +4,16 @@ const Log = ({ log, index }) => {
   return (
     <tr>
       <td>
-        {log.isFavorite ? (
+        {log.mistakesWereMadeToday ? (
           <span>⭐️</span>
         ) : (
           <span>&nbsp; &nbsp; &nbsp;</span>
         )}
       </td>
       <td>
-        <a href={log.url} target="_blank" rel="noreferrer">
+        {/* <a href={log.title} target="_blank" rel="noreferrer"> */}
           {log.title}
-        </a>
+        {/* </a> */}
       </td>
       <td>
         <Link to={`/logs/${index}`}>✏️</Link>

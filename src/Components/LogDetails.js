@@ -1,20 +1,42 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useHistory, withRouter } from "react-router-dom";
-function BookmarkDetails(props) {
-  const { deleteLogs } = props;
+import axios from "axios";
+import { apiURL } from '../util/apiURL';
+const API = apiURL();
+
+function LogDetails(props) {
+  const { deleteLog } = props;
   const [log, setLog] = useState([]);
   let { index } = useParams();
   let history = useHistory();
-  useEffect(() => {}, []);
-  const handleDelete = () => {};
+
+  const fetchLog = async() =>{
+    try {
+      const response = await axios.get(`${API}/logs/${index}`);
+      // console.log(response.data);
+      setLog(response.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    fetchLog()
+  }, []);
+
+  const handleDelete = () => {
+    deleteLog(index)
+    history.push('/logs')
+  };
+
   return (
     <article>
       <h3>
-        {log.isFavorite ? <span>:star:️</span> : null} {log.title}
+        {log.mistakesWereMadeToday ? <span>😢</span> : <span>😃</span>} {log.captainName}
       </h3>
       <h5>
         <span>
-          <a href={log.url}>{log.name}</a>
+          {/* <a href={log.post}>{log.title}</a> */}
+          {log.title}
         </span>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </h5>
@@ -41,7 +63,7 @@ function BookmarkDetails(props) {
     </article>
   );
 }
-export default withRouter(BookmarkDetails);
+export default withRouter(LogDetails);
 
 
 
