@@ -29,7 +29,7 @@ function LogNewForm(props) {
   return (
     <div className="new-log">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainsName">Captain's Name</label>
+        <label htmlFor="captainName">Captain's Name</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -65,7 +65,8 @@ function LogNewForm(props) {
         />
         <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
         <textarea
-          id="daysSinceLastCrisis"
+          id="post"
+          type="number"
           name="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
           onChange={handleChange}

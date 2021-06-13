@@ -48,17 +48,17 @@ const App = () => {
     <div>
       <NavBar />
       <Switch>
-        <Route path="/logs/:index/edit">
-          <Edit updateLog={updateLog} />
-        </Route>
-        <Route path="/logs/:index">
-          <Show />
+        <Route exact path="/logs">
+          <Index logs={logs} />
         </Route>
         <Route path="/logs/new">
           <New addLog={addLog} />
         </Route>
-        <Route exact path="/logs">
-          <Index logs={logs} />
+        <Route path="/logs/:index/edit">
+          <Edit updateLog={updateLog} />
+        </Route>
+        <Route exact path="/logs/:index">
+          <Show />
         </Route>
       </Switch>
     </div>
