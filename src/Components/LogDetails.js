@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 
 const API = apiURL();
@@ -29,7 +30,9 @@ const LogDetails = ({ deleteLog }) => {
 
   return (
     <section>
-      <button onClick={history.goBack}>Go Back</button>
+      <Link to={`/logs`}>
+        <button>Back</button>
+      </Link>
       <button onClick={handleDelete}>Delete</button>
       <table>
         <tbody>

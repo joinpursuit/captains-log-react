@@ -54,7 +54,7 @@ const LogNewForm = (props) => {
           placeholder="Describe what happened today"
           onChange={handleTextChange}
         />
-        <label htmlFor="mistakesWereMadeToday">Mistakes Made?:</label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today?:</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
