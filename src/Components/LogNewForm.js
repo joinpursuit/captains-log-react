@@ -19,6 +19,10 @@ const LogNewForm = (props) => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
+  const handleNumber = (e) => {
+    setLog({ ...log, daysSinceLastCrisis: Number(e.target.value) });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addLog(log);
@@ -67,7 +71,7 @@ const LogNewForm = (props) => {
           name="daysSinceLastCrisis"
           type="number"
           value={log.daysSinceLastCrisis}
-          onChange={handleTextChange}
+          onChange={handleNumber}
           placeholder="Enter a number since last crisis"
         />
         <br />
