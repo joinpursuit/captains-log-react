@@ -4,7 +4,7 @@ import Home from "./Components/Home";
 import Logs from "./Components/Logs";
 import NewLogs from "./Components/NewLogs";
 import ShowLog from "./Components/ShowLog";
-
+import Edit from "./Components/Edit"
 function App() {
   return (<>
     <Router >
@@ -18,6 +18,9 @@ function App() {
         </Route>
         <Route path="/logs/new">
           <NewLogs  />
+        </Route>
+        <Route path="/logs/:index/edit">
+          <Edit />
         </Route>
         <Route path="/logs/:index">
           <ShowLog />

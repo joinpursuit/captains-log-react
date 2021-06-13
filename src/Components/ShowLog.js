@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, Link } from "react-router-dom"
 import {useState, useEffect} from "react"
 import axios from "axios"
 import {apiURL} from "../util/apiURL"
@@ -45,6 +45,9 @@ export default function ShowLog() {
             <h3>{log.daysSinceLastCrisis}</h3>
             <a onClick={()=>history.push("/logs")}>Back</a>
             <button onClick={handleDelete}>Delete</button>
+            <Link to={`/logs/${index}/edit`}>
+            <button>Edit</button>
+          </Link>
         </div>
     )
 }
