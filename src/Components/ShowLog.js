@@ -42,7 +42,7 @@ export default function ShowLog() {
             <h1>{log.title} - By {log.captainName}</h1> 
             <h3>{log.post}</h3>
             <h3>{log.mistakesWereMadeToday ? "true" : "false"}</h3>
-            <h3>{log.daysSinceLastCrisis}</h3>
+            <h3>Days since last crisis: {log.daysSinceLastCrisis}</h3>
             <a onClick={()=>history.push("/logs")}>Back</a>
             <button onClick={handleDelete}>Delete</button>
             <Link to={`/logs/${index}/edit`}>
