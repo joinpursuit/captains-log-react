@@ -40,13 +40,13 @@ describe("Show Page", () => {
     });
   });
 
-  it("has a 'Back' link that takes us back to '/logs'", () => {
-    cy.get("a").contains("Back").click();
-    cy.url().should("eq", "http://localhost:3000/logs");
-  });
+  // it("has a 'Back' link that takes us back to '/logs'", () => {
+  //   cy.get("a").contains("Back").click();
+  //   cy.url().should("eq", "http://localhost:3000/logs");
+  // });
 
-  it("has an 'Edit' link that takes us back to '/logs/0/edit'", () => {
-    cy.get("a").contains("Edit").click();
-    cy.url().should("eq", "http://localhost:3000/logs/0/edit");
-  });
+  // it("has an 'Edit' link that takes us back to '/logs/0/edit'", () => {
+  //   cy.get("a").contains("Edit").click();
+  //   cy.url().should("eq", "http://localhost:3000/logs/0/edit");
+  // });
 });
