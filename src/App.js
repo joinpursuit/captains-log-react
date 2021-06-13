@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios"
 import {apiURL} from "./util/apiURL"
 import NavBar from "./Components/NavBar"
-import Index from "./Components/Index"
+import Index from "./Pages/Index"
+import Home from "./Pages/Home"
+
+
 const API = apiURL()
 
 
@@ -41,18 +44,18 @@ function App() {
             <Route exact path="/logs">
               <Index logs={logs} />
             </Route> 
-            <Route path="/logs/new">
-              <New addLogs={addLogs} />
+            {/* <Route path="/logs/new">
+              <New addLog={addLog} />
             </Route> 
              <Route path="/logs/:index">
-              <New logs={Logs} deleteLog={deleteLog}/>
+              <Show logs={logs} deleteLog={deleteLog}/>
             </Route>
             <Route path="/logs/:index/edit">
               <Edit logs={logs} updateLog={updateLog} />
             </Route>
             <Route path="*">
               <FourOFour />
-            </Route> 
+            </Route>  */}
           </Switch> 
            </main> 
       </Router>
