@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Index({captian}) {
+export default function Index({logs}) {
     return (
         <div>
-            {captian}
+            <h2>Welcome to the Captian's Log</h2>
         </div>
     )
 }

@@ -4,11 +4,11 @@ export default function NavBar() {
     return (
         <div className="navbar">
             <h1>
-                <Link to="/Captian">Captian's Log</Link>
+                <Link to="/logs">Captian's Log</Link>
             </h1>
             {" "}
             <h1>
-                <Link to="/Index">Index</Link>
+                <Link to="/logs/new">Index</Link>
             </h1>
         </div>
     )

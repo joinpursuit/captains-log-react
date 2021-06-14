@@ -4,6 +4,8 @@ import axios from "axios";
 import {apiURL} from "./util/apiURL.js";
 
 import Index from "./Pages/Index.js"
+import Logs from "./Pages/Logs.js"
+import New from "./Pages/New.js"
 
 import NavBar from "./Components/NavBar.js"
 
@@ -27,13 +29,19 @@ function App() {
         <NavBar/>
         <main>
           <Switch>
-            <Route exact path="/Captian">
-              <Index captian={logs}/>
+            <Route exact path="/">
+              <Index />
+            </Route>
+            <Route exact path to="/logs">
+              <Logs />
+            </Route>
+            <Route exact path to="/logs/new">
+              <New logs={logs}/>
             </Route>
           </Switch>
         </main>
       </Route>
-        <div><h3>Captain's Log</h3></div>;
+        
     </div>
   )
 }
