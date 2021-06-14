@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Components/Navbar";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Logs from "./Components/Logs";
-import New from "./Components/New";
 import apiURL from "./util/apiURL";
 import axios from "axios";
+import Navbar from "./Components/Navbar";
+import Logs from "./Components/Logs";
+import New from "./Components/New";
 import Show from "./Components/Show";
-console.log(apiURL);
+
 const API = apiURL();
 
 function App() {
+  console.log(API);
   const [logsArr, setLogsArr] = useState([]);
+
   const fetchLogs = async () => {
     let res;
     try {
       res = await axios.get(`${API}/logs`);
-
+      console.log(res.data)
       setLogsArr(res.data);
     } catch (err) {
       console.log(err);
@@ -31,10 +33,10 @@ function App() {
       <Router>
         <Navbar />
         <main>
-          <Route path="/Logs/new">
+          <Route path="/logs/new">
             <New />
           </Route>
-          <Route exact path="/Logs">
+          <Route exact path="/logs">
             <Logs logsArr={logsArr} />
           </Route>
           <Route path="/logs/:index">

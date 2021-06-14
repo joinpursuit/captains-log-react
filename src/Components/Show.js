@@ -2,12 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiURL from "../util/apiURL";
+
 const API = apiURL();
+
 function Show() {
   const [logObj, setLogObj] = useState({});
+
   let { index } = useParams();
 
-  const logInfo = async () => {
+  let logInfo = async () => {
     let res;
     const url = `${API}/logs/${index}`;
     console.log(url);
@@ -19,19 +22,32 @@ function Show() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     logInfo();
   }, []);
 
   return (
     <div>
-      <h1>Captain name: {logObj.captainName} </h1>
-
-      <p>Title: {logObj.title} </p>
-      <p>Post: {logObj.post} </p>
-      <p> Mistakes Were Made Today: {`${logObj.mistakesWereMadeToday}`}</p>
-      <p>Days Since Last Crisis: {logObj.daysSinceLastCrisis} </p>
+      <h1>Show</h1>
+      <h3>Captain's Log</h3>
+      <p>Captain Name: {logObj.captainName}</p>
+      <p>Title: {`${logObj.title} - By ${logObj.captainName}`}</p>
+      <p>Post: {logObj.post}</p>
+      <p>Mistakes Were Made Today: {`${logObj.mistakesWereMadeToday}`}</p>
+      <p>Days since last crisis: {logObj.daysSinceLastCrisis}</p>
+      <h4>
+        <button>
+          <a href="http://localhost:3000/logs">Back</a>
+        </button>
+      </h4>
+      <h4>
+        <button>
+          <a href={`http://localhost:3000/logs/${index}/edit`}>Edit</a>
+        </button>
+      </h4>
     </div>
   );
 }
+
 export default Show;
