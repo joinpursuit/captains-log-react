@@ -10,7 +10,6 @@ import Show from "./Components/Show";
 const API = apiURL();
 
 function App() {
-  console.log(API);
   const [logsArr, setLogsArr] = useState([]);
 
   const fetchLogs = async () => {
@@ -27,6 +26,7 @@ function App() {
   useEffect(() => {
     fetchLogs();
   }, []);
+
   const addLog = async (newLog) => {
     let res;
     try {
@@ -36,6 +36,7 @@ function App() {
       console.log(err);
     }
   };
+
   return (
     <div className="App">
       <Router>

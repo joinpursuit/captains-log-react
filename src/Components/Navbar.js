@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-// import Logs from "./Logs";
 
 export default function Navbar() {
   return (
