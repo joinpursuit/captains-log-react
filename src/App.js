@@ -22,6 +22,7 @@ function App() {
   });
 
   const fetchLogs = async () => {
+    // debugger
     try {
       const res = await axios.get(`${API}/logs`);
       setLogs(res.data);
@@ -41,10 +42,12 @@ function App() {
     }
   }
 
-  const addLog = async () => {
+  const addLog = async (newLog) => {
     try {
+      debugger
       const res = await axios.post(`${API}/logs`, newLog);
-      setNewLog((prevLog) => [...prevLog, res.data]);
+      setLogs((prevLog) => [...prevLog, res.data]);
+      debugger
     } catch (error) {
       console.log(error);
     }
@@ -65,13 +68,13 @@ function App() {
           <Route exact path="/logs">
             <Logs logs={logs} />
           </Route>
+          <Route exact path="/logs/new">
+            <NewLog logs={logs} addLog={addLog} newLog={newLog} setNewLog={setNewLog}
+             />
+          </Route>
           <Route exact path="/logs/:index">
             <Show logs={logs} 
             deleteLog={deleteLog}
-             />
-          </Route>
-          <Route exact path="/logs/new">
-            <NewLog logs={logs} addLog={addLog} newLog={newLog} setNewLog={setNewLog}
              />
           </Route>
           {/* <Route path="*">
