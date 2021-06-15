@@ -47,15 +47,15 @@ function LogNewForm(props) {
           onChange={handleChange}
         />
         <label htmlFor="post">Post:</label>
-        <input
+        <textarea
           id="post"
           type="text"
           name="post"
           value={log.post}
-          placeholder="Captains post"
+          placeholder="Describe what happened today"
           onChange={handleChange}
         />
-        <label htmlFor="mistakesWereMadeToday"> Mistakes Were MadeToday: </label>
+        <label htmlFor="mistakesWereMadeToday"> Mistakes were made today </label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -64,8 +64,8 @@ function LogNewForm(props) {
           checked={log.mistakesWereMadeToday}
         />
         <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
-        <textarea
-          id="post"
+        <input
+          id="daysSinceLastCrisis"
           type="number"
           name="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
