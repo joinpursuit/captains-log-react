@@ -31,17 +31,18 @@ function LogDetails(props) {
   return (
     <article>
       <h3>
-        {log.mistakesWereMadeToday ? <span>😢</span> : <span>😃</span>} {log.captainName}
+        {/* {log.mistakesWereMadeToday ? <span>😢</span> : <span>😃</span>}  */}
+        {log.title}
       </h3>
       <h5>
         <span>
-          {/* <a href={log.post}>{log.title}</a> */}
+          {/* <a href={log.title}>{log.title}</a> */}
           {log.title} - By {log.captainName}
         </span>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </h5>
       <h6>{log.post}</h6>
-      <p>{log.mistakesWereMadeToday}</p>
+      <p> {`Mistakes were made today: ${log.mistakesWereMadeToday}`}</p>
       <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
       <div className="showNavigation">
         <div>

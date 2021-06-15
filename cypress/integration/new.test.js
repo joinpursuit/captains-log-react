@@ -47,6 +47,7 @@ describe("feature two", () => {
     cy.get("form > textarea").type(
       "T'was a hard day of writing tests, but remain calm lets!"
     );
+    cy.get("#daysSinceLastCrisis").type(1)
     cy.get("form").submit();
     cy.url().should("eq", "http://localhost:3000/logs");
     cy.contains("Testing Voyages");

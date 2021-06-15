@@ -32,6 +32,7 @@ const LogNewForm = ({addLog, history}) => {
           <form onSubmit={handleSubmit}>
             <label htmlFor="captainName">Captain's Name</label>
             <input
+              name="captainName"
               id="captainName"
               value={log.captainName}
               type="text"
