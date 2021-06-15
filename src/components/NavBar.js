@@ -4,15 +4,19 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <div className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container-fluid">
+            <h1>Captain's Log</h1>
+           
             <Link to="/logs" className="btn btn-primary">
                 Logs
             </Link>
             <Link to="/logs/new" className="btn btn-primary">
-                Logs New
+                New Log
             </Link>
             
         </div>
+        </nav>
     );
 };
 

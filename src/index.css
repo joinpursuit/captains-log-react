@@ -1,5 +1,26 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 
+
+.New form {
+  margin: auto;
+  width: 95%;
 }
+
+input[type],
+textarea {
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  width: 15%;
+}
+input[type="number"] {
+  margin: auto;
+  width: 15%;
+}
+
+input[type="submit"] {
+  width: 30%;
+} */
