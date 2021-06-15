@@ -1,46 +1,51 @@
 import {useState, useEffect} from "react"
-import { Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import {apiURL} from "./util/apiURL.js";
 
 import Index from "./Pages/Index.js"
 import Logs from "./Pages/Logs.js"
 import New from "./Pages/New.js"
-
+import Show from "./Pages/Show"
 import NavBar from "./Components/NavBar.js"
 
 const API_BASE = apiURL()
 
 function App() {
-  const [logs, setLogs] = useState([])
+  const [book, setBook] = useState([])
+
+  const deletebook =(index)=>{}
  
 
   useEffect(() => {
-    axios.get(`${API_BASE}`).then((res)=>{
+    axios.get(`${API_BASE}/logs`).then((res)=>{
       const { data } = res;
       console.log(data)
-      setLogs(data)
+      setBook(data)
     })
   }, []);
-
+  
   return (
     <div className="App">
-      <Route>
+      <Router>
         <NavBar/>
         <main>
           <Switch>
             <Route exact path="/">
               <Index />
             </Route>
-            <Route exact path to="/logs">
-              <Logs />
+            <Route exact path="/logs">
+              <Logs logs={book}/>
             </Route>
-            <Route exact path to="/logs/new">
-              <New logs={logs}/>
+            <Route path="/logs/new">
+              <New />
+            </Route>
+            <Route path="/logs/:index">
+              <Show log={book} deletelogs={deletebook}/>
             </Route>
           </Switch>
         </main>
-      </Route>
+      </Router>
         
     </div>
   )

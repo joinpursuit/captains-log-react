@@ -1,10 +1,13 @@
-// import Logsapi from './Components/Logsapi.js'
+import Logsfilter from '../Components/Logsfilter'
 
-export default function Logs() {
+
+ function Logs({logs}) {
     return (
         <div>
-           {/* <Logsapi logs={logs}/> */}
-           alex
+            <h2>Index</h2>
+           <Logsfilter logs={logs}/>
+          
         </div>
     )
 }
+export default Logs

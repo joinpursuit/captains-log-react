@@ -6,7 +6,7 @@ export default function NavBar() {
             <h1>
                 <Link to="/logs">Captian's Log</Link>
             </h1>
-            {" "}
+        
             <h1>
                 <Link to="/logs/new">Index</Link>
             </h1>

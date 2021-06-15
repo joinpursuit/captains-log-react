@@ -7,4 +7,26 @@ body {
   display: flex;
  flex-direction: row;
  justify-content: space-around;
+ background-color: aqua;
+ box-shadow: 2px 2px 4px black;
+}
+.main{
+  width: 90%;
+  margin: auto;
+}
+table{
+  margin: auto;}
+td {
+  text-align: center;
+}
+.info{
+  float: right;
+  margin-right: 20px;
+}
+.showButton{
+  float: left;
+}
+.index{
+  margin-top: 10px;
+  margin-left: 20px;
 }
