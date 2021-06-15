@@ -8,7 +8,6 @@ export default function NavBar() {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/logs">Logs</NavLink>
             <NavLink to="/logs/new">New Logs</NavLink>
-            <NavLink to="/logs/:index">Logs at Index</NavLink>
         </nav>
     )
 }

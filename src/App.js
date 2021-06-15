@@ -5,13 +5,21 @@ import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import Logs from "./Components/Logs";
 import Show from "./Components/Show";
+import NewLog from "./Components/NewLog";
 import { apiURL } from "./util/apiURL";
 
-// further down..., but still above `App` component
 const API = apiURL();
 
 function App() {
   const [ logs, setLogs ] = useState([]);
+  // const [ isLoading, setIsLoading ] = useState(true);
+  const [newLog, setNewLog] = useState({
+    captainName: "",
+    title: "",
+    post: "",
+    mistakesWereMadeToday: false,
+    daysSinceLastCrisis: 0,
+  });
 
   const fetchLogs = async () => {
     try {
@@ -21,6 +29,26 @@ function App() {
       console.log(error);
     }
   };
+
+  const deleteLog = async (index) => {
+    try {
+      await axios.delete(`${API}/logs/${index}`);
+      const dummyState = [...logs];
+      dummyState.splice(index, 1);
+      setLogs(dummyState);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const addLog = async () => {
+    try {
+      const res = await axios.post(`${API}/logs`, newLog);
+      setNewLog((prevLog) => [...prevLog, res.data]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     fetchLogs();
@@ -39,13 +67,14 @@ function App() {
           </Route>
           <Route exact path="/logs/:index">
             <Show logs={logs} 
-            // deleteLog={deleteLog}
+            deleteLog={deleteLog}
              />
           </Route>
-          {/* <Route path="/logs/new">
-            <New addBookmark={addBookmark} />
+          <Route exact path="/logs/new">
+            <NewLog logs={logs} addLog={addLog} newLog={newLog} setNewLog={setNewLog}
+             />
           </Route>
-          <Route path="*">
+          {/* <Route path="*">
             <FourOFour />
           </Route> */}
         </Switch>

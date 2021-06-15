@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Logs extends Component {
 
@@ -9,8 +9,9 @@ export default class Logs extends Component {
     return (
       <div>
         <h1>Captain's Log</h1>
-        <ul>{logs.map((log, i) => {
-           return <li key={log.title}><NavLink to={`/logs/${i}`}>{log.title}</NavLink></li>
+        <h2>Index</h2>
+        <ul>{logs.map((log, index) => {
+           return <li key={log.title}><Link to={`/logs/${index}`}>{log.title}</Link></li>
         })}</ul>
       </div>
     );
