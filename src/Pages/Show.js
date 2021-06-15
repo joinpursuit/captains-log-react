@@ -3,7 +3,8 @@ import LogDetails from "../Components/LogDetails";
 function Show({ deleteLog ,logs, show }) {
   return (
     <div className="Show">
-      <h2>Show</h2>
+      <h1>Show</h1>
+      <h2>Captain's Log</h2>
 
       <section>
         <LogDetails

@@ -18,7 +18,7 @@ function LogNew({ addLog, history }) {
   };
 
   const handleCheckboxChange = () => {
-    setLog({ ...log, mistakesWereMadeToday: !log.isFavorite });
+    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
   const handleSubmit = (event) => {
@@ -37,12 +37,12 @@ function LogNew({ addLog, history }) {
   - daysSinceLastCrisis (number)
   - submit (submit) */}
 
-
+<h1>Captain's Log</h1>
 
 
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainName">Captain Name:</label>
+        <label htmlFor="captainName">Captain's Name:</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -61,7 +61,7 @@ function LogNew({ addLog, history }) {
           placeholder="Log Title"
           onChange={handleTextChange}
         />
-        <label htmlFor="daysSinceLastCrisis">Post:</label>
+        {/* <label htmlFor="post">Post:</label>
         <input
           id="post"
           type="text"
@@ -69,19 +69,19 @@ function LogNew({ addLog, history }) {
           value={log.post}
           placeholder="educational, inspirational, ..."
           onChange={handleTextChange}
-        />
-        <label htmlFor="isFavorite">Mistakes Were Made Today:</label>
+        /> */}
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
         <input
-          id="isFavorite"
+          id="mistakesWereMadeToday"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="post">Post:</label>
         <textarea
-          id="description"
-          name="description"
-          value={log.description}
+          id="post"
+          name="post"
+          value={log.post}
           onChange={handleTextChange}
           placeholder="Describe why you loged this site"
         />

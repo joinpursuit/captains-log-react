@@ -1,4 +1,5 @@
 import Log from "./Log";
+import "./Logs.css"
 
 function Logs({ logs }) {
   return (
@@ -6,7 +7,7 @@ function Logs({ logs }) {
       <section>
    
         <ul>
-        <h1>List of logs</h1>
+        <h1>Captain's Log</h1>
           {/* <thead> */}
             {/* <tr> */}
        
@@ -14,9 +15,9 @@ function Logs({ logs }) {
               {/* <th>See this log</th> */}
             {/* </tr>
           </thead> */}
-          <li>
+          <li className="log-title">
             {logs.map((log, index) => {
-              return <Log key={index} log={log} index={index} />;
+              return <h3><Log key={index} log={log} index={index} /></h3>;
             })}
           </li>
         </ul>
