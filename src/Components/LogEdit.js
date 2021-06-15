@@ -28,10 +28,9 @@ function LogEdit(props) {
     );
   }, [index, history]);
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(props.updateLog(log, index))
+    console.log(props.updateLog(log, index));
     props.updateLog(log, index);
     history.push(`/logs/${index}`);
   };
@@ -68,7 +67,9 @@ function LogEdit(props) {
           onChange={handleTextChange}
           placeholder="How did the day go?"
         />
-        <label htmlFor="mistakesWereMadeToday">Check if mistakes were made today:</label>
+        <label htmlFor="mistakesWereMadeToday">
+          Check if mistakes were made today:
+        </label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -82,15 +83,11 @@ function LogEdit(props) {
           onChange={handleTextChange}
           value={log.daysSinceLastCrisis}
         />
-       
-   
+
         <br />
 
         <input type="submit" />
       </form>
-      {/* <Link to={`/bookmarks/${index}`}>
-        <button>Nevermind!</button>
-      </Link> */}
     </div>
   );
 }

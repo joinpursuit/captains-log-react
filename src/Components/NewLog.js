@@ -1,37 +1,33 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-
-
 function NewLog(props) {
-    let history = useHistory();
-  
-    const [log, setLog] = useState({
-      captainName: "",
-      title: "",
-      post: "",
-      mistakesWereMadeToday: false,
-      daysSinceLastCrisis: 0,
-    });
-  
+  let history = useHistory();
 
-    const handleTextChange = (event) => {
-      setLog({ ...log, [event.target.id]: event.target.value });
-    };
+  const [log, setLog] = useState({
+    captainName: "",
+    title: "",
+    post: "",
+    mistakesWereMadeToday: false,
+    daysSinceLastCrisis: 0,
+  });
 
-  
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.addLog(log);
-        history.push("/logs");
-      };
+  const handleTextChange = (event) => {
+    setLog({ ...log, [event.target.id]: event.target.value });
+  };
 
-    const handleCheckboxChange = () => {
-      setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
-    };
-    return (
-<div className="New">
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.addLog(log);
+    history.push("/logs");
+  };
+
+  const handleCheckboxChange = () => {
+    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
+  };
+  return (
+    <div className="New">
       <form onSubmit={handleSubmit}>
         <label htmlFor="captainName">Captain's Name:</label>
         <input
@@ -58,7 +54,9 @@ function NewLog(props) {
           onChange={handleTextChange}
           placeholder="How did the day go?"
         />
-        <label htmlFor="mistakesWereMadeToday">Check if Mistakes were made today:</label>
+        <label htmlFor="mistakesWereMadeToday">
+          Check if Mistakes were made today:
+        </label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -72,14 +70,13 @@ function NewLog(props) {
           onChange={handleTextChange}
           value={log.daysSinceLastCrisis}
         />
-       
-   
+
         <br />
 
         <input type="submit" />
       </form>
-        </div>
-    )
+    </div>
+  );
 }
 
-export default NewLog
+export default NewLog;
