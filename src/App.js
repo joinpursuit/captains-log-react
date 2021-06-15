@@ -17,7 +17,7 @@ function App() {
     let res;
     try {
       res = await axios.get(`${API}/logs`);
-      console.log(res.data)
+      console.log(res.data);
       setLogsArr(res.data);
     } catch (err) {
       console.log(err);
@@ -27,14 +27,22 @@ function App() {
   useEffect(() => {
     fetchLogs();
   }, []);
-
+  const addLog = async (newLog) => {
+    let res;
+    try {
+      res = await axios.post(`${API}/logs`, newLog);
+      setLogsArr((prevLogs) => [...prevLogs, res.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="App">
       <Router>
         <Navbar />
         <main>
           <Route path="/logs/new">
-            <New />
+            <New addLog={addLog} />
           </Route>
           <Route exact path="/logs">
             <Logs logsArr={logsArr} />
