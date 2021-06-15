@@ -1,16 +1,50 @@
-import React from 'react';
+import React from 'react'
 
-const Log = ({log, index}) => {
-    return (
-        <div>
-            <h3>{log.captainName}</h3>
-            <h4>{log.title}</h4>
-            <h3>{log.post}</h3>
-            <h3>{log.mistakesMadeToday}</h3>
-            <h3>{log.daysSinceLastCrisis}</h3>
-            <a href={`/logs/${index}`}>{log.title}</a>
+const Log = ({ log, index }) => {
+  return (
+    <div>
+      <div className='card border-primary mb-3' style={{maxWidth: "20rem"}}>
+        <div className='card-header'>
+          <h2>{log.captainName}</h2>
         </div>
-    );
-};
+        <div className='card-body'>
+          <h3 className='card-title'>
+          {log.title}
+          </h3>
+          <ul className='list-group list-group-flush'>
+            <li className='list-group-item'>
+            <p className="card-text" style={{fontSize: "14px"}}>
+              {log.post}
+            </p>
+            </li>
+            <li className="list-group-item d-flex justify-content-between align-items-center ">
+                    
+                    <div className="form-check">
+                        <label className="form-check-label text-warning" for="flexCheckChecked" style={{fontSize: "12px"}}>
+                        Mistakes were made Today
+                        </label>
+                    <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked={log.mistakesMadeToday} />
+                        </div> 
 
-export default Log;
+            </li>
+
+            <li className='list-group-item'>
+            <p className="card-text" style={{fontSize: "12px"}}>Days Since Last Crisis</p>
+            <div className='card-footer text-muted' style={{fontSize: "18px"}}><h5>{log.daysSinceLastCrisis}</h5></div>
+              
+            </li>
+            <div className='card-body' style={{fontSize: "16px"}}>
+            <button type="button" className="btn btn-lg btn-light"><a className="text-primary" style={{fontSize: "16px", textDecoration:"none"}}  href={`/logs/${index}`}>{log.title}</a></button>
+            
+            </div>
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+  )
+}
+
+export default Log
