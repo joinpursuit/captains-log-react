@@ -66,16 +66,15 @@ const App = () => {
     <div className="container-fluid">
       <NavBar />
       <Switch>
-      <Route exact path="/">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/logs">
           <Logs logs={logs}/>
         </Route>
-      <Route path="/logs/new">
+        <Route path="/logs/new">
           <LogNewForm addLog={addLog}/>
         </Route>
-
         <Route exact path="/logs/:index">
           <Show deleteLog={deleteLog} logs={logs}/>
         </Route>
