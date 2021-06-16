@@ -37,7 +37,8 @@ textarea {
 
 .New input[type="checkbox"] {
   margin: 0;
-  width: 15%;
+  width: 5%;
+  height: 20px;
 }
 .New input[type="number"] {
   margin: auto;

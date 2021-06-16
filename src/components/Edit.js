@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { v4 as uuid } from 'uuid'
 import LogEditForm from '../components/LogEditForm'
 
 function Edit ({ updateLog, logs }) {
@@ -10,7 +10,7 @@ function Edit ({ updateLog, logs }) {
           <h3 className='text-primary'>Edit</h3>
         </strong>
       </div>
-        <LogEditForm updateLog={updateLog} logs={logs} />
+        <LogEditForm updateLog={updateLog} logs={logs} key={uuid()}/>
     </div>
   )
 }

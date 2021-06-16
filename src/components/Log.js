@@ -1,8 +1,12 @@
 import React from 'react'
+import { v4 as uuid } from 'uuid'
 
 const Log = ({ log, index }) => {
+
+    const checked = log.mistakesWereMadeToday
+
   return (
-    <div>
+    <div key={uuid()}>
       <div className='card border-primary mb-3' style={{maxWidth: "30rem", minHeight:"40rem"}}>
         <div className='card-header'>
           <h2>{log.captainName}</h2>
@@ -12,26 +16,33 @@ const Log = ({ log, index }) => {
           {log.title}
           </h3>
 
-          <ul className='list-group list-group-flush'>
-            <li className='list-group-item'>
-                <p className="card-text" style={{fontSize: "14px", minHeight:"70px"}}>
+          <ul className='list-group list-group-flush' key={uuid()}>
+            <li className='list-group-item' key={uuid()}>
+                <p className="card-text" style={{fontSize: "14px", minHeight:"70px"}} key={uuid()}>
                     {log.post}
                 </p>
             </li>
-            <li className="list-group-item d-flex justify-content-between align-items-center ">
-                 <div className="form-check">
-                    <label className="form-check-label text-warning" for="flexCheckChecked" style={{fontSize: "12px"}}>
+            <li className="list-group-item d-flex justify-content-between align-items-center " key={uuid()}>
+                 <div className="form-check" key={uuid()}>
+                    <label className="form-check-label text-warning" htmlFor="flexCheckChecked" style={{fontSize: "12px"}} key={uuid()}>
                         Mistakes were made Today
                     </label>
-                    <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked={log.mistakesMadeToday} />
+                    {checked ? <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" key={uuid()} defaultChecked /> :
+                    <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" key={uuid()} />
+                    }
+                    
                 </div> 
             </li>
-            <li className='list-group-item'>
-                <p className="card-text" style={{fontSize: "12px"}}>Days Since Last Crisis</p>
-                <div className='card-footer text-muted' style={{fontSize: "18px", textAlign:'center'}}><h5>{log.daysSinceLastCrisis}</h5></div>
+            <li className='list-group-item' key={uuid()}>
+                <p className="card-text" style={{fontSize: "12px"}} key={uuid()}>Days Since Last Crisis</p>
+                <div className='card-footer text-muted' style={{fontSize: "18px", textAlign:'center'}} key={uuid()}><h5 key={uuid()}>{log.daysSinceLastCrisis}</h5></div>
             </li>
-            <div className='card-body logInList ' style={{fontSize: "16px"}}>
-                <button type="button" className="btn btn-lg btn-light"><a className="text-primary" style={{fontSize: "16px", textDecoration:"none"}}  href={`/logs/${index}`}>{log.title}</a></button>
+            <div className='card-body logInList ' style={{fontSize: "16px"}} key={uuid()}>
+                <div  className="btn btn-lg btn-light" key={uuid()}>
+                  <a className="text-primary" style={{fontSize: "16px", textDecoration:"none"}}  href={`/logs/${index}`} key={uuid()}>
+                    {log.title}
+                  </a>
+                </div>
             </div>
           </ul>
         </div>

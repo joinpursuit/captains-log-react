@@ -16,7 +16,7 @@ const Logs = ({ logs }) => {
           <strong><h3 className='text-primary'>Index</h3></strong>
       </div>
       <div className="centerLogs">
-          <div className='logs'>
+          <div className='logs' key={uuid()}>
             {logArray}
           </div>
       </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import LogDetails from './LogDetails'
+import { v4 as uuid } from 'uuid'
 
 function Show ({ deleteLog, logs }) {
   let { index } = useParams()
@@ -14,7 +15,7 @@ function Show ({ deleteLog, logs }) {
         </strong>
       </div>
       <section className="centerLogs">
-        <LogDetails log={log} index={index} deleteLog={deleteLog} />
+        <LogDetails log={log} index={index} deleteLog={deleteLog} key={uuid()}/>
       </section>
     </div>
   )

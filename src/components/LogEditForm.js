@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
+import { v4 as uuid } from 'uuid'
 
-function LogEditForm({updateLog, logs}) {
+const LogEditForm =({updateLog, logs}) => {
+  
   let { index } = useParams();
   let history = useHistory()
-  const [ log, setLog ] = useState(logs[index])
+  const [ log, setLog ] = useState([])
+  const prevLog = logs.length ? logs[index] : []
 
 
       const handleTextChange = (event) => {
@@ -25,57 +28,69 @@ function LogEditForm({updateLog, logs}) {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainName">Captain's Name:</label>
+      <div className="form-group">
+        <label htmlFor="captainName" className="form-label mt-4">Captain's Name:</label>
         <input
           id="captainName"
-          value={log.captainName}
           type="text"
           onChange={handleTextChange}
-          placeholder={log.captainName}
+          placeholder={prevLog.captainName}
+          className="form-control"
           required
         />
-        <label htmlFor="title">Title:</label>
+      </div>
+      <div className="form-group">
+        <label htmlFor="title" className="form-label mt-4">Title:</label>
         <input
           id="title"
           type="text"
-          pattern="http[s]*://.+"
-          required
-          value={log.title}
-          placeholder={log.title}
+          placeholder={prevLog.title}
+          className="form-control"
           onChange={handleTextChange}
+          required
         />
-        <label htmlFor="post">Post:</label>
+        </div>
+        <div className="form-group">
+        <label htmlFor="post" className="form-label mt-4">Post:</label>
         <textarea
           id="post"
           type="text"
           name="post"
-          value={log.post}
-          placeholder={log.post}
+          placeholder={prevLog.post}
+          rows="3" 
           onChange={handleTextChange}
+          required
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
+        </div>
+        <div className="form-group">
+        <label htmlFor="daysSinceLastCrisis" className="form-label mt-4">Days Since Last Crisis</label>
         <input
           id="daysSinceLastCrisis"
           type="number"
           name="daysSinceLastCrisis"
-          value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder={log.daysSinceLastCrisis}
+          placeholder={prevLog.daysSinceLastCrisis}
+          required
         />
-        <br />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
+        </div>
+        <div className="form-group">
+        <label htmlFor="mistakesWereMadeToday" className="form-check-label">Mistakes were made today</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
           onChange={handleCheckboxChange}
-          checked={log.mistakesWereMadeToday}
+          className="form-check-input"
+          required
         />
-        <br />
-        <input type="submit" />
+        </div>
+        <input type="submit" className="btn btn-success"/>
       </form>
-      <Link to={`/logs`}>
-        <button>Back</button>
+      <br />
+      <div className="modal-footer">
+      <Link to={`/logs`} key={uuid()}>
+        <button className=" btn btn-primary  btn-lg">Back</button>
       </Link>
+      </div>
     </div>
   );
 }

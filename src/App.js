@@ -1,7 +1,7 @@
 // DEPENDENCIES
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom'
-
+import { v4 as uuid } from 'uuid'
 
 import NavBar from './components/NavBar'
 import Home from './components/Home'
@@ -67,19 +67,19 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home key={uuid()}/>
         </Route>
         <Route exact path="/logs">
-          <Logs logs={logs}/>
+          <Logs logs={logs} key={uuid()}/>
         </Route>
         <Route path="/logs/new">
-          <LogNewForm addLog={addLog}/>
+          <LogNewForm addLog={addLog} key={uuid()}/>
         </Route>
         <Route exact path="/logs/:index">
-          <Show deleteLog={deleteLog} logs={logs}/>
+          <Show deleteLog={deleteLog} logs={logs} key={uuid()}/>
         </Route>
-        <Route path="/logs/:index/edit">
-          <Edit updateLog={updateLog} logs={logs}/>
+        <Route exact path="/logs/:index/edit">
+          <Edit updateLog={updateLog} logs={logs} key={uuid()}/>
         </Route>
       </Switch>
     </div>

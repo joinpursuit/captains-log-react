@@ -36,55 +36,62 @@ const LogNewForm = ({ addLog }) => {
       </div>
       <div className='New'>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='captainName'>Captain's Name:</label>
+        <div className="form-group">
+          <label htmlFor='captainName' className="form-label mt-4">Captain's Name:</label>
           <input
             id='captainName'
-            value={log.captainName}
             type='text'
+            className="form-control"
             onChange={handleTextChange}
             placeholder='Your name Captain'
             required
           />
-          <label htmlFor='title'>Title:</label>
+          </div>
+          <div className="form-group">
+          <label htmlFor='title' className="form-label mt-4">Title:</label>
           <input
             id='title'
             type='text'
-            pattern='http[s]*://.+'
-            required
-            value={log.title}
             placeholder='Title...'
             onChange={handleTextChange}
+            required
           />
-          <label htmlFor='post'>Post:</label>
+          </div>
+          <div className="form-group">
+          <label htmlFor='post' className="form-label mt-4">Post:</label>
+          </div>
           <textarea
             id='post'
             type='text'
             name='post'
-            value={log.post}
             placeholder='...'
             onChange={handleTextChange}
+            required
           />
-          <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis</label>
+          
+          <div className="form-group">
+          <label htmlFor='daysSinceLastCrisis' className="form-label mt-4">Days Since Last Crisis</label>
           <input
             id='daysSinceLastCrisis'
             type='number'
             name='daysSinceLastCrisis'
-            value={log.daysSinceLastCrisis}
             onChange={handleTextChange}
             placeholder='0'
+            required
           />
-          <br />
-          <label htmlFor='mistakesWereMadeToday'>
+          </div>
+          <div className="form-group">
+          <label htmlFor='mistakesWereMadeToday' className="form-check-label">
             Mistakes were made today
           </label>
           <input
             id='mistakesWereMadeToday'
             type='checkbox'
             onChange={handleCheckboxChange}
-            checked={log.mistakesWereMadeToday}
+            className="form-check-input"
           />
-          <br />
-          <input type='submit' />
+          </div>
+          <input type='submit'className="btn btn-success" />
         </form>
       </div>
     </div>
