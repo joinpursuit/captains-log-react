@@ -1,5 +1,6 @@
 import { useState} from "react";
 import { useHistory } from "react-router-dom"
+import "./NewLog.css"
 
 
 const NewLog = ({addLog}) => {
@@ -31,7 +32,7 @@ const history = useHistory()
     const { captainName, title,post,mistakesWereMadeToday,daysSinceLastCrisis} = log
   return (
 
-    <div>
+    <div className="newlog">
       <h1>Captain's Log</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="captainName">Captain's Name:</label>
@@ -40,10 +41,10 @@ const history = useHistory()
         <input type="text" id="title" onChange={handleTextChange} value={title}/>
         <label htmlFor="post">Post:</label>
         <textarea type="text" id="post" onChange={handleTextChange} value={post}/>
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
-        <input type="checkbox" id="mistakesWereMadeToday" onChange={handleCheckbox} value={mistakesWereMadeToday}/>
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today: <input type="checkbox" id="mistakesWereMadeToday" onChange={handleCheckbox} value={mistakesWereMadeToday}/></label>
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis: </label>
         <input type="number" id="daysSinceLastCrisis" onChange={handleTextChange} value={daysSinceLastCrisis}/>
+        <br></br>
         <button type="submit">Submit</button>
       </form>
     </div>
