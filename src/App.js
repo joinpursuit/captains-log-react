@@ -9,6 +9,7 @@ import Logs from './components/Logs.js'
 import LogNewForm from './components/LogNewForm.js'
 import Show from './components/Show'
 import Edit from './components/Edit.js'
+import NotFound from './components/NotFound.js'
 import axios from 'axios'
 import{ apiUrl } from './util/apiURL'
 
@@ -81,6 +82,9 @@ const App = () => {
         <Route exact path="/logs/:index/edit">
           <Edit updateLog={updateLog} logs={logs} key={uuid()}/>
         </Route>
+        <Route>
+            <NotFound />
+          </Route> 
       </Switch>
     </div>
   );
