@@ -11,17 +11,24 @@ const API_BASE = apiURL();
 function App() {
   const [logs, setLogs] = useState([]);
 
-  const addLog = () => {};
+  const addLog = (newLog) => {
+    axios
+      .post(`${API_BASE}/logs`, newLog)
+      .then((res) => {
+        setLogs([...setLogs, newLog]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const updateLog = () => {};
   const deleteLog = () => {};
 
   useEffect(() => {
-    axios
-    .get(`${API_BASE}/logs`)
-    .then(
-      (res) => {
+    axios.get(`${API_BASE}/logs`).then((res) => {
       const { data } = res;
-      setLogs(data)
+      setLogs(data);
     });
   }, []);
 
@@ -31,7 +38,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/logs/new">
-            <NewLog />
+            <NewLog addLog={addLog} />
           </Route>
           <Route path="/logs">
             <Logs logs={logs} />
