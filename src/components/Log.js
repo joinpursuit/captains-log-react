@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom'
 
-
-const SingleLog = () => {
+const Log = ({ log, index }) => {
+    
     return(
         <section>
-           Single Log Details
+         <Link to={`/logs/${index}`}>{log.title}</Link>
         </section>
     )
 }
 
-export default SingleLog; 
+
+export default Log; 
