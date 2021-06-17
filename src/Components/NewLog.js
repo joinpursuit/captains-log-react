@@ -66,7 +66,7 @@ export default function NewLog({ addLog }) {
           value={newLog.daysSinceLastCrisis}
           id="daysSinceLastCrisis"
           type="number"
-          onChange={handleCheckboxChange}
+          onChange={handleTextChange}
         />
         <button>Submit</button>
       </form>

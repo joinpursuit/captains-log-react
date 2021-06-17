@@ -13,13 +13,7 @@ const API = apiURL();
 function App() {
   const [ logs, setLogs ] = useState([]);
   // const [ isLoading, setIsLoading ] = useState(true);
-  const [newLog, setNewLog] = useState({
-    captainName: "",
-    title: "",
-    post: "",
-    mistakesWereMadeToday: false,
-    daysSinceLastCrisis: 0,
-  });
+  
 
   const fetchLogs = async () => {
     // debugger
@@ -46,8 +40,8 @@ function App() {
     try {
       debugger
       const res = await axios.post(`${API}/logs`, newLog);
-      setLogs((prevLog) => [...prevLog, res.data]);
       debugger
+      setLogs([...logs, res.data]);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +63,7 @@ function App() {
             <Logs logs={logs} />
           </Route>
           <Route exact path="/logs/new">
-            <NewLog logs={logs} addLog={addLog} newLog={newLog} setNewLog={setNewLog}
+            <NewLog logs={logs} addLog={addLog} 
              />
           </Route>
           <Route exact path="/logs/:index">
