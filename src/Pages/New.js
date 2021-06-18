@@ -1,11 +1,11 @@
-import CaptainNewLog from "../Components/CaptainNewLog";
+import NewLog from "../Components/NewLog";
 
-const New = ({ addNewCaptainLog }) => {
-  return (
-    <div>
-      <CaptainNewLog addNewCaptainLog={addNewCaptainLog} />
-    </div>
-  );
+const New = ({ addNewLog }) => {
+	return (
+		<div>
+			<NewLog addNewLog={addNewLog} />
+		</div>
+	);
 };
 
 export default New;

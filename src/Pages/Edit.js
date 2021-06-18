@@ -1,11 +1,11 @@
-import CaptainLogEdit from "../Components/CaptainLogEdit";
+import LogEdit from "../Components/LogEdit";
 
-const Edit = ({ updateCaptainLog }) => {
-  return (
-    <div>
-      <CaptainLogEdit updateCaptainLog={updateCaptainLog} />
-    </div>
-  );
+const Edit = ({ updateLog }) => {
+	return (
+		<div>
+			<LogEdit updateLog={updateLog} />
+		</div>
+	);
 };
 
 export default Edit;

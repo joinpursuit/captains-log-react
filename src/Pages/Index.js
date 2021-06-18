@@ -1,11 +1,11 @@
-import CaptainLogs from "../Components/CaptainLogs";
+import Logs from "../Components/Logs";
 
-function Index({ captainLogs }) {
-  return (
-    <div className="Index">
-      <CaptainLogs captainLogs={captainLogs} />
-    </div>
-  );
-}
+const Index = ({ logs }) => {
+	return (
+		<div className="Index">
+			<Logs logs={logs} />
+		</div>
+	);
+};
 
 export default Index;
