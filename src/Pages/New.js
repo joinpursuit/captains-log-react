@@ -1,9 +1,11 @@
 import React from 'react'
+import NewForm from '../Components/NewForm'
 
-export default function New() {
+export default function New({addBook}) {
     return (
         <div>
-           <h1>hola</h1> 
+           <h1>Transactions</h1> 
+           <NewForm  addBook={addBook}/>
         </div>
     )
 }
