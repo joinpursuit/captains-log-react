@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./Components/NavBar";
-import Logs from "./Components/Logs";
-import NewLog from "./Components/NewLog";
+import Index from "./Pages/Index";
+import Edit from "./Pages/Edit";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+import Error from "./Pages/FourOFour";
 import { apiURL } from "./util/apiURL";
 import { Switch, Route } from "react-router";
 import axios from "axios";
@@ -15,7 +18,7 @@ function App() {
     axios
       .post(`${API_BASE}/logs`, newLog)
       .then((res) => {
-        setLogs([...setLogs, newLog]);
+        setLogs([...logs, res]);
       })
       .catch((err) => {
         console.log(err);
@@ -37,11 +40,20 @@ function App() {
       <NavBar />
       <main>
         <Switch>
-          <Route path="/logs/new">
-            <NewLog addLog={addLog} />
+          <Route exact path="/logs">
+            <Index logs={logs} />
           </Route>
-          <Route path="/logs">
-            <Logs logs={logs} />
+          <Route path="/logs/new">
+            <New addLog={addLog} />
+          </Route>
+          <Route>
+            <Show path="/logs/:index" logs={logs} deleteLog={deleteLog} />
+          </Route>
+          <Route>
+            <Edit logs={logs} updateLog={updateLog} />
+          </Route>
+          <Route path="*">
+            <Error />
           </Route>
         </Switch>
       </main>

@@ -72,7 +72,7 @@ function NewLog(props) {
           ></input>
         </label>
 
-        <button type="submit">Submit</button>
+        <input type="submit" />
       </form>
     </div>
   );
