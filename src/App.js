@@ -25,8 +25,23 @@ function App() {
       });
   };
 
-  const updateLog = () => {};
-  const deleteLog = () => {};
+  const updateLog = (updateLog, i) => {
+    axios.put(`${API_BASE}/logs/${i}`, updateLog).then(
+      (res) => {
+        const updateArr = [...logs]
+        updateArr[i] = updateArr
+        setLogs(updateArr)
+      }
+    )
+  };
+
+  const deleteLog = (i) => {
+    axios.delete(`${API_BASE}/logs/${i}`).then((res)=>{
+      const updateArr = [...logs]
+      updateArr.splice(i, 1)
+      setLogs(updateArr)
+    })
+  }
 
   useEffect(() => {
     axios.get(`${API_BASE}/logs`).then((res) => {

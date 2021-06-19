@@ -1,10 +1,9 @@
-import React from "react";
-import Loga from "../Components/Logs";
+import Logs from "../Components/Logs";
 
 function Index({ logs }) {
   return (
     <div>
-      <Loga logs={logs}></Loga>
+      <Logs logs={logs} />
     </div>
   );
 }

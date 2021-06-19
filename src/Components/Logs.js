@@ -1,19 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Log from "./Log";
 
 function Logs({ logs }) {
-  const logsList = logs.map((log, i) => {
-    return (
-      <li key={i}>
-        <Link to={`/logs/${i}`}>{log.title}</Link>
-      </li>
-    );
-  })
-
   return (
     <div>
       <h1>Captain's Log Index</h1>
-      <ul>{logsList}</ul>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Take Me There</th>
+            <th>See This Log</th>
+          </tr>
+        </thead>
+      </table>
+      <tbody>
+        {logs.map((log, i) => {
+          return <Log key={i} log={log} i={i} />;
+        })}
+      </tbody>
     </div>
   );
 }
