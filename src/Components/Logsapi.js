@@ -4,8 +4,9 @@ import axios from "axios"
 import {apiURL} from "../util/apiURL"
 
 const API_BASE = apiURL()
+
  function Logsapi(props) {
-    const {deletebook} = props
+    const {deletelogs} = props
 
     const [logs, setLogs] = useState([])
     let {index} = useParams() 
@@ -22,7 +23,7 @@ const API_BASE = apiURL()
     } ,[index, history])
     
     const handleDelete = () => {
-        deletebook(index);
+        deletelogs(index);
         history.push("/logs");
     };
 
@@ -53,14 +54,7 @@ const API_BASE = apiURL()
                 <h4>{logs.post ? logs.post : ( <h4>Save $ {logs.save}</h4>)}</h4>  
                 <h4>
                 {logs.daysSinceLastCrisis ? logs.daysSinceLastCrisis : null}
-                </h4> 
-                <p>{logs.creditcard ? ( <h4>CreditCard $ {logs.creditcard}</h4>)  : null}</p>
-                <p>{logs.market ? ( <h4>Market $ {logs.market}</h4>)  : null}</p>
-                <p>{logs.internet? ( <h4>Internet $ {logs.internet}</h4>)  : null}</p>
-                <p>{logs.pet ? ( <h4>Pet $ {logs.pet}</h4>)  : null}</p>
-                <p>{logs.car ? ( <h4>Car $ {logs.car}</h4>)  : null}</p>
-                <p>{logs.insurrance ? ( <h4>Insurrance $ {logs.insurrance}</h4>)  : null}</p>    
-                <p>{logs.additional ? ( <h4>Additional $ {logs.additional}</h4>)  : null}</p>   
+                </h4>  
                </div>
                </div>
                

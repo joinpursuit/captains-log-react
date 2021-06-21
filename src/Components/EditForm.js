@@ -2,25 +2,18 @@ import React from 'react'
 import { useState } from 'react'
 import {withRouter} from "react-router-dom"
 
-export default function EditForm(props) {
+ function EditForm(props) {
     const [book, setBook] = useState({
-        date: '',
-        taxes: [],
-        retirement: [],
-        save: [],
-        creditcard: [],
-        market: [],
-        internet: [],
-        pet: [],
-        car: [],
-        insurrance: [],
-        additional: [],
-        made: true,
+        captainName: "",
+        title: "",
+        post: '',
+        mistakesWereMadeToday: true,
+        daysSinceLastCrisis: [],
     })
    
 
     const HandleInput =(e)=>{
-        setBook({...book, [e.target.id]:e.target.value})
+        setBook({...book, [e.target.id]: e.target.value})
     }
     const HandleCheck =()=>{
         setBook({...book, made: !book.made})
@@ -33,110 +26,55 @@ export default function EditForm(props) {
 
     return (
         <div>
-            hola
-             <form onSubmit={HandleSubmit} className="form">
-                <label htmlFor="date">Date:</label>
-                <input
-                id="date"
-                value={book.date}
-                type="text"
-                onChange={HandleInput}
-                placeholder="Months-Day"
-                required/>
-                <label htmlFor="taxes">Taxes:</label>
-                <input
-                id="taxes"
-                value={book.taxes}
-                type="number"
-                 onChange={HandleInput}
-                placeholder="%"
-                required/>
-                <label htmlFor="retirement">Retirement:</label>
-                <input
-                id="retirement"
-                value={book.retirement}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Amount"
-                required/>
-                <label htmlFor="save">Save:</label>
-                <input
-                id="save"
-                value={book.save}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Total"
-                required/>
-                <label htmlFor="creditcard">CreditCard:</label>
-                <input
-                id="creditcard"
-                value={book.creditcard}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Income"
-                required/>
-                <label htmlFor="market">Market:</label>
-                <input
-                id="market"
-                value={book.market}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Spent"
-                required/>
-                <label htmlFor="internet">Internet:</label>
-                <input
-                id="internet"
-                value={book.internet}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Monthly"
-                required/>
-                <label htmlFor="pet">Pet:</label>
-                <input
-                id="pet"
-                value={book.pet}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Food"
-                required/>
-                <label htmlFor="car">Car:</label>
-                <input
-                id="car"
-                value={book.car}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Monthly"
-                required/>
-                <label htmlFor="insurrance">Insurrance:</label>
-                <input
-                id="insurrance"
-                value={book.insurrance}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Amount"
-                required/> 
-                <label htmlFor="additional">Additional:</label>
-                <input
-                id="additional"
-                value={book.additional}
-                type="number"
-                onChange={HandleInput}
-                placeholder="$ Amount"
-                required/>
-                <label htmlFor="made">Made:</label>
-                <input
-                id="made"
-                value={book.made}
-                />
-                Checkbox <input
-                id="made"
-                type="checkbox"
-                 onChange={HandleCheck}
-                checked={book.made}
-                className ="checkbox"
-                /> 
-                <button type='submit' className="btnform">Submit Budget</button>
+              <form onSubmit={HandleSubmit} className="form">
+            <label htmlFor="captainName">captainName:</label>
+            <input
+            id="captainName"
+            value={book.captainName}
+            type="text"
+            onChange={HandleInput}
+            placeholder=""
+            required/>
+            <label htmlFor="title">Title:</label>
+            <input
+             id="title"
+             value={book.title}
+             type="text"
+             onChange={HandleInput}
+             placeholder="%"
+             required/>
+            <label htmlFor="post">Post:</label>
+            <input
+            id="post"
+            value={book.post}
+            type="text"
+            onChange={HandleInput}
+            placeholder="$ Amount"
+            required/>
+            <label htmlFor="daysSinceLastCrisis">DaysSinceLastCrisis:</label>
+            <input
+            id="daysSinceLastCrisis"
+            value={book.daysSinceLastCrisis}
+            type="number"
+            onChange={HandleInput}
+            placeholder="$ Total"
+            required/>
+           
+            <label htmlFor="mistakesWereMadeToday">Made:</label>
+            <input
+            id="mistakesWereMadeToday"
+            value={book.mistakesWereMadeToday}
+            />
+            Checkbox <input
+            id="mistakesWereMadeToday"
+            type="checkbox"
+            onChange={HandleCheck}
+            checked={book.mistakesWereMadeToday}
+            className ="checkbox"
+            /> 
+            <button type='submit' className="btnform">Submit Budget</button>
             </form>
         </div>
     )
 }
+export default withRouter(EditForm)

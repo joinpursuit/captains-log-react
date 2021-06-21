@@ -80,7 +80,7 @@ function App() {
               <Show log={book} deletelogs={deletebook}/>
             </Route>
             <Route path="/logs/:index/edit">
-              <Edit logs={book} updatelogs={updatebook}/>
+              <Edit logs={book} updatebook={updatebook}/>
             </Route>
             <Route path={'*'}>
               <Four0Four />
