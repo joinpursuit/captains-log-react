@@ -13,14 +13,11 @@ const API_BASE = apiURL();
 function App() {
   const [logs, setLogs] = useState([]);
 
-  const newLog = (logs) => {
-    axios.post(`${API_BASE}/logs`, logs).then((response) => {
-      return axios.get(`${API_BASE}/logs`)
-    }).then((response)=> {
-      setLogs(response.data)
-    })
-
-  }
+  const addLog = (newLog) => {
+    axios.post(`${API_BASE}/logs`, newLog).then((response) => {
+      setLogs([...logs, newLog]);
+    });
+  };
 
   useEffect(() => {
     axios.get(`${API_BASE}/logs`).then((response) => {
@@ -39,7 +36,7 @@ function App() {
               <Show logs={logs} />
             </Route>
             <Route path="/logs/new">
-              <New newLog={newLog} />
+              <New addLog={addLog} />
             </Route>
             <Route path="/logs/:index">
               <LogIndex logs={logs} />
