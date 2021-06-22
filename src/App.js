@@ -21,7 +21,44 @@ const API_BASE = apiUrl();
 export default function App() {
   const [logs, setLogs] = useState([]);
 
-  const addLog = (newLog) => {};
+  const addLog = (newLog) => {
+    axios
+      .post(`${API_BASE}/logs/logs`, newLog)
+      .then((response) => {
+        return axios.get(`${API_BASE}/logs`).then((response) => {
+          setLogs(response.data);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const updateLog = (updatedLog, index) => {
+    axios
+      .put(`${API_BASE}/logs/${index}`, updatedLog)
+      .then((response) => {
+        const updateArr = [...logs];
+        updateArr[index] = updatedLog;
+        setLogs(updateArr);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const deleteLog = (index) => {
+    axios
+      .delete(`${API_BASE}/logs/${index}`)
+      .then((response) => {
+        const deleteArr = [...logs];
+        deleteArr.splice(index, 1);
+        setLogs(deleteArr);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     axios.get(`${API_BASE}/logs`).then((response) => {
@@ -40,14 +77,14 @@ export default function App() {
           <Route exact path="/logs">
             <Index logs={logs} />
           </Route>
-          <Route exact path="/logs/:index">
-            <Show />
-          </Route>
           <Route path="/logs/new">
             <New addLog={addLog} />
           </Route>
+          <Route exact path="/logs/:index">
+            <Show logs={logs} deleteLog={deleteLog} />
+          </Route>
           <Route path="/logs/:index/edit">
-            <Edit />
+            <Edit logs={logs} updateLog={updateLog} />
           </Route>
           <Route path="*">
             <FourOFour />
