@@ -52,9 +52,7 @@ function LogNewForm(props) {
           onChange={handleTextChange}
           placeholder="How did the day go?"
         />
-        <label htmlFor="mistakesWereMadeToday">
-          Mistakes were made today:
-        </label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -68,9 +66,7 @@ function LogNewForm(props) {
           onChange={handleTextChange}
           value={log.daysSinceLastCrisis}
         />
-
         <br />
-
         <input type="submit" />
       </form>
     </div>
