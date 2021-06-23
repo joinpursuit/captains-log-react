@@ -1,9 +1,12 @@
-import React from 'react'
+import LogEditForm from "../Components/LogEditForm";
 
-export default function Edit() {
-    return (
-        <div>
-            
-        </div>
-    )
+function Edit({ updateLog, logs }) {
+  return (
+    <div className="New Edit">
+      <h2>Edit Form</h2>
+      <LogEditForm updateLog={updateLog} logs={logs} />
+    </div>
+  );
 }
+
+export default Edit;

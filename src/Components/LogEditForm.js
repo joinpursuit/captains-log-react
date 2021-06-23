@@ -1,7 +1,10 @@
-import { useState } from "react";
-import { withRouter } from "react-router";
+import { useState, useEffect } from "react";
+import { useParams, Link, useHistory } from "react-router-dom";
 
-function LogNewForm(props) {
+function LogEditForm(props) {
+  let { index } = useParams();
+  let history = useHistory();
+
   const [log, setLog] = useState({
     captainName: "",
     title: "",
@@ -18,14 +21,16 @@ function LogNewForm(props) {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
+  useEffect(() => {}, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.addLog(log);
-    props.history.push("/logs");
+    props.updateLog(log, index);
+    history.push(`/logs/${index}`);
   };
 
   return (
-    <div className="New">
+    <div className="Edit">
       <form onSubmit={handleSubmit}>
         <label htmlFor="captainName">Captain's Name:</label>
         <input
@@ -69,8 +74,11 @@ function LogNewForm(props) {
         <br />
         <input type="submit" />
       </form>
+      <Link to={`/logs/${index}`}>
+        <button>Cancel</button>
+      </Link>
     </div>
   );
 }
 
-export default withRouter(LogNewForm);
+export default LogEditForm;
