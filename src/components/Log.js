@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
-
 function Log({ log, index }) {
     return (
-        <div>
-            <h2>{log.captainName}</h2>
-            <Link to={`/logs/${index}`}>{log.title}</Link>
-        </div>
+        <>
+            <h2>Captain Name: {log.captainName}</h2>
+            <h3>Title of Post: <a href={`/logs/${index}`}>{log.title}</a></h3>
+        </>
     );
 };
 

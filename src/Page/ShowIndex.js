@@ -1,8 +1,14 @@
+import LogDetail from "../components/LogDetail";
+import { Link } from 'react-router-dom';
 
-function ShowIndex() {
+function ShowIndex({ logs, deleteLog }) {
+
     return (
         <div>
-            This is the Show Index Page.
+            <LogDetail logs={logs} deleteLog={deleteLog}/>
+            <button>
+                <Link to="/logs">back</Link>
+            </button>
         </div>
     );
 };

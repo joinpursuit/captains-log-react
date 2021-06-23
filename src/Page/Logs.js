@@ -3,19 +3,18 @@ import Log from "../components/Log";
 function Logs({ logs }) {
 
     return (
-        <div>
-            <ul>
-                {logs.map((log, i) => 
-                    <li>
+        <ol>
+            {logs.map((log, i) => {
+                return (
+                    <li key={i}>
                         <Log 
-                            key={i}
                             index={i}
                             log={log}
                         />
                     </li>
-                )}
-            </ul>
-        </div>
+                );
+            })};
+        </ol>
     );
 };
 
