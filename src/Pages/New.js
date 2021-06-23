@@ -1,9 +1,12 @@
-import React from 'react'
+import LogNewForm from "../Components/LogNewForm";
 
-export default function New() {
-    return (
-        <div>
-            
-        </div>
-    )
+function New({ addLog }) {
+  return (
+    <div className="New">
+      <h2>New Log</h2>
+      <LogNewForm addLog={addLog} />
+    </div>
+  );
 }
+
+export default New;

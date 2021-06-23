@@ -1,9 +1,12 @@
-import React from 'react'
+import Logs from "../Components/Logs";
 
-export default function Index() {
-    return (
-        <div>
-            
-        </div>
-    )
+function Index({ logs }) {
+  return (
+    <div className="Index">
+      <h2>Index</h2>
+      <Logs logs={logs} />
+    </div>
+  );
 }
+
+export default Index;
