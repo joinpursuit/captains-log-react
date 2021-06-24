@@ -26,17 +26,20 @@ function LogDetail({ logs, deleteLog }) {
    
     return (
         <div>
-            <h2>Post: {log.post}</h2>
-
-            <h3>Name: {log.captainName}</h3>
-            <h3>Title: {log.title}</h3>
+            <h1>Captain's Log</h1>
+            <h2>Show</h2>
+            <h3>Post: {log.post}</h3>
+            <h3>{log.title} - By {log.captainName}</h3>
 
             <p>Made Mistake Today:  
                 {log.mistakesWereMadeToday === true ? 'true' : 'false'}
             </p>
-            <p>Last Crisis: {log.daysSinceLastCrisis}</p>
+            <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
 
             <button onClick={handleClick}>delete</button>
+            <button>
+                <a href={`/logs/${index}/edit`}>Edit</a>
+            </button>
         </div>
     );
 };

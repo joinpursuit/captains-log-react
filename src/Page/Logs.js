@@ -3,7 +3,8 @@ import Log from "../components/Log";
 function Logs({ logs }) {
 
     return (
-        <ol>
+        <div>
+            <h1>Captain's Logs</h1>
             {logs.map((log, i) => {
                 return (
                     <li key={i}>
@@ -14,7 +15,7 @@ function Logs({ logs }) {
                     </li>
                 );
             })};
-        </ol>
+        </div>
     );
 };
 

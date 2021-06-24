@@ -1,8 +1,10 @@
+import NewForm from "../components/NewForm";
 
-function NewLog() {
+function NewLog({ addLog }) {
     return (
         <div>
-            This is the NewLog Page.
+            <h2>Fill out form</h2>
+            <NewForm addLog={addLog} />
         </div>
     );
 };

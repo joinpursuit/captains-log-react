@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { apiURL } from './util/apiURL';
 
@@ -16,7 +16,16 @@ const API_BASE = apiURL();
 function App() {
   const [ logs, setLogs ] = useState([]);
 
-  // const addLog = () => {};
+  const addLog = (newLog) => {
+    axios.post(`${API_BASE}/logs`, newLog)
+      .then(response => {
+        setLogs([...logs, newLog]);
+      })
+      .catch(error => {
+        alert(error);
+        <Redirect to="/logs/new" />
+      });
+  };
 
   // const editLog = () => {};
 
@@ -27,7 +36,10 @@ function App() {
         updateArray.splice(index, 1);
         setLogs(updateArray);
       })
-      .catch(console.error());
+      .catch(error => {
+        alert(error);
+        <Redirect to={`/logs/${index}`} />
+      });
   };
 
   useEffect(() => {
@@ -35,7 +47,8 @@ function App() {
       .then(response => {
         const { data } = response;
         setLogs(data);
-      });
+      })
+      .catch(error => console.error());
   }, []);
 
   return (
@@ -50,7 +63,7 @@ function App() {
             </Route>
 
             <Route path="/logs/new">
-              <NewLog />
+              <NewLog addLog={addLog} />
             </Route>
 
             <Route path="/logs/:index/edit">
@@ -58,11 +71,11 @@ function App() {
             </Route>
 
             <Route path="/logs/:index">
-              <ShowIndex logs={logs} deleteLog={deleteLog}/>
+              <ShowIndex logs={logs} deleteLog={deleteLog} />
             </Route>
 
             <Route path="/logs">
-              <Logs logs={logs}/>
+              <Logs logs={logs} />
             </Route>
 
             <Route path="*">

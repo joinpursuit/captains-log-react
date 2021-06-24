@@ -7,7 +7,7 @@ function ShowIndex({ logs, deleteLog }) {
         <div>
             <LogDetail logs={logs} deleteLog={deleteLog}/>
             <button>
-                <Link to="/logs">back</Link>
+                <a href="/logs">Back</a>
             </button>
         </div>
     );

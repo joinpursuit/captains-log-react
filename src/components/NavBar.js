@@ -12,7 +12,7 @@ function NavBar() {
             </button>{' '}
 
             <button>    
-                <Link to="/logs/add">New Log</Link>
+                <Link to="/logs/new">New Log</Link>
             </button>
         </nav>
     );
