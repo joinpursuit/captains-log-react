@@ -45,7 +45,7 @@ function App() {
     axios.put(`${API_BASE}/logs/${index}`, updatedLog).then(
       (response) => {
         const updateArray = [...logs];
-        updateArray[index] = updateLog;
+        updateArray[index] = updatedLog;
         setLogs(updateArray);
       },
       (error) => {
