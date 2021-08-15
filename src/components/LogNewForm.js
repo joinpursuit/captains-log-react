@@ -24,14 +24,14 @@ const LogNewForm = ({ addLog }) => {
       setLog(updatedLog);
   };
 
-  const fetchLog = async () => {
-    try {
-      const res = await axios.get(`${API}/logs/${index}`);
-      setLog(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+//   const fetchLog = async () => {
+//     try {
+//       const res = await axios.get(`${API}/logs/${index}`);
+//       setLog(res.data)
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
 
   const handleCheckboxChange = () => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
@@ -41,9 +41,9 @@ const LogNewForm = ({ addLog }) => {
     setLog({ ...log, daysSinceLastCrisis: Number(e.target.value)})
   }
 
-  useEffect(() => {
-    fetchLog();
-  }, []);
+//   useEffect(() => {
+//     fetchLog();
+//   }, []);
 
   const handleSubmit = (e) => {
       e.preventDefault();

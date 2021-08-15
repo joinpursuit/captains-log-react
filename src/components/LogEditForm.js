@@ -93,6 +93,7 @@ const LogEditForm = ({ updateLog }) => {
           onChange={handleDaysSinceCrisis}
           placeholder="Days since last crisis"
         />
+        <input type="submit" />
       </form>
     </div>
   );
