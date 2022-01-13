@@ -1,45 +1,32 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import Nav from "./components/Nav"
-import Home from "./components/Home"
-import Logs from "./components/Logs"
-import LogDetails from "./components/LogDetails"
-import NewLogs from "./components/NewLogs"
-import EditLogs from "../components/EditLogs";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import Logs from "./components/Logs";
+import LogDetails from "./components/LogDetails";
+import NewLogs from "./components/NewLogs";
+import EditLogs from "./components/EditLogs";
 
 const App = () => {
 
-    
     return (
         <div className="App">
-            <Router>
                 <Nav/>
-                <Switch>
-                    <Route exact path="/">
-                        <Home/>
-                    </Route>
+                <Routes>
+                    <Route exact path="/" element={<Home/>}/>
 
-                    <Route exact path="/logs">
-                        <Logs/>
-                    </Route>
+                    <Route path="/logs"element={<Logs/>}/>
                     
-                    <Route exact path="/logs/:index">
-                        <LogDetails/>
-                    </Route>
+                    <Route path="/logs/:index"element={<LogDetails/>}/>
 
-                    <Route exact path="/logs/:new">
-                        <NewLogs/>
-                    </Route>
+                    <Route path="/logs/:new"element={<NewLogs/>}/>
 
-                    <Route exact path="/logs/:edit">
-                        <EditLogs/>
-                    </Route>
+                    <Route path="/logs/:edit"element={<EditLogs/>}/>
 
                     <Route path="*"></Route>
-                </Switch>
-            </Router>
+                </Routes>
         </div>
     )
 }
