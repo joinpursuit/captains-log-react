@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Nav from "./Components/Nav"
 import Home from "./Components/Home"
-import Logs from "./Components/Index"
+import Logs from "./Components/Logs"
 
 function App() {
   return (
