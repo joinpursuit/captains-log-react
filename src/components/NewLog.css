@@ -1,0 +1,16 @@
+.newLog {
+  margin-left: 6%;
+}
+.newLog h1 {
+  margin-bottom: 15px;
+}
+
+.newLog label {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.newLog input {
+  margin-left: 45px;
+  margin-bottom: 3px;
+}
