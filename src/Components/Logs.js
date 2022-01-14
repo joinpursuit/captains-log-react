@@ -24,7 +24,7 @@ function Logs() {
             </thead>
             <tbody>
                 {logs.map((log, index) => {
-                return <Log key={index} Log={log} index={index} />;
+                    return <Log key={index} log={log} index={index} />;
                 })}
             </tbody>
             </table>

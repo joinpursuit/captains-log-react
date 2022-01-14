@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function Log({log, index}) {
+function Log({ log, index }) {
     return (
         <tr>
             <td>
                 {log.isFavorite ? (
-                <span>💥</span>
+                <span>⭐️</span>
                 ) : (
                 <span>&nbsp; &nbsp; &nbsp;</span>
                 )}
@@ -19,7 +19,7 @@ function Log({log, index}) {
                 <Link to={`/logs/${index}`}>✏️</Link>
             </td>
         </tr>
-    )
+    );
 }
 
-export default Log
+export default Log;
