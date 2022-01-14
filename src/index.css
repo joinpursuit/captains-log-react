@@ -4,6 +4,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.nav {
-  border: 1px solid red;
+nav {
+  background: #10243d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  box-shadow: 2px 2px 4px grey;
+  margin-bottom: 1em;
+  font-family: sans-serif;
 }
+
+button {
+  padding: 10px;
+  background-color: #10243d;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* .nav {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 30px;
+  text-align: center;
+}
+
+#new-log-button-container {
+  text-align: center;
+  height: 30px;
+} */

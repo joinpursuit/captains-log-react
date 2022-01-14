@@ -5,12 +5,13 @@ function Navbar() {
   return (
     <nav className='nav'>
       <h1>
-        This is Navbar.js
-        <Link to="/logs">Logs</Link>
+        <Link to="/logs">Captain's Log</Link>
       </h1>
-      <button>
-        <Link to="/logs/new">New Log</Link>
-      </button>
+      <div id="new-log-button-container">
+        <button>
+          <Link to="/logs/new">New Log</Link>
+        </button>
+      </div>
     </nav>
   );
 }
