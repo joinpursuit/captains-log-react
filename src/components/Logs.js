@@ -19,7 +19,7 @@ function Logs() {
 
     return (
       <div className="Logs">
-      <h1>Logs Index</h1>
+      <h1>Index</h1>
       <section>
         <table>
           <thead>
