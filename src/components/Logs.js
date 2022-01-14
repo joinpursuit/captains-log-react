@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Log from './Log';
 
 const API_URL = process.env.REACT_APP_API_URL_FROM_OUR_BACKEND;
 console.log(API_URL);
@@ -10,17 +11,31 @@ function Logs() {
     useEffect(()=>{
     axios.get(`${API_URL}/logs`)
         .then((res)=>{
-        setLogs(res.data);
-        console.log("horse", res.data);
+          setLogs(res.data);
         }).catch((err)=>{
-        throw err;
+          throw err;
         })
     })
 
     return (
       <div className="Logs">
-        <h2>Welcome</h2>
-        <h3>To the greatest captain's log app! This is Logs.js</h3>
+      <h1>Logs Index</h1>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Mistakes</th>
+              <th>Captain Name</th>
+              <th>See this log</th>
+            </tr>
+          </thead>
+          <tbody>
+            {logs.map((log, index) => {
+              return <Log key={index} log={log} index={index} />;
+            })}
+          </tbody>
+        </table>
+      </section>
       </div>
     );
   }
