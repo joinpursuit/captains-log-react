@@ -1,0 +1,12 @@
+.Index {
+    background-color: white;
+    height: 85vh;
+    box-sizing: border-box;
+    padding: 20px 60px;
+    margin: none;
+  }
+  
+  .Index .indexTitle {
+    font-size: 40px;
+    margin: 0;
+  }
