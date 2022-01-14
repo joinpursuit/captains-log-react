@@ -1,22 +1,16 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Logs from "./Components /logs";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./Components /NavBar";
+import Logs from "./Components /Logs";
 
 function App() {
 	return (
 		<div>
-			<BrowserRouter>
-				<nav>
-					<h1>
-						<Link to="/logs">Captain's Log</Link>
-					</h1>
-					<button>
-						<Link to="/logs/new">New Log</Link>
-					</button>
-				</nav>
+			<Router>
+				<NavBar />
 				<Routes>
-					<Route></Route>
+					<Route path="/logs" element={<Logs />} />
 				</Routes>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 }
