@@ -1,9 +1,10 @@
 import React from "react"
 
-const Log = () => {
+const NewLogs = () => {
     return(
         null
     )
  }
 
-export default Log;
+
+export default NewLogs;

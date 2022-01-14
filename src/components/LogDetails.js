@@ -31,6 +31,6 @@ function LogDetails () {
               </Link>
             </div>
           );
- }
+}
 
 export default LogDetails;

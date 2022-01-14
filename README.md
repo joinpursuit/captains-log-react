@@ -9,7 +9,7 @@
 - `cd` to the directory where you cloned it
 - `npm install` to install dependencies
 - `npm start` to start the react app on `localhost:3000`
-- `npm test` (in a separate terminal tab) to open the cypress testing window (keep your react app runnign as well)
+- `npm test` (in a separate terminal tab) to open the cypress testing window (keep your react app running as well)
 
 > _Note_: Remember to `git add`, `git commit` and `git push` regularly
 
