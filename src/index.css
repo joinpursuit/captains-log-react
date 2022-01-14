@@ -4,7 +4,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-nav {
+.nav {
   background: #10243d;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@ nav {
   font-family: sans-serif;
 }
 
-button {
+.nav button {
   padding: 10px;
   background-color: #10243d;
   border: 1px solid white;
@@ -23,20 +23,7 @@ button {
   text-transform: uppercase;
 }
 
-a {
+.nav a {
   text-decoration: none;
   color: white;
 }
-
-/* .nav {
-  border: 1px solid red;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 30px;
-  text-align: center;
-}
-
-#new-log-button-container {
-  text-align: center;
-  height: 30px;
-} */
