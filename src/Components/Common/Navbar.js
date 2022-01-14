@@ -3,13 +3,15 @@ import {Link} from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <header>
+        <header className="Log">
             <article>
-                <Link to="/">Captain's Log</Link>
+                <Link to="/logs">Captain's Log</Link>
             </article>
             <aside>
-                <Link to="/logs">NEW LOG</Link>
+                <Link to="/logs/new">NEW LOG</Link>
             </aside>
         </header>
     )
 }
+
+export default NavBar
