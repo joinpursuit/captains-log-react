@@ -1,42 +1,36 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
-import Log from "./Log"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Log from "./Log";
 
 function Logs() {
-    const [logs, setLogs] = useState([])
-    const API = process.env.REACT_APP_API_URL
-
+    const URL = process.env.REACT_APP_API_URL;
+    const [logs, setLogs] = useState([]);
     useEffect(() => {
-        axios.get(`${API}/logs`)
-        .then((response) => {
-            console.log(response.data)
-            setLogs(response.data)
-        })
-        .catch((e) => {
-            console.log('catch', e)
-        })
-    })    
+        axios
+        .get(`${URL}/logs`)
+        .then((response) => setLogs(response.data));
+    }, []);
+
     return (
-        <div>
-            <h2>Index</h2>
-            <section>
-                <table>
-                <thead>
-                    <tr>
-                    <th>Mistakes</th>
-                    <th>Captain Name</th>
-                    <th>See this log</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {logs.map((log, index) => {
-                    return <Log key={index} log={log} index={index} />;
-                    })}
-                </tbody>
-                </table>
-            </section>
+        <div className="Logs">
+        <section>
+            <table>
+            <thead>
+                <tr>
+                <th></th>
+                <th>Take me there</th>
+                <th>See this bookmark</th>
+                </tr>
+            </thead>
+            <tbody>
+                {logs.map((log, index) => {
+                return <Log key={index} Log={log} index={index} />;
+                })}
+            </tbody>
+            </table>
+        </section>
         </div>
-    )
+    );
 }
 
-export default Logs
+export default Logs;
