@@ -1,7 +1,11 @@
 import { Routes, Route } from "react-router-dom"
 import Nav from "./Components/Nav"
-import Home from "./Components/Home"
-import Logs from "./Components/Logs"
+import Edit from "./Pages/Edit"
+import FourOFour from "./Pages/FourOFour"
+import Home from "./Pages/Home"
+import Index from "./Pages/Index"
+import New from "./Pages/New"
+import Show from "./Pages/Show"
 
 function App() {
   return (
@@ -9,8 +13,11 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/logs" element={<Logs />} />
-        {/* <Route path="" element={} /> */}
+        <Route path="/logs" element={<Index />} />
+        <Route path="/logs/new" element={<New />} />
+        <Route path="/logs/:index" element={<Show />} />
+        <Route path="/bookmarks/:index/edit" element={<Edit/>} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </div>
     )  
