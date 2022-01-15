@@ -1,15 +1,25 @@
 import { useState, useEffect } from "react";
-import {Routes, Route } from "react-router-dom";
-
+import {Routes, Route} from "react-router-dom";
+import axios from "axios";
 
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Logs from "./components/Logs";
 import LogDetails from "./components/LogDetails";
-import NewLogs from "./components/NewLogs";
-import EditLogs from "./components/EditLogs";
+import NewLog from "./components/NewLog";
+import EditLog from "./components/EditLog";
+
+const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
+    const [log, setLog] = useState([]);
+
+    const fetchData = async () => {
+        const response = await axios.get(`${API}/logs`);
+        setLog(response.data);
+    };
+    useEffect(() => {fetchData();
+}, []);
 
     return (
         <div className="App">
@@ -21,9 +31,11 @@ const App = () => {
                     
                     <Route path="/logs/:index"element={<LogDetails/>}/>
 
-                    <Route path="/logs/:new"element={<NewLogs/>}/>
+                    <Route path="/logs/new"element={<NewLog/>}/>
 
-                    <Route path="/logs/:edit"element={<EditLogs/>}/>
+                    <Route path="/logs/:index/edit"element={<EditLog/>}/>
+
+                    <Route path="/logs/:index"element={<EditLog/>}/>
 
                     <Route path="*"></Route>
                 </Routes>
@@ -31,5 +43,4 @@ const App = () => {
     )
 }
 
-//That star path night not be needed just go back and delete later if anything. 
 export default App;

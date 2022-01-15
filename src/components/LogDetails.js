@@ -1,10 +1,14 @@
 import React, {useState, useEffect}from "react"
-import {Link, useParams } from "react-router-dom";
+import {Link, useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
 function LogDetails () {
     const [log,setLogs] =useState([]);
+
     let {index} = useParams();
+
     const API = process.env.REACT_APP_API_URL;
+    
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchData = async () => {
@@ -13,6 +17,12 @@ function LogDetails () {
         };
         fetchData();
     }, []);
+
+    const handleDelete = () => {
+      axios
+        .delete(`${API}/logs/${index}`)
+        .then(() => navigate("/logs"));
+    };
     return(
             <div>
               <h2>Show</h2>
@@ -29,6 +39,7 @@ function LogDetails () {
               <Link to={`/logs/${index}/edit`}>
                 <button>Edit</button>
               </Link>
+                <button onClick={handleDelete}>Delete</button>
             </div>
           );
  }
