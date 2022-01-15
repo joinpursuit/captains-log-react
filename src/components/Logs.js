@@ -3,8 +3,7 @@ import CaptainsLog from "./CaptainsLog";
 import axios from "axios";
 
 function Logs() {
-  // HOOKS NEED TO BE CALLED IN SAME ORDER AS CREATED
-  const [log, setLogs] = useState([]);
+  const [logs, setLogs] = useState([]);
   const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -16,13 +15,24 @@ function Logs() {
       console.log(response.data);
     };
     result();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="CaptainsLog">
       <section>
-        {log.map((notes, i) => {
-          return <CaptainsLog key={i} note={notes} index={i} />;
-        })}
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>See this Log</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {logs.map((log, i) => {
+              return <CaptainsLog key={i} log={log} index={i} />;
+            })}
+          </tbody>
+        </table>
       </section>
     </div>
   );
