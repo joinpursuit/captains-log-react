@@ -4,7 +4,7 @@ function Log({ log, index }) {
     return (
         <tr>
             <td>
-                {log.isFavorite ? (
+                {log.mistakesWereMade ? (
                 <span>💥</span>
                 ) : (
                 <span>&nbsp; &nbsp; &nbsp;</span>
@@ -12,11 +12,11 @@ function Log({ log, index }) {
             </td>
             <td>
                 <a href={log.url} target="_blank" rel="noreferrer">
-                {log.name}
+                {log.captainName}
                 </a>
             </td>
             <td>
-                <Link to={`/logs/${index}`}>✏️</Link>
+                <Link to={`/logs/${index}`}>{log.name}</Link>
             </td>
         </tr>
     );
