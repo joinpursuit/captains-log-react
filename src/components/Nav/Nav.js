@@ -9,9 +9,7 @@ const Nav = () => {
         </Link>
       </div>
       <div className="newLink">
-        <Link to="./logs/new">
-          <h3>NEW LOG</h3>
-        </Link>
+        <Link to="./logs/new">New Log</Link>
       </div>
     </div>
   );

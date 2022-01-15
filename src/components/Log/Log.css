@@ -1,4 +1,4 @@
-.ListItem {
+.Log {
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -7,7 +7,7 @@
   box-sizing: content-box;
   padding: 15px 0px;
 }
-.ListItem h4 {
+.Log td {
   margin: 0;
   font-size: 20px;
   font-weight: normal;
@@ -16,4 +16,16 @@
   height: 100%;
   display: block;
   box-sizing: border-box;
+}
+
+.Log a,
+.Log a:active,
+.Log a:hover,
+.Log a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.Log a:hover {
+  color: salmon;
 }

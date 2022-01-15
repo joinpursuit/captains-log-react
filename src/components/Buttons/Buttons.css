@@ -1,0 +1,6 @@
+.Buttons {
+  display: flex;
+  width: 75%;
+  margin: 0px auto;
+  justify-content: space-between;
+}

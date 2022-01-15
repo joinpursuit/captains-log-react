@@ -1,0 +1,8 @@
+.LogCard {
+  background-color: rgb(237, 250, 252);
+  width: 75%;
+  margin: 25px auto 50px;
+  border-radius: 25px;
+  box-shadow: 5px 12px 20px black;
+  padding: 10px 50px;
+}

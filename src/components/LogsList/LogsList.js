@@ -1,7 +1,7 @@
 import './LogsList.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ListItem from '../ListItem/ListItem';
+import Log from '../Log/Log';
 
 const LogsList = () => {
   const [logs, setLogs] = useState([]);
@@ -12,7 +12,7 @@ const LogsList = () => {
     setLogs(logsData.data);
   }, []);
 
-  const allListItems = logs.map((e) => <ListItem item={e} />);
+  const allListItems = logs.map((e, i) => <Log item={e} index={i} />);
 
   return (
     <div className="LogsList">
