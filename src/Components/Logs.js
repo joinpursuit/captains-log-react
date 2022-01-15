@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 function Log() {
     const [logs,setLogs] = useState([]);
@@ -15,7 +16,7 @@ function Log() {
 
 const logFile = logs.map((eachLog, index) => {
     return <li key={index} index={index}>
-    <p>Captain Name:{eachLog.captainName}</p>
+    <Link to={`/logs/${index}`}>Captain Name:{eachLog.captainName}</Link>
     <p>Post Title:{eachLog.title}</p> 
     <p>Post:{eachLog.post}</p></li>;
 })
