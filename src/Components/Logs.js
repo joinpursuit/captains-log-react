@@ -8,7 +8,10 @@ function Logs() {
     useEffect(() => {
         axios
         .get(`${URL}/logs`)
-        .then((response) => setLogs(response.data));
+        .then((response) => {
+            console.log(response.data)
+            setLogs(response.data);
+        })
     }, []);
 
     return (
@@ -17,9 +20,9 @@ function Logs() {
             <table>
             <thead>
                 <tr>
-                <th></th>
-                <th>Take me there</th>
-                <th>See this bookmark</th>
+                <th>Mistakes</th>
+                <th>Captain Name</th>
+                <th>See this log</th>
                 </tr>
             </thead>
             <tbody>

@@ -1,13 +1,23 @@
+import axios from "axios"
 import { Routes, Route } from "react-router-dom"
 import Nav from "./Components/Nav"
-import Edit from "./Pages/Edit"
+import Edit from "./Pages/Edit.js"
 import FourOFour from "./Pages/FourOFour"
 import Home from "./Pages/Home"
 import Index from "./Pages/Index"
 import New from "./Pages/New"
 import Show from "./Pages/Show"
+const URL = process.env.REACT_APP_API_URL;
 
 function App() {
+    const [setLogs] = useState([]);
+    const fetchData = async () => {
+      const response = await axios.get(`${API}/logs`);
+      setLogs(response.data);
+    };
+      useEffect(() => {fetchData();
+    }, []);
+
   return (
     <div>
       <Nav />

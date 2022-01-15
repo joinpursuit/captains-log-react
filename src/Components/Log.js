@@ -5,7 +5,7 @@ function Log({ log, index }) {
         <tr>
             <td>
                 {log.isFavorite ? (
-                <span>⭐️</span>
+                <span>💥</span>
                 ) : (
                 <span>&nbsp; &nbsp; &nbsp;</span>
                 )}
