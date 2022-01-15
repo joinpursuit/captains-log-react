@@ -1,0 +1,6 @@
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: skyblue;
+  min-height: 40px;
+}
