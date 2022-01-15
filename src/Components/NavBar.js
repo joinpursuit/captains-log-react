@@ -7,7 +7,10 @@ return (
     <Link to="/bookmarks">Bookmarks</Link>
     </h1> */}
     <button>
-    <Link to="/bookmarks/new">Captain Log</Link>
+    <Link to="/logs">Captain Log</Link>
+    </button>
+    <button>
+    <Link to="/logs/new">Form</Link>
     </button>
 </nav>
 );
