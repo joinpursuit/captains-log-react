@@ -30,6 +30,13 @@ function LogDetails() {
         {logs.title} - By {logs.captainName}
       </p>
       <p>Post: {logs.post}</p>
+      <p>
+        {logs.mistakesWereMadeToday ? (
+          <span>🚧🚧🚧 Mistakes were made today 🚧🚧🚧</span>
+        ) : (
+          <span>⭐⭐⭐ No mistakes today ⭐⭐⭐</span>
+        )}
+      </p>
       <p>Days since last crisis: {logs.daysSinceLastCrisis}</p>
       <div className="showNavigation">
         <div>
