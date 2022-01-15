@@ -4,7 +4,7 @@ function Log({ log, index }) {
     return (
         <tr>
             <td>
-                {log.mistakesWereMade ? (
+                {log.mistakesWereMadeToday ? (
                 <span>💥</span>
                 ) : (
                 <span>&nbsp; &nbsp; &nbsp;</span>
@@ -16,7 +16,7 @@ function Log({ log, index }) {
                 </a>
             </td>
             <td>
-                <Link to={`/logs/${index}`}>{log.name}</Link>
+                <Link to={`/logs/${index}`}>{log.title}</Link>
             </td>
         </tr>
     );
