@@ -13,11 +13,11 @@ const LogsList = () => {
     setLogs(logsData.data);
     console.log(logs)
   }
-  (async () => await fetchData())()
+fetchData()
   // eslint-disable-next-line
   }, []);
 
-  const allListItems = logs.map((e) => <ListItem item={e} />);
+  const allListItems = logs.map((e, i) => <ListItem key={i.toString()} item={e} />);
   return (
     <div className="LogsList">
       <div className="heading">
