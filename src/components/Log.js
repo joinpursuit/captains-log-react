@@ -1,19 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Log({ log, index }) {
-    return (
-        <div>
-            This is a log.
-            {log.captainName}
-            {log.title}
-            {log.post}
-            {log.mistakesWereMadeToday}
-            {log.daysSinceLastCrisis}
-            <p>
-            <Link to={`/logs/${index}`}>✏️</Link>
-            </p>
-        </div>
-    )
+  return (
+    <tr>
+      <td>{log.title}</td>
+      <td>{log.captainName}</td>
+      <td>
+        {log.mistakesWereMadeToday ? (
+          <span>☑️</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+      <td>
+        <Link to={`/logs/${index}`}>✏️</Link>
+      </td>
+    </tr>
+  );
 }
 
-export default Log
+export default Log;
