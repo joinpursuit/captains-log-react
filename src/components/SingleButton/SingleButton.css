@@ -1,0 +1,14 @@
+.SingleButton {
+    border: 0.5px solid rgb(95, 95, 95);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 100px;
+    height: 50px;
+  }
+  .SingleButton:hover {
+    cursor: pointer;
+  }
+  
+  .SingleButton {
+    color: salmon;
+  }

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Show.css"
 import LogCard from "../LogCard/LogCard"
-import { Buttons } from '../Buttons/Buttons'
+import Buttons  from '../Buttons/Buttons'
  const Show = () => {
     return (
         <div className='show'>

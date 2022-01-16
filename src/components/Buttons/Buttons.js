@@ -1,9 +1,12 @@
-import React from 'react'
+import './Buttons.css';
+import SingleButton from '../SingleButton/SingleButton';
 
-export const Buttons = () => {
-    return (
-        <div className='Button'>
-            <div className=''></div>
-        </div>
-    )
-}
+const Buttons = () => {
+  const buttonsNeeded = ['Back', 'Edit', 'Delete'];
+  const allButtons = buttonsNeeded.map((button, i) => (
+    <SingleButton key = {i.toString()} buttonData={button} />
+  ));
+  return <div className="Buttons">{allButtons}</div>;
+};
+
+export default Buttons;

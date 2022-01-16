@@ -1,23 +1,19 @@
 import './LogsList.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ListItem from '../ListItem/ListItem';
+import Log from '../Log/Log';
 
 const LogsList = () => {
   const [logs, setLogs] = useState([]);
   const URL = process.env.REACT_APP_API_URL;
 
-  useEffect(() => {
-    const fetchData = async() =>{
+  useEffect(async () => {
     const logsData = await axios.get(URL + '/logs');
     setLogs(logsData.data);
-    console.log(logs)
-  }
-fetchData()
-  // eslint-disable-next-line
-  }, []);
+  }, [logs]);
 
-  const allListItems = logs.map((e, i) => <ListItem key={i.toString()} item={e} />);
+  const allListItems = logs.map((e, i) => <Log key ={i.toString()} item={e} index={i} />);
+
   return (
     <div className="LogsList">
       <div className="heading">

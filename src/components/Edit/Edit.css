@@ -1,4 +1,4 @@
-.New {
+.Edit {
     background-color: white;
     height: 85vh;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
     margin: none;
   }
   
-  .New .newTitle {
+  .Edit .editTitle {
     font-size: 40px;
     margin: 0;
   }
