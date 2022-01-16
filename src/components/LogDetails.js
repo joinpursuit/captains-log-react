@@ -19,7 +19,7 @@ function LogDetails() {
   }, []);
 
   const handleDelete = () => {
-    axios.delete(`${URL}/logs/${index}`).then(() => navigate('/logs'));
+    axios.delete(`${URL}/logs/${index}`).then(() => navigate("/logs"));
   };
 
   return (
@@ -32,17 +32,19 @@ function LogDetails() {
       </p>
       <p>{log.post}</p>
       <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
-      <div>
-        {" "}
-        <Link to={`/logs`}>
-          <button>Back</button>
-        </Link>
-      </div>
-      <div>
-        {" "}
-        <Link to={`/logs/${index}/edit`}>
-          <button>Edit</button>
-        </Link>
+      <div className="navigation">
+        <div>
+          {" "}
+          <Link to={`/logs`}>
+            <button>Back</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <Link to={`/logs/${index}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
       </div>
       <div>
         {" "}
