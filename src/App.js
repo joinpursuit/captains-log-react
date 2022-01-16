@@ -3,6 +3,12 @@ import { Routes, Route } from "react-router-dom";
 
 // COMPONENTS
 import NavBar from "./Components/NavBar";
+import Home from "./Pages/Home";
+import IndexLogs from "./Pages/IndexLogs";
+import ShowLog from "./Pages/ShowLog";
+import EditLog from "./Pages/EditLog";
+import NewLog from "./Pages/NewLog";
+import Reload from "./Pages/Reload";
 
 const App = () => {
   return (

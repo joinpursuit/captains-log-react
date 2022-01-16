@@ -1,9 +1,9 @@
-import LogEditForm from "../Components/LogEditForm";
+import LogEditForm from "../Components/LogEditForm.js";
 
 const EditLog = () => {
   return (
     <div className="EditLog">
-      <h2>Edit Logs</h2>
+      <h2>Captain's Log</h2>
       <LogEditForm />
     </div>
   );
