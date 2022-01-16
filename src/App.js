@@ -9,6 +9,7 @@ import Home from "./Pages/Home"
 import Index from "./Pages/Index";
 import Show from "./Pages/Show"
 import Edit from "./Pages/Edit"
+import New from "./Pages/New"
 
 
 function App() {

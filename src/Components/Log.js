@@ -1,4 +1,6 @@
-export default function Log({log, index}) {
+import { Link } from "react-router-dom"
+
+function Log({log, index}) {
     return(
         <tr className="Log">
             <td>
@@ -8,10 +10,10 @@ export default function Log({log, index}) {
                 {log.captainName}
             </td>
             <td>
-                <a href={`${process.env.REACT_APP_API_URL}/logs/${index}`}>
-                {log.title}
-                </a>
+                <Link to={`/logs/${index}`}>{log.title}</Link>
             </td>
         </tr>
     )
 }
+
+export default Log;

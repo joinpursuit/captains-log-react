@@ -1,8 +1,8 @@
 export default function New() {
     return(
-        <div className="newform">
+        <form className="newform">
             <h1>New</h1>
-        </div>
+        </form>
         )
 
 }
