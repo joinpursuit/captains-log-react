@@ -1,79 +1,97 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import LogDetails from "./LogDetails";
 
 function LogNewForm() {
-  const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
-  const [log, setLog] = useState({
-    name: "",
+  const navigate = useNavigate();
+  let { index } = useParams();
+
+  const [logNew, setLogNew] = useState({
+    captainName: "",
     title: "",
     post: "",
-    crisis: "",
-    mistakes: false,
+    mistakesWereMadeToday: false,
+    daysSinceLastCrisis: "",
   });
 
-  const handleTextChange = (event) => {
-    setLog({ ...log, [event.target.id]: event.target.value });
-  };
+  useEffect(() => {
+    axios.get(`${URL}/logs`).then((response) => setLogNew(response.data));
+  }, []);
 
   const handleCheckboxChange = () => {
-    setLog({ ...log, isFavorite: !log.isFavorite });
+    setLogNew({
+      ...logNew,
+      mistakesWereMadeToday: !logNew.mistakesWereMadeToday,
+    });
+  };
+
+  const handleTextChange = (event) => {
+    setLogNew({ ...logNew, [event.target.id]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${URL}/logs`, log).then(() => navigate("/logs"));
+    // axios post request to create a new bookmark
+    axios.post(`${URL}/logs`, logNew).then(() => navigate("/logs"));
+    // redirect back to that new bookmark
   };
 
   return (
-    <div>
-      <header>Captain's Log</header>
-      <b>New</b>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="captainName">Captain's Name:</label>
-        <input
-          id="captainName"
-          value={log.captainName}
-          type="text"
-          placeholder="Captain's Name"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          value={log.title}
-          type="text"
-          placeholder="Title"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="post">Post:</label>
-        <textarea
-          id="post"
-          value={log.post}
-          type="text"
-          placeholder="Post"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
-        <input
-          id="daysSinceLastCrisis"
-          value={log.daysSinceLastCrisis}
-          type="number"
-          placeholder="0"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
-        <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={log.mistakesWereMadeToday}
-        />
-        <br />
-        <input type="submit" />
-      </form>
-    </div>
+    <>
+      <div className="New">
+        <header>Captain's Log</header>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="captainName">Captain's Name</label>
+          <input
+            id="captainName"
+            type="text"
+            value={logNew.captainName}
+            onChange={handleTextChange}
+            placeholder="Captain's Name"
+            required
+          />
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            value={logNew.title}
+            placeholder="Title"
+            onChange={handleTextChange}
+          />
+          <label htmlFor="post">Post:</label>
+          <textarea
+            id="post"
+            name="post"
+            value={logNew.post}
+            onChange={handleTextChange}
+            placeholder="Post"
+          />
+          <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+          <input
+            id="daysSinceLastCrisis"
+            name="daysSinceLastCrisis"
+            type="number"
+            value={logNew.daysSinceLastCrisis}
+            onChange={handleTextChange}
+            placeholder="How many days?"
+          />
+          <label htmlFor="mistakesWereMadeToday">
+            Mistakes were made today:
+          </label>
+          <input
+            id="mistakesWereMadeToday"
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={logNew.mistakesWereMadeToday}
+          />
+          <br />
+          <input type="submit" />
+        </form>
+        <button>Delete</button>
+      </div>
+    </>
   );
 }
 

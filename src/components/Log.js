@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
 
-function Logs({ log, index }) {
+function Log({ log, index }) {
   return (
-    <tr>
-      <td>{log.mistakesWereMadeToday ? <span>Yes </span> : null}</td>
+    <tr className="Log a">
       <td>{log.captainName}</td>
+      <td>{log.title}</td>
       <td>
-        <Link to={`/logs/${index}`}>{log.title}</Link>
+        {log.mistakesWereMadeToday ? (
+          <span>☑️</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+      <td>
+        <Link to={`/logs/${index}`}>✏️</Link>
       </td>
     </tr>
   );
 }
 
-export default Logs;
+export default Log;

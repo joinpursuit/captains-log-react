@@ -22,27 +22,34 @@ function LogDetails() {
   };
 
   return (
-    <div>
-      <header>
-        <b>Captain's Log</b>
-      </header>
-      <b>Show</b>
-      <br />
-      <b>
-        {log.title} - By {log.captainName}
-      </b>
-      <p>{log.post}</p>
+    <section>
+      <header>Captain's Log</header>
+      <header>Show</header>
+      <p> {log.mistakesWereMadeToday ? <span>⭐️</span> : null} </p>
       <p>
-        <b>Days since last crisis:</b> {log.daysSinceLastCrisis}
+        {log.title} - By {log.captainName}
       </p>
-      <Link to={"/logs"}>
-        <button>Back</button>
-      </Link>
-      <Link className="3" to={`/logs/${index}/edit`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={handleDelete}>Delete</button>
-    </div>
+      <p>{log.post}</p>
+      <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
+      <div className="navigation">
+        <div>
+          {" "}
+          <Link to={`/logs`}>
+            <button>Back</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <Link to={`/logs/${index}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
+      </div>
+      <div>
+        {" "}
+        <button onClick={handleDelete}>Delete</button>
+      </div>
+    </section>
   );
 }
 

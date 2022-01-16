@@ -4,10 +4,12 @@ import LogDetails from "./components/LogDetails";
 import Home from "./components/Home";
 import LogEditForm from "./components/LogEditForm";
 import LogNewForm from "./components/LogNewForm";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/logs" element={<Logs />} />

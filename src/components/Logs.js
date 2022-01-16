@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Log from "./Log";
 import axios from "axios";
-import NavBar from "./NavBar";
 
 function Logs() {
   const [logs, setLogs] = useState([]);
@@ -19,11 +18,23 @@ function Logs() {
   }, []);
 
   return (
-    <div>
-      <NavBar />
-      {logs.map((log, index) => {
-        return <Log key={index} log={log} index={index} />;
-      })}
+    <div className="logs">
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Take me there</th>
+              <th>See this Log</th>
+            </tr>
+          </thead>
+          <tbody>
+            {logs.map((log, index) => {
+              return <Log key={index} log={log} index={index} />;
+            })}
+          </tbody>
+        </table>
+      </section>
     </div>
   );
 }
