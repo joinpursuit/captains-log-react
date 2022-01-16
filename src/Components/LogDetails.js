@@ -28,15 +28,13 @@ function LogDetails() {
 
   return (
     <article>
-      <h3>
+      <h2>
         {log.title} - By {log.captainName}
+      </h2>
+      <h3>
+        {log.post}
       </h3>
-      <h5>
-        <span>
-          <a href={log.post}>{log.post}</a>
-        </span>
-      </h5>
-      <h6>Days since last crisis: {log.daysSinceLastCrisis}</h6>
+      <h5>Days since last crisis: {log.daysSinceLastCrisis}</h5>
       <div className="showNavigation">
         <div>
           {" "}
