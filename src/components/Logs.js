@@ -17,7 +17,7 @@ function Logs() {
   }, []);
 
   return (
-    <div className="logs">
+    <div className="log-index">
       <section>
         <table>
           <thead>

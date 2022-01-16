@@ -39,7 +39,7 @@ function LogEditForm() {
   };
 
   return (
-    <div>
+    <div className="edit-log">
         <header>Captain's Log</header>
         <header>Edit</header>
       <form onSubmit={handleSubmit}>

@@ -23,7 +23,7 @@ function LogDetails() {
   };
 
   return (
-    <section>
+    <section className='log-detail'>
       <header>Captain's Log</header>
       <header>Show</header>
       <p> {log.mistakesWereMadeToday ? <span>⭐️</span> : null} </p>

@@ -1,3 +1,5 @@
+import './App.css';
+// DEPENDENCIES 
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import LogDetails from './components/LogDetails';
@@ -10,6 +12,7 @@ import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
+    <div className='app'>
   <NavBar />
   <Routes>
     <Route path="/" element={<Home />} />
@@ -18,6 +21,7 @@ function App() {
     <Route path="/logs/:index" element={<LogDetails />} />
     <Route path="/logs/:index/edit" element={<LogEditForm />} />
   </Routes>
+  </div>
   </>
   )
 }

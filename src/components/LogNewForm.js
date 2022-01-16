@@ -37,7 +37,7 @@ function LogNewForm() {
 
   return (
     <>
-      <div className="New">
+      <div className="new-log">
         <header>Captain's Log</header>
         <form onSubmit={handleSubmit}>
           <label htmlFor="captainName">Captain's Name</label>
