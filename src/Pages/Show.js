@@ -1,4 +1,4 @@
-import Log from "../Components/Log"
+import LogDetails from "../Components/LogDetails"
 
 export default function Show() {
     return(
