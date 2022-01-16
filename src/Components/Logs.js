@@ -8,10 +8,16 @@ function Logs() {
 
   console.log("This is a test");
   useEffect(() => {
-    axios.get(`${URL}/logs`).then((response) => {
-      console.log(response);
+    const fetchData = async () => {
+      const response = await axios.get(`${URL}/logs`);
       setLogs(response.data);
-    });
+      console.log(response);
+    };
+    // .then((response) => {
+    //   console.log(response);
+    //   setLogs(response.data);
+    // });
+    fetchData();
   }, []);
 
   return (
@@ -20,8 +26,6 @@ function Logs() {
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th>Take me there</th>
               <th>See this log</th>
             </tr>
           </thead>
