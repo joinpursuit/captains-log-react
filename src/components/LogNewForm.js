@@ -35,28 +35,29 @@ function LogNewForm() {
             <div className="form-center">
                 <form onSubmit={handleSubmit}>
                     <div className="form-section">
-                        <label htmlFor="captainName">CAPTAIN'S NAME</label>
+                        <label htmlFor="captainName">Captain's Name</label>
                         <input className="input-text" id="captainName" value={log.captainName} type="text" onChange={handleText} required />
                     </div>
 
                     <div className="form-section">
-                        <label htmlFor="title">TITLE</label>
+                        <label htmlFor="title">Title</label>
                         <input className="input-text" id="title" value={log.title} type="text" onChange={handleText} required />
                     </div>
 
                     <div className="form-section">
-                        <label htmlFor="mistakesWereMadeToday">ANY MISTAKES</label>
-                        <input id="mistakesWereMadeToday" checked={log.mistakesWereMadeToday} type="checkbox" onChange={handleCheckbox} />
+                        <label htmlFor="post">Post</label>
+                        <textarea id="post" value={log.post} onChange={handleText} required></textarea>
                     </div>
 
+
                     <div className="form-section">
-                        <label htmlFor="daysSinceLastCrisis">AMOUNT OF DAYS SINCE LAST CRISIS</label>
+                        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
                         <input className="input-text" id="daysSinceLastCrisis" value={log.daysSinceLastCrisis} type="number" onChange={handleText} required />
                     </div>
 
                     <div className="form-section">
-                        <label htmlFor="post">POST</label>
-                        <textarea id="post" value={log.post} type="text" onChange={handleText} required> </textarea>
+                        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
+                        <input id="mistakesWereMadeToday" checked={log.mistakesWereMadeToday} type="checkbox" onChange={handleCheckbox} />
                     </div>
 
                     <div className="center"><input className="submit-btn" type="submit" /></div>
