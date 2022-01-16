@@ -12,11 +12,11 @@ function App() {
     <>
   <NavBar />
   <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/logs' element={<Logs />} />
-    <Route path='/logs/new' element={<LogNewForm />} />
-    <Route path='/logs/:index' element={<LogDetails />} />
-    <Route path='/logs/:index/edit' element={<LogEditForm />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/logs" element={<Logs />} />
+    <Route path="/logs/new" element={<LogNewForm />} />
+    <Route path="/logs/:index" element={<LogDetails />} />
+    <Route path="/logs/:index/edit" element={<LogEditForm />} />
   </Routes>
   </>
   )

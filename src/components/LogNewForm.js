@@ -38,6 +38,7 @@ function LogNewForm() {
   return (
     <>
       <div className="New">
+        <header>Captain's Log</header>
         <form onSubmit={handleSubmit}>
           <label htmlFor="captainName">Captain's Name</label>
           <input
@@ -64,6 +65,15 @@ function LogNewForm() {
             onChange={handleTextChange}
             placeholder="Post"
           />
+          <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+        <input
+          id="daysSinceLastCrisis"
+          name="daysSinceLastCrisis"
+          type="number"
+          value={logNew.daysSinceLastCrisis}
+          onChange={handleTextChange}
+          placeholder="How many days?"
+        />
           <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
         <input
           id="mistakesWereMadeToday"

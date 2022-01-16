@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Log({ log, index }) {
   return (
-    <tr>
+    <tr className="Log a">
       <td>{log.title}</td>
       <td>{log.captainName}</td>
       <td>

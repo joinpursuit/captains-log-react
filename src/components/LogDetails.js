@@ -19,7 +19,7 @@ function LogDetails() {
   }, []);
 
   const handleDelete = () => {
-    axios.delete(`${URL}/logs/${index}`).then(() => navigate(`/logs`));
+    axios.delete(`${URL}/logs/${index}`).then(() => navigate('/logs'));
   };
 
   return (
