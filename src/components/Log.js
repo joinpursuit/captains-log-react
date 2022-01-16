@@ -11,9 +11,9 @@ function Log({ log, index }) {
         )}
       </td>
       <td>
-        <a href={`/logs/${index}`} rel="noreferrer">
+        <div>
           {log.captainName}
-        </a>
+        </div>
       </td>
       <td>
         <a href={`/logs/${index}`} rel="noreferrer">
