@@ -1,4 +1,4 @@
-import Logs from "./Logs";
+import Logs from "../Components/Logs";
 
 function Index() {
   return (
