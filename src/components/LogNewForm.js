@@ -13,6 +13,14 @@ function LogNewForm() {
 
     const navigate = useNavigate();
 
+    const handleTextChange = (event) => {
+        setLog({ ...log, [event.target.id]: event.target.value});
+    }
+
+    const handleCheckboxChange = () => {
+        setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
+    }
+
 
     return (
         <div className="New">
@@ -23,7 +31,7 @@ function LogNewForm() {
                     id="captainName"
                     value={log.captainName}
                     type="text"
-                    // onChange={handleTextChange}
+                    onChange={handleTextChange}
                     placeholder="Name of Captain"
                     required              
                 />
@@ -32,7 +40,7 @@ function LogNewForm() {
                     id="title"
                     value={log.title}
                     type="text"
-                    // onChange={handleTextChange}
+                    onChange={handleTextChange}
                     placeholder="Name of Title"               
                 />
                 <label htmlFor="post">Post:</label>
@@ -40,14 +48,14 @@ function LogNewForm() {
                     id="post"
                     value={log.post}
                     type="text"
-                    // onChange={handleTextChange}
+                    onChange={handleTextChange}
                     placeholder="Name of Post"           
                 />
                 <label htmlFor="mistakesWereMadeToday">Mistakes Were Made Today?</label>
                 <input
                     id="mistakesWereMadeToday"
                     type="checkbox"
-                    // onChange={handleCheckboxChange}
+                    onChange={handleCheckboxChange}
                     checked={log.mistakesWereMadeToday}
                 />
                 <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
@@ -55,7 +63,7 @@ function LogNewForm() {
                     id="daysSinceLastCrisis"
                     value={log.daysSinceLastCrisis}
                     type="text"
-                    // onChange={handleTextChange}
+                    onChange={handleTextChange}
                     placeholder="Days Since Last Crisis"           
                 />
                 <input type="submit" />
