@@ -25,10 +25,14 @@ function LogDetails() {
 
   return (
     <>
+    <div className="showContainer">
       <p>{log.mistakesWereMadeToday ? <span>💥</span> : null}</p>
+      <pre/>
       <p> {log.title} - By {log.captainName}</p>
+      <pre/>
       <p>{log.post}</p>
       <p> Days since last crisis: {log.daysSinceLastCrisis}</p>
+    </div>
       <div className="navigation">
         <div>
           {" "}

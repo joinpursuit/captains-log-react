@@ -1,19 +1,17 @@
 .nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
+  padding: 10px;
   margin: 8px;
-  background-color: bisque;
+  background-color: rgb(12, 21, 89);
 }
 
 .nav button {
+  float: right;  
   padding: 12px 8px 12px 8px;
   margin: auto;
-  background-color: bisque;
+  background-color:rgb(12, 21, 89) ;
   box-shadow: 2px black;
-  color: rgb(31, 31, 31);
-  font-size: 28px;
+  color: rgb(28, 28, 27);
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -22,6 +20,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-a {
+.nav a {
+  color: rgb(249, 225, 195);  
   text-decoration: none;
 }

@@ -3,7 +3,7 @@ import Logs from "../Components/Logs";
 export default function Index() {
   return (
     <div className="index">
-      <h4>Index</h4>
+      <h3>Index</h3>
       <Logs />
     </div>
   );

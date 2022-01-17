@@ -2,11 +2,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-h4 {
+h3 {
   display: flex;
-  justify-content: space-around;
+  margin-left: 12px;
 }
 
 table {
@@ -48,4 +49,54 @@ input[type="submit"] {
   display: flex;
   justify-content: space-around;
   width: 50%;
+}
+
+.navigation button {
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 8px 12px 8px;
+    margin: auto;
+    background-color: rgb(247, 241, 234);
+    box-shadow: 2px black;
+    color: rgb(43, 43, 42);
+    font-family: "Courier New", Courier, monospace;
+}
+
+button {
+  background-color: rgb(247, 241, 234);
+    box-shadow: 2px black;
+    color: rgb(43, 43, 42);
+    font-family: "Courier New", Courier, monospace;
+    margin: 20px;
+}
+
+.showContainer {
+  background-color: rgb(213, 232, 240);
+  justify-content: space-between;
+  border: 2px solid rgb(164, 163, 163);
+  box-shadow: 2px black;
+  padding: 12px 8px 12px 8px;
+  margin: 12px 8px 12px 8px;
+}
+
+table {
+  background-color: rgb(196, 234, 245);
+  border: 2px solid rgb(164, 163, 163);
+  box-shadow: 2px black;
+  width: 75%;
+  border-collapse: collapse;
+}
+
+tr { 
+  border: solid rgb(186, 186, 186);
+  border-width: .25px ;
+}
+
+tr:nth-child(even) {
+    background-color: #fadede;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

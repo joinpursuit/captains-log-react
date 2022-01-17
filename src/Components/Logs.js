@@ -16,7 +16,7 @@ function Logs() {
   }, []);
 
   return (
-    <div className="Logs">
+    <div className="logs">
       <table>
         <tr>
           <th>Mistakes</th>
