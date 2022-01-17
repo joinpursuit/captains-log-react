@@ -5,7 +5,8 @@ body {
 }
 nav {
   background: #6faed8;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
@@ -28,7 +29,7 @@ button{
   box-shadow: 2px 2px 4px purple;
   display: inline-block;
   height: 38px;
-  width: 120px;
+  width: 150px;
   padding: 0px 10px;
   color: rgb(1, 0, 88);
   text-align: center;
@@ -44,6 +45,7 @@ button{
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box;
+  margin:auto;
 }
 button:hover{
   background-color: rgb(157, 189, 204);
