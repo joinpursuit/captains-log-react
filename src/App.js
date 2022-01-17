@@ -18,7 +18,7 @@ function App() {
             <Route path="/logs" element={<AllLogs />} />
             <Route path="/logs/new" element={<NewLogForm />} />
             <Route path="/logs/:index" element={<ShowIndexedLog />} />
-            <Route path="/logs/edit" element={<EditLog />} />
+            <Route path="/logs/:index/edit" element={<EditLog />} />
             <Route path="*" element={<ErrorMsg />} />
           </Routes>
         </main>

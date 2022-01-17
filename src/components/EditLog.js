@@ -11,34 +11,38 @@ function EditLog(){
         captainName: "",
         title: "",
         post: "",
-        mistakesWereMadeToday: false,
-        daysSinceLastCrisis: 0
+        mistakesWereMadeToday: true,
+        daysSinceLastCrisis: ""
     });
 
-    const handleInputChange = (event)=>{
-        setlog({...log, [event.target.id]: event.target.value})
+    const handleInputChange = (e)=>{
+        setlog({...log, [e.target.id]: e.target.value})
+        console.log(log)
     };
     const handleCheckboxChange = () =>{
         setlog({...log, mistakesWereMadeToday: !log.mistakesWereMadeToday })
     }
-    // useEffect(()=>{
-    //     axios.get(`${API}/logs/${index}`)
-    //     .then((res)=>{
-    //         setlog(res.data)
-    //     }).catch((err)=>{
-    //         navigate("*")
-    //     })
-    // }, [index,navigate]);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.put(`${API}/logs/${index}`, log)
+    useEffect(()=>{
+        axios.get(`${API}/logs/${index}`)
         .then((res)=>{
+            setlog(res.data)
+        }).catch((err)=>{
+            navigate("*")
+        })
+    }, [index,navigate]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.put(`${API}/logs/${index}`,log)
+        .then((res)=>{
+            setlog(res.data)
             navigate("/logs")
         }).catch((err)=>{
             navigate("*")
         })
     };
+    console.log(log)
 console.log(index)
     return(
         <div className="Edit">
@@ -88,7 +92,7 @@ console.log(index)
                 />
                 <input type = "submit" />
             </form>
-            {/* <Link to={`/logs/${index}`}><button>Cancel</button></Link> */}
+            <Link to={`/logs/${index}`}><button>Cancel</button></Link>
         </div>
     )
 }

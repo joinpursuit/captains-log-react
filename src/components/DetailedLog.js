@@ -39,7 +39,7 @@ const handleDelete =()=>{
             <p>{indexedlog.post}</p>
 
             <Link to={`/logs`}><button>Back</button></Link>
-            <Link to={`/logs/edit`}><button>Edit</button></Link>
+            <Link to={`/logs/${index}/edit`}><button>Edit</button></Link>
             <button onClick={handleDelete}>Delete</button>
         </div>
     )
