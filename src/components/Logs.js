@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Log from "./Log";
+import "./Logs.css";
 const Logs = () => {
-  const [logs, setLogs] = useCallback([]);
+  const [logs, setLogs] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/logs`)
@@ -14,7 +15,7 @@ const Logs = () => {
       <div className="logs-header">
         <span>Mistakes</span>
         <span>Captain Name</span>
-        <span>Title</span>
+        <span>See this log</span>
       </div>
       {logs.map((log, i) => (
         <Log key={"log" + i} id={i} log={log} />

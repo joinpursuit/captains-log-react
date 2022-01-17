@@ -1,0 +1,8 @@
+.logs-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.logs {
+  display: grid;
+  grid-template-columns: 1fr;
+}

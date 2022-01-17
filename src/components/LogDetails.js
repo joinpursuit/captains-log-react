@@ -1,9 +1,11 @@
-import { useNavigate, useParams, Link } from "react-router-dom";
-import { useEffect, useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import "./LogDetails.css";
 
 const LogDetails = () => {
-  const [log, setLog] = useCallback({});
+  const [log, setLog] = useState({});
+  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     axios
@@ -11,38 +13,43 @@ const LogDetails = () => {
       .then((response) => setLog(response.data))
       .catch((e) => console.log(e));
   }, [id]);
+
+  const handleDelete = () => {
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/logs/${id}`)
+      .then(() => navigate("/logs"))
+      .catch(() => navigate("/not_found"));
+  };
+  const handleBack = () => {
+    navigate("/logs");
+  };
+  const handleEdit = () => {
+    navigate(`/logs/${id}/edit`);
+  };
+
   const {
     captainName,
     title,
     post,
     mistakesWereMadeToday,
-    daysSinceLastCrisis,
+    //daysSinceLastCrisis,
   } = log;
   return (
-    <section>
-      <h3>
-        {title}- by {captainName}
-      </h3>
-      <div>{post}</div>
-      <div>{mistakesWereMadeToday}</div>
-      <button>Back</button>
-      <button>Delete</button>
+    <section className="log-details">
+      <div className="log-details-head">
+        <h3>
+          {title}- by {captainName}
+        </h3>
+        <div>{post}</div>
+        <div>{`Days since last crisis: ${mistakesWereMadeToday}`}</div>
+      </div>
+      <div className="log-details-buttons">
+        <button onClick={handleBack}>Back</button>
+        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
     </section>
   );
 };
 
 export default LogDetails;
-
-/*
-
-/logs/:index
-Displays the details of each log
-captainName
-title
-post
-mistakesWereMadeToday
-daysSinceLastCrisis
-Displays two buttons
-back, takes the user back to the /logs view
-delete, deletes the log and takes the user back to the /logs view
-**/

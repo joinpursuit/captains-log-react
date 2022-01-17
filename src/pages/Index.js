@@ -8,3 +8,5 @@ const Index = () => {
     </section>
   );
 };
+
+export default Index;
