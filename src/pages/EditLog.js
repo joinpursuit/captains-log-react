@@ -38,6 +38,7 @@ function EditLog() {
 
   return (
     <div className="edit">
+      <h1>Edit</h1>
       <form onSubmit={handleSubmit}>
         <label for="captainName">
           Captain's Name:
@@ -67,14 +68,14 @@ function EditLog() {
           Post
           <br />
         </label>
-        <input
-          type="text"
+        <textarea
+          //   type="textarea"
           name="post"
           id="post"
           value={log.post}
           onChange={handleChange}
           placeholder="What Happened Today?"
-        ></input>
+        ></textarea>
         <label for="daysSinceLastCrisis">
           <br />
           Days Since Last Crisis

@@ -60,13 +60,13 @@ function NewLog() {
           Post
           <br />
         </label>
-        <input
-          type="text"
+        <textarea
+          // type="textarea"
           name="post"
           id="post"
           onChange={handleChange}
           placeholder="What Happened Today?"
-        ></input>
+        ></textarea>
         <label for="daysSinceLastCrisis">
           <br />
           Days Since Last Crisis

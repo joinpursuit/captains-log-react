@@ -7,9 +7,9 @@ function Log({ log, index }) {
       <td>
         <Link to={`/logs/${index}`}>{log.title}</Link>
       </td>
-      <td>
+      {/* <td>
         <Link to={`/logs/${index}/edit`}>Edit</Link>
-      </td>
+      </td> */}
     </tr>
   );
 }

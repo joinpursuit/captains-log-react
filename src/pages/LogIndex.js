@@ -40,9 +40,15 @@ function LogIndex() {
           {log.daysSinceLastCrisis}
         </p>
       </container>
-      <button onClick={backButton}>Back</button>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
+      <button onClick={backButton} name="Back">
+        Back
+      </button>
+      <button onClick={handleDelete} name="Delete">
+        {`Delete`}
+      </button>
+      <button onClick={handleEdit} name="Edit">
+        Edit
+      </button>
     </div>
   );
 }
