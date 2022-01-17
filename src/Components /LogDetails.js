@@ -39,18 +39,18 @@ function LogDetails() {
 			</h1>
 			<div>{log.post}</div>
 			<div> Days since last crisis: {log.daysSinceLastCrisis}</div>
-			<div>
-				<Link to={`/logs/${index}/edit`}>
-					<button>Edit</button>
-				</Link>
-			</div>
+			<Link to={`/logs`}>
+				<button>Back</button>
+			</Link>
+			<br />
+			<Link to={`/logs/${index}/edit`}>
+				<button>Edit</button>
+			</Link>
+			<br />
 			<div>
 				<button onClick={handleDelete}>Delete</button>
 			</div>
 		</div>
 	);
 }
-
-// "Courage - By Picard"
-// "Days since last crisis: 100"
 export default LogDetails;

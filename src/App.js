@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 import New from "./Pages/New";
+import FourOFour from "./Pages/FourOfFour";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					<Route path="/logs/:index" element={<Show />} />
 					<Route path="/logs/:index/edit" element={<Edit />} />
 					<Route path="logs/new" element={<New />} />
+					<Route path="*" element={<FourOFour />} />
 				</Routes>
 			</Router>
 		</div>
