@@ -21,9 +21,9 @@ function EditLog() {
 
   // Mostly same as New log
   const handleChange = (event) => {
-    event.target.id === "daysSinceLastCrisis"
-      ? setLog({ ...log, [event.target.id]: Number(event.target.value) })
-      : setLog({ ...log, [event.target.id]: event.target.value });
+    // event.target.id === "daysSinceLastCrisis" ? setLog({ ...log, [event.target.id]: Number(event.target.value) })
+    //     :
+    setLog({ ...log, [event.target.id]: event.target.value });
   };
 
   const handleCheckbox = (event) => {

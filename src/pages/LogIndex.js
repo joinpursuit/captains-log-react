@@ -29,7 +29,7 @@ function LogIndex() {
   };
 
   return (
-    <div>
+    <div className="Log">
       <h1>Show</h1>
       <container>
         <h2>
