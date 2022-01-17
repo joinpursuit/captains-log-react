@@ -15,14 +15,14 @@ const LogsList = () => {
   const allListItems = logs.map((e, i) => <Log item={e} index={i} />);
 
   return (
-    <div className="LogsList">
-      <div className="heading">
-        <h4>Mistakes</h4>
-        <h4>Captain's Name</h4>
-        <h4>See this Log</h4>
-      </div>
+    <table className="LogsList">
+      <tr className="heading">
+        <th>Mistakes</th>
+        <th>Captain's Name</th>
+        <th>See this Log</th>
+      </tr>
       {allListItems}
-    </div>
+    </table>
   );
 };
 

@@ -6,6 +6,12 @@ const SingleButton = ({ buttonData }) => {
   const { index } = useParams();
   const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
+  const linkURL =
+    buttonData === 'Edit'
+      ? '/logs/' + index + '/edit'
+      : buttonData === 'Back'
+      ? '/logs'
+      : '';
 
   const handleBack = () => {
     navigate('/logs');
@@ -23,30 +29,34 @@ const SingleButton = ({ buttonData }) => {
     navigate('/logs');
   };
 
-  return (
-    <button
-      className="SingleButton"
-      onClick={
-        buttonData === 'Back'
-          ? handleBack
-          : buttonData === 'Edit'
-          ? handleEdit
-          : handleDelete
-      }
-    >
-      <a
-        href={
-          buttonData === 'Edit'
-            ? '/logs/' + index + '/edit'
-            : buttonData === 'Back'
-            ? '/logs'
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const resultButton =
+    buttonData === 'Submit' ? (
+      <button type="submit" className="SingleButton">
+        Submit
+      </button>
+    ) : (
+      <button
+        className="SingleButton"
+        type={buttonData === 'Submit' ? 'submit' : 'button'}
+        onClick={
+          buttonData === 'Back'
+            ? handleBack
+            : buttonData === 'Edit'
+            ? handleEdit
+            : buttonData === 'Delete'
+            ? handleDelete
             : ''
         }
       >
-        {buttonData}
-      </a>
-    </button>
-  );
+        <a href={linkURL}>{buttonData}</a>
+      </button>
+    );
+
+  return resultButton;
 };
 
 export default SingleButton;

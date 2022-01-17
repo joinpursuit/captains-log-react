@@ -14,7 +14,7 @@
   box-sizing: content-box;
   padding: 15px 0px;
 }
-.LogsList .heading h4 {
+.LogsList .heading th {
   margin: 0;
   font-weight: bolder;
   font-size: 20px;

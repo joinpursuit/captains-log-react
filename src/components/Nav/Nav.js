@@ -8,9 +8,9 @@ const Nav = () => {
           <h1>Captain's Log</h1>
         </Link>
       </div>
-      <div className="newLink">
+      <button className="newLink">
         <Link to="./logs/new">New Log</Link>
-      </div>
+      </button>
     </div>
   );
 };

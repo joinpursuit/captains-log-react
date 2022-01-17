@@ -1,8 +1,8 @@
 import './Buttons.css';
 import SingleButton from '../SingleButton/SingleButton';
 
-const Buttons = () => {
-  const buttonsNeeded = ['Back', 'Edit', 'Delete'];
+const Buttons = (props) => {
+  const buttonsNeeded = props.buttonsNeeded || ['Back', 'Edit', 'Delete'];
   const allButtons = buttonsNeeded.map((button) => (
     <SingleButton buttonData={button} />
   ));

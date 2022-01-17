@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 const Log = (props) => {
   const { mistakesWereMadeToday, captainName, title } = props.item;
   const { index } = props;
+  const pink = index % 2 ? true : false;
   return (
-    <div className="Log">
-      <td>{mistakesWereMadeToday ? 'Yes' : 'No'}</td>
+    <tr className={'Log' + (pink ? ' pink' : '')}>
+      <td>{mistakesWereMadeToday ? '💥' : ' '}</td>
       <td>{captainName}</td>
       <td>
         <Link to={'/logs/' + index}>{title}</Link>
       </td>
-    </div>
+    </tr>
   );
 };
 
