@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Log from "./Log";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -13,20 +14,19 @@ function Logs() {
 			.then((data) => {
 				// adding the data from the api to a state ..
 				setLogs(data);
-				console.log(data);
 			})
 			.catch((err) => {
 				return err;
 			});
 	}, []);
-	const toTheIndex = () => {
-		console.log("it is being clicked");
-	};
 
-	let mappingOver = logs.map((each) => {
-		return <div onClick={toTheIndex}>{each.title}</div>;
-	});
-	return <div>{mappingOver}</div>;
+	return (
+		<div>
+			{logs.map((log, index) => {
+				return <Log key={index} log={log} index={index} />;
+			})}
+		</div>
+	);
 }
 
 export default Logs;
