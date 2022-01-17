@@ -15,10 +15,12 @@ function Log() {
 
 
 const logFile = logs.map((eachLog, index) => {
-    return <li key={index} index={index}>
-    <Link to={`/logs/${index}`}>Captain Name:{eachLog.captainName}</Link>
+    return <td key={index} index={index} className='Log'>
+        
+    <p>Captain Name:{eachLog.captainName}</p>
+    <a href={`/logs/${index}`}>Post Title:{eachLog.title}</a>
     <p>Post Title:{eachLog.title}</p> 
-    <p>Post:{eachLog.post}</p></li>;
+    <p>Post:{eachLog.post}</p></td>;
 })
 
 return (

@@ -15,7 +15,6 @@ useEffect(() => {
 //use setbookmarks to update the data we're getting
 axios.get(`${URL}/logs/${index}`)
 .then((response) => {
-    console.log(response.data)
     setLog(response.data)
     })    
 }, []);
@@ -31,9 +30,14 @@ axios.delete(`${URL}/logs/${index}`)
 
 return (
 <article>
-    
-    <h6>{log.captainName}</h6>
-    <p>{log.description}</p>
+<h6>Captain's Log</h6>
+<h6>Show</h6>
+    <h6>{log.title} - By {log.captainName}</h6>
+    <p>Post: {log.post}</p>
+    <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
+
+
+
     <div className="showNavigation">
     <div>
         {" "}
@@ -43,7 +47,7 @@ return (
     </div>
     <div>
         {" "}
-        <Link to={`/logd/${index}/edit`}>
+        <Link to={`/logs/${index}/edit`}>
         <button>Edit</button>
         </Link>
     </div>

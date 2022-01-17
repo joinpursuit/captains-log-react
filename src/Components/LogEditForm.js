@@ -1,37 +1,60 @@
-import { useState } from "react";
-import { useNavigate, } from "react-router-dom";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
-
-function CaptainsLogNewForm() {
-const navigate = useNavigate();
-const URL = process.env.REACT_APP_API_URL;;
+function LogEditForm() {
+let { index } = useParams();
+const navigate = useNavigate()
 
 const [log, setLog] = useState({
-    captainName: "",
-    title: "",
-    post: "",
-    mistakesWereMadeToday: false,
-    daysSinceLastCrisis:0,
+captainName: "",
+title: "",
+post: "",
+mistakesWereMadeToday: false,
+daysSinceLastCrisis: 0,
 });
-
+//call setBookmark with the bookmark we are currently at
+//make an api call to the back end, using the index from router
+// and then we are going to call set bookmark with the bookmark the call returns
 const handleTextChange = (event) => {
-setLog({ ...log, [event.target.id]: event.target.value});
+setLog({ ...log, [event.target.id]: event.target.value });
 };
 
 const handleCheckboxChange = () => {
-setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday});
+setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
 };
+const URL = process.env.REACT_APP_API_URL;
+
+useEffect(() => {
+axios.get(`${URL}/logs/${index}`)
+.then((response)=> {
+    setLog({
+    captainName: response.data.captainName,
+    title: response.data.title,
+    post: response.data.post,
+    mistakesWereMadeToday:response.data.mistakesWereMadeToday,
+    daysSinceLastCrisis: response.data.daysSinceLastCrisis,
+    })
+})
+}, [URL]);
 
 const handleSubmit = (event) => {
 event.preventDefault();
-axios.post(`${URL}/logs`,log)
-.then(()=> navigate (`/logs`))
-};
-return (
-<div className="New">
-    <form onSubmit={handleSubmit}>
+//make a put request
+//we will update one resources,we should go to the resource's detail page
+//if we see the updated information, that would the element in that index is rendered
+axios
+.put(`${URL}/logs/${index}`,log)
+.then(()=> navigate (`${URL}/logs/${index}`)
+// .then(()=> navigate(`/logs/${index}`)
+)
 
+};
+
+
+return (
+<div className="Edit">
+    <form onSubmit={handleSubmit}>
     <label htmlFor="name">Captain's Name:</label>
     <input
         id="captainName"
@@ -78,12 +101,14 @@ return (
         placeholder="Please enter days since last"
         onChange={handleTextChange}
     />
-    
     <br />
     <input type="submit" />
     </form>
+    <a href= {`/logs/${index}`}>
+    <button>Back</button>
+    </a>
 </div>
 );
 }
 
-export default CaptainsLogNewForm;
+export default LogEditForm;

@@ -5,6 +5,7 @@ import Logs from './Pages/Index';
 import FormPage from './Pages/New'
 import Home from './Pages/Home'
 import Show from './Pages/Show'
+import Edit from './Pages/Edit'
 
 //Components
 import NavBar from "./Components/NavBar";
@@ -20,8 +21,7 @@ function App() {
             <Route path="/logs" element={<Logs />} />
             <Route path='/logs/new' element={<FormPage />} />
             <Route path="/logs/:index" element={<Show />} />
-
-
+            <Route path="/logs/:index/edit" element={<Edit />} />
         </Routes>
         </main>
       </Router>

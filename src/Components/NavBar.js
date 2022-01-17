@@ -10,7 +10,7 @@ return (
     <Link to="/logs">Captain Log</Link>
     </button>
     <button>
-    <Link to="/logs/new">Form</Link>
+    <a href="/logs/new">New Log</a>
     </button>
 </nav>
 );
