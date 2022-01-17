@@ -27,9 +27,7 @@ function LogDetails() {
     <>
     <div className="showContainer">
       <p>{log.mistakesWereMadeToday ? <span>💥</span> : null}</p>
-      <pre/>
-      <p> {log.title} - By {log.captainName}</p>
-      <pre/>
+      <h4> {log.title} - By {log.captainName}</h4>
       <p>{log.post}</p>
       <p> Days since last crisis: {log.daysSinceLastCrisis}</p>
     </div>
