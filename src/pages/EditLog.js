@@ -1,38 +1,43 @@
-import "./NewLog.css";
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-function NewLog() {
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
+function EditLog() {
+  const { index } = useParams();
+  const URL = `http://localhost:3003/logs/${index}`;
   const navigate = useNavigate();
-  const URL = `http://localhost:3003/logs/`;
   const [log, setLog] = useState({
     captainName: "",
     title: "",
     post: "",
-    mistakesWereMadeToday: false,
+    mistakesWereMadeToday: true,
     daysSinceLastCrisis: "",
   });
 
+  useEffect(() => {
+    console.log("made it to edit page");
+    axios.get(URL).then((response) => setLog(response.data));
+  }, []);
+
+  // Mostly same as New log
   const handleChange = (event) => {
     event.target.id === "daysSinceLastCrisis"
       ? setLog({ ...log, [event.target.id]: Number(event.target.value) })
       : setLog({ ...log, [event.target.id]: event.target.value });
-
-    // console.log(log);
   };
 
   const handleCheckbox = (event) => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
+  // axios put instead of post
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(URL, log).then(() => navigate("/logs"));
+    axios.put(URL, log).then(() => navigate(`/logs/${index}`));
   };
 
   return (
-    <div className="newLog">
-      <h1>New</h1>
+    <div className="edit">
       <form onSubmit={handleSubmit}>
         <label for="captainName">
           Captain's Name:
@@ -42,6 +47,7 @@ function NewLog() {
           type="text"
           name="captainName"
           id="captainName"
+          value={log.captainName}
           onChange={handleChange}
         ></input>
         <label for="title">
@@ -53,6 +59,7 @@ function NewLog() {
           type="text"
           name="title"
           id="title"
+          value={log.title}
           onChange={handleChange}
         ></input>
         <label for="post">
@@ -64,6 +71,7 @@ function NewLog() {
           type="text"
           name="post"
           id="post"
+          value={log.post}
           onChange={handleChange}
           placeholder="What Happened Today?"
         ></input>
@@ -76,6 +84,7 @@ function NewLog() {
           type="number"
           name="daysSinceLastCrisis"
           id="daysSinceLastCrisis"
+          value={log.daysSinceLastCrisis}
           onChange={handleChange}
         ></input>
         <label for="mistakesWereMadeToday">
@@ -87,6 +96,7 @@ function NewLog() {
           type="checkbox"
           name="mistakesWereMadeToday"
           id="mistakesWereMadeToday"
+          value={log.mistakesWereMadeToday}
           onChange={handleCheckbox}
         ></input>
         <br />
@@ -95,4 +105,5 @@ function NewLog() {
     </div>
   );
 }
-export default NewLog;
+
+export default EditLog;

@@ -13,15 +13,18 @@ function LogIndex() {
     });
   }, []);
 
-  //declaring useNavigate, axios request to delete
+  // declaring useNavigate & axios request to delete
   const navigate = useNavigate();
   const handleDelete = () => {
     axios.delete(URL).then(() => navigate("/logs"));
   };
 
-  // Just navigating back to logs
+  // navigating back to logs, some reason Link is importing on this file
   const backButton = () => {
     navigate("/logs");
+  };
+  const handleEdit = () => {
+    navigate(`/logs/${params.index}/edit`);
   };
 
   return (
@@ -39,7 +42,7 @@ function LogIndex() {
       </container>
       <button onClick={backButton}>Back</button>
       <button onClick={handleDelete}>Delete</button>
-      <button></button>
+      <button onClick={handleEdit}>Edit</button>
     </div>
   );
 }
