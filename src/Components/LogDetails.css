@@ -1,0 +1,9 @@
+.Log {
+  border: solid 3px black;
+  margin-left: 35%;
+  margin-top: 10%;
+  width: 20%;
+  background-color: honeydew;
+  padding: 5%;
+  border-radius: 10%;
+}

@@ -1,0 +1,14 @@
+.New {
+  border: solid 3px black;
+  margin-left: 30%;
+  margin-top: 5%;
+  width: 30%;
+  background-color: honeydew;
+  padding: 5%;
+  border-radius: 10%;
+}
+
+.New h1,
+.New form {
+  margin-left: 20%;
+}

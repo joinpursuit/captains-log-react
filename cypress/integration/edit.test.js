@@ -57,9 +57,7 @@ describe("Edit Page", () => {
         }).as("editLog");
         cy.get("form").submit();
         cy.wait("@editLog");
-        console.warn(
-          "Note, you will NOT see this new log because we mocked the functionality"
-        );
+        console.warn("Note, you will NOT see this new log because we mocked the functionality");
         // go back to index to see the edit as well
         cy.visit(`${URL}/logs`);
       } else {
