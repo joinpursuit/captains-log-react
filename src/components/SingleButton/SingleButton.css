@@ -1,14 +1,28 @@
 .SingleButton {
-    border: 0.5px solid rgb(95, 95, 95);
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0);
-    width: 100px;
-    height: 50px;
-  }
-  .SingleButton:hover {
-    cursor: pointer;
-  }
-  
-  .SingleButton {
-    color: salmon;
-  }
+  border: 0.5px solid rgb(95, 95, 95);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100px;
+  height: 50px;
+  color: salmon;
+}
+.SingleButton:hover {
+  cursor: pointer;
+}
+
+.SingleButton a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SingleButton a,
+.SingleButton a:visited,
+.SingleButton a:active,
+.SingleButton a:hover {
+  text-decoration: none;
+  color: salmon;
+  margin: auto;
+}

@@ -5,7 +5,6 @@
   border-radius: 25px;
   box-shadow: 5px 12px 20px black;
   padding: 10px 50px;
-  background-color: rgb(140, 141, 138);
 }
 .LogsList .heading {
   display: flex;
@@ -15,7 +14,7 @@
   box-sizing: content-box;
   padding: 15px 0px;
 }
-.LogsList .heading h4 {
+.LogsList .heading th {
   margin: 0;
   font-weight: bolder;
   font-size: 20px;

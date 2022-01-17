@@ -1,3 +1,28 @@
 .LogForm {
-    background-color: blueviolet;
-  }
+  background-color: rgb(237, 250, 252);
+  width: 75%;
+  margin: 25px auto 40px;
+  border-radius: 25px;
+  box-shadow: 5px 12px 20px black;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.LogForm input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.LogForm textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.LogForm #mistakesWereMadeToday {
+  height: 20px;
+  width: 10px;
+}
