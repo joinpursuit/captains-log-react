@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import LogIndex from "./components/LogIndex";
-import Logs from "./components/logs";
+import Home from "./pages/Home";
+import LogIndex from "./pages/LogIndex";
+import Logs from "./pages/logs";
 import Nav from "./components/Nav";
-import NewLog from "./components/NewLog";
+import NewLog from "./pages/NewLog";
 
 function App() {
   return (

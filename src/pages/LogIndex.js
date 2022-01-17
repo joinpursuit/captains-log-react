@@ -25,8 +25,8 @@ function LogIndex() {
           {log.daysSinceLastCrisis}
         </p>
       </container>
-      <button></button>
-      <button></button>
+      <button>Back</button>
+      <button>Delete</button>
       <button></button>
     </div>
   );
