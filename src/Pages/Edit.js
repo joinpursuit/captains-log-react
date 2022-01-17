@@ -1,3 +1,5 @@
+import LogEditForm from "../components/LogEditForm";
+
 function Edit() {
     return (
       <div className="Edit">
@@ -5,7 +7,7 @@ function Edit() {
             This page will point to: LogsEdit component. 
             This is an edit form pre-filled with the info of an individual log to edit.
         </h2>
-        {/* <LogsEdit /> */}
+        <LogEditForm />
       </div>
     );
   }
