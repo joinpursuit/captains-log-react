@@ -3,3 +3,49 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h4 {
+  display: flex;
+  justify-content: space-around;
+}
+
+table {
+  width: 50%;
+  margin: auto;
+}
+
+td {
+  text-align: center;
+}
+
+form {
+  margin: auto;
+  width: 95%;
+}
+
+.Show {
+  margin: auto;
+  width: 95%;
+}
+
+input[type],
+textarea {
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  width: 15%;
+}
+
+input[type="submit"] {
+  width: 30%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
