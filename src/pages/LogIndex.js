@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function LogIndex() {
@@ -40,15 +41,13 @@ function LogIndex() {
           {log.daysSinceLastCrisis}
         </p>
       </container>
-      <button onClick={backButton} name="Back">
-        Back
-      </button>
-      <button onClick={handleDelete} name="Delete">
-        {`Delete`}
-      </button>
-      <button onClick={handleEdit} name="Edit">
-        Edit
-      </button>
+      <Link to={"/logs"}>
+        <button>Back</button>
+      </Link>
+      <Link to={`/logs/${params.index}/edit`}>
+        <button>Edit</button>
+      </Link>
+      <button onClick={handleDelete}>{`Delete`}</button>
     </div>
   );
 }
