@@ -1,47 +1,52 @@
 import {useState, useEffect} from "react";
 import ShowLogs from "./ShowLogs";
+import axios from "axios"
 const API = process.env.REACT_APP_API_URL;
-// path /logs - list of all the logs rendered on this page
-// display list of titles , onclick to /log/:index
-
-// user can click on one log and see more details.
-// re route to to /logs/:index ? 
 
 function AllLogs(){
     const [allLogs, setallLogs] = useState([]);
 
     useEffect(()=>{
 
-        // axios.get(`http://localhost:8888/logs`)
-        // .then((res)=>{
-        //     console.log(res)
-        //     setallLogs(res.data)
-        // }).catch((err)=>{
-        //     throw err;
-        // });
-        fetch(`${API}/logs`)
-        .then((res)=>res.json())
-        .then((data)=>{
-          setallLogs(data)
+        axios.get(`${API}/logs`)
+        .then((res)=>{
+            console.log(res)
+            setallLogs(res.data)
         }).catch((err)=>{
-          throw err;
+            throw err;
         });
+        // fetch(`${API}/logs`)
+        // .then((res)=>res.json())
+        // .then((data)=>{
+        //   setallLogs(data)
+        // }).catch((err)=>{
+        //   throw err;
+        // });
   
     },[])
 
     console.log(allLogs)
     let fetched = allLogs.map((log, index)=>{
         return (
-            <div>
+            <tbody className="Log">
                 <ShowLogs key={index} log={log} index={index} />
-            </div>
+            </tbody>
         )
     })
     return(
-        <div>
+        <section>
             <h1>Welcome to the Logs Page</h1>
-            <div>{fetched}</div>
-        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mistakes</th>
+                        <th>Captain Name</th>
+                        <th>Show Page</th>
+                    </tr>
+                </thead>
+                {fetched}
+            </table>
+        </section>
     )
 }
 

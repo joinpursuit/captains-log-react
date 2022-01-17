@@ -32,15 +32,15 @@ const handleDelete =()=>{
 
     return(
         <div>
-            <h2>Captain's Name: {indexedlog.captainName}</h2>
-            <h3>Title: {indexedlog.title}</h3>
+            
+            <h2>Captain's Log: {indexedlog.captainName}</h2>
+            <h3>Show: {indexedlog.title}</h3>
             <h4>Mistakes were made? {indexedlog.mistakesWereMadeToday}</h4>
-            <h4>Days since last crisis? {indexedlog.daysSinceLastCrisis}</h4>
+            <h4>Days since last crisis: {indexedlog.daysSinceLastCrisis}</h4>
             <p>{indexedlog.post}</p>
-
             <Link to={`/logs`}><button>Back</button></Link>
             <Link to={`/logs/${index}/edit`}><button>Edit</button></Link>
-            <button onClick={handleDelete}>Delete</button>
+            <Link to={`/logs`}><button onClick={handleDelete}>Delete</button></Link>
         </div>
     )
 }

@@ -12,12 +12,11 @@ function EditLog(){
         title: "",
         post: "",
         mistakesWereMadeToday: true,
-        daysSinceLastCrisis: ""
+        daysSinceLastCrisis: 0
     });
 
     const handleInputChange = (e)=>{
         setlog({...log, [e.target.id]: e.target.value})
-        console.log(log)
     };
     const handleCheckboxChange = () =>{
         setlog({...log, mistakesWereMadeToday: !log.mistakesWereMadeToday })
@@ -36,16 +35,14 @@ function EditLog(){
 
         axios.put(`${API}/logs/${index}`,log)
         .then((res)=>{
-            setlog(res.data)
-            navigate("/logs")
+            navigate(`/logs/${index}`)
         }).catch((err)=>{
             navigate("*")
         })
     };
-    console.log(log)
-console.log(index)
     return(
-        <div className="Edit">
+        <div className="New">
+            <h2>Edit</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="captainName">Captain's Name: </label>
                 <input
@@ -67,7 +64,7 @@ console.log(index)
                 required
                 />
                 <label htmlFor="post">Post:</label>
-                <input
+                <textarea
                 id="post"
                 type="text"
                 name="post"
@@ -75,24 +72,27 @@ console.log(index)
                 placeholder="Notable quote"
                 onChange={handleInputChange}
                 />
-                <label htmlFor="mistakesWereMadeToday">Mistakes made today? </label>
+                <label htmlFor="daysSinceLastCrisis">Enter Number of Days Since Last Crisis: </label>
+                <input
+                id="daysSinceLastCrisis"
+                name="daysSinceLastCrisis"
+                type="number"
+                value={log.daysSinceLastCrisis}
+                onChange={handleInputChange}
+                placeholder="Enter days since last crisis"
+                />
+                <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
                 <input
                 id="mistakesWereMadeToday"
                 type="checkbox"
                 checked={log.mistakesWereMadeToday}
                 onChange={handleCheckboxChange}
                 />
-                <label htmlFor="daysSinceLastCrisis">Enter Number of Days Since Last Crisis: </label>
-                <input
-                id="daysSinceLastCrisis"
-                name="daysSinceLastCrisis"
-                value={log.daysSinceLastCrisis}
-                onChange={handleInputChange}
-                placeholder="Enter days since last crisis"
-                />
                 <input type = "submit" />
             </form>
-            <Link to={`/logs/${index}`}><button>Cancel</button></Link>
+            <div id="button">
+                <Link to={`/logs/${index}`}><button>Back</button></Link>
+            </div>
         </div>
     )
 }
