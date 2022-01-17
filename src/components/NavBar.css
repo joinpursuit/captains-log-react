@@ -1,0 +1,9 @@
+.nav {
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 10px;
+    box-shadow: 4px 4px 8px grey;
+    margin-bottom: 1em;
+}
