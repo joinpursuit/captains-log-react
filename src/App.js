@@ -7,7 +7,7 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
-// NEW && 404
+import New from "./Pages/New";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/logs" element={<Index />} />
             <Route path="/logs/:index" element={<Show />} />
-            {/* <Route path="/bookmarks/new" element={<New />} /> */}
+            <Route path="/logs/new" element={<New />} />
             <Route path="/logs/:index/edit" element={<Edit />} />
             {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
