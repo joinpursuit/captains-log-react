@@ -1,17 +1,29 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams, useNavigate } from "react-router";
 import axios from "axios";
 
 function LogIndex() {
   const params = useParams();
   const [log, setLog] = useState([]);
   const URL = `http://localhost:3003/logs/${params.index}`;
+  // setting log to the info received from the api
   useEffect(() => {
     axios.get(URL).then((response) => {
       setLog(response.data);
     });
   }, []);
-  console.log(log);
+
+  //declaring useNavigate, axios request to delete
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    axios.delete(URL).then(() => navigate("/logs"));
+  };
+
+  // Just navigating back to logs
+  const backButton = () => {
+    navigate("/logs");
+  };
+
   return (
     <div>
       <h1>Show</h1>
@@ -25,8 +37,8 @@ function LogIndex() {
           {log.daysSinceLastCrisis}
         </p>
       </container>
-      <button>Back</button>
-      <button>Delete</button>
+      <button onClick={backButton}>Back</button>
+      <button onClick={handleDelete}>Delete</button>
       <button></button>
     </div>
   );
