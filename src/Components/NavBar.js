@@ -9,9 +9,13 @@ function NavBar() {
       <Link to="/logs">
         <h1>Captain's Log</h1>
       </Link>
+      <button>
       <Link to="/logs/new">
-        <button>New Log</button>
+        New Log
+        {/* <button>New Log</button> */} {/* why doesn't this pass? */}
       </Link>
+      </button>
+      
     </nav>
   );
 }

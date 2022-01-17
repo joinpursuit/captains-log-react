@@ -14,10 +14,10 @@ import New from "./Pages/New"
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route exact path="/" element={<Home />}/>
         <Route path="/logs" element={<Index />}/>
         <Route path="/logs/:index" element={<Show />}/>
         <Route path="/logs/:index/edit" element={<Edit />} />

@@ -49,7 +49,6 @@ function LogDetails() {
           </Link>
         </div>
         <div>
-          {" "}
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>

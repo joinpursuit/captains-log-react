@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-function LogEditForm() {
+function LogNewForm() {
   // base URL
   const URL = process.env.REACT_APP_API_URL;
   // the index from React Router
@@ -34,10 +34,11 @@ function LogEditForm() {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`${URL}/logs/${index}`, log)
-    .then(() => { navigate(`/logs/${index}`)
+    axios.post(`${URL}/logs/`, log)
+    .then(() => { navigate(`/logs`)
     })
   };
 
@@ -92,11 +93,8 @@ function LogEditForm() {
 
         <input type="submit" />
       </form>
-      <Link to={`/logs/${index}`}>
-        <button>Back</button>
-      </Link>
     </div>
   );
 }
 
-export default LogEditForm;
+export default LogNewForm;
