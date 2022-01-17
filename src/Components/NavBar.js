@@ -5,18 +5,18 @@ import "./NavBar.css";
 
 function NavBar() {
   return (
-    <nav>
+    <div className="nav">
       <Link to="/logs">
         <h1>Captain's Log</h1>
       </Link>
       <button>
-      <Link to="/logs/new">
-        New Log
-        {/* <button>New Log</button> */} {/* why doesn't this pass? */}
-      </Link>
+        <Link to="/logs/new">
+          New Log
+          {/* <Link to="/logs/new"><button>New Log</button> </Link> */} {/* why doesn't this pass? */}
+        </Link>
       </button>
       
-    </nav>
+    </div>
   );
 }
 

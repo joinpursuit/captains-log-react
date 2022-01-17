@@ -28,14 +28,16 @@ function LogDetails() {
 
   return (
     <article>
-      <h2>
-        {log.title} - By {log.captainName}
-      </h2>
-      <h3>
-        {log.post}
-      </h3>
-      <h5>Days since last crisis: {log.daysSinceLastCrisis}</h5>
-      <div className="showNavigation">
+      <div className='showContainer'>
+        <h2>
+          {log.title} - By {log.captainName}
+        </h2>
+        <h3>
+          {log.post}
+        </h3>
+        <h5>Days since last crisis: {log.daysSinceLastCrisis}</h5>
+      </div>
+      <div className="navigation">
         <div>
           {" "}
           <Link to={`/logs`}>
