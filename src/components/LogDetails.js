@@ -1,36 +1,67 @@
-import React, {useState, useEffect}from "react"
-import {Link, useParams } from "react-router-dom";
 import axios from "axios";
-function LogDetails () {
-    const [log,setLogs] = useState([]);
-    let {index} = useParams();
-    const API = process.env.REACT_APP_API_URL; //local host
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get(`${API}/logs/${index}`);
-            setLogs(response.data);
-        };
-        fetchData();
-    }, []);
-    return(
-            <div>
-              <h2>Show</h2>
-                "{log.title} - By {log.captainName}"
-              <p>Post: {log.post}</p>
-              <p>
-                Mistakes Were Made Today:{" "}
-                {log.mistakesWereMadeToday === true ? "true" : "false"}
-              </p> 
-              <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
-              <Link to={"/logs"}>
-                <button>Back</button>
-              </Link>
-              <Link to={`/logs/${index}/edit`}>
-                <button>Edit</button>
-              </Link>
-            </div>
-          );
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+
+function LogDetails() {
+  const URL = process.env.REACT_APP_API_URL;
+  const [logs, setLogs] = useState([]);
+  const { index } = useParams();
+  const navigate = useNavigate();
+
+  // - make GET request to http://localhost:3003/logs/:index
+  // - use `setLog` to change our current log
+  //   to the data we get back
+  useEffect(() => {
+    axios
+      .get(`${URL}/logs/${index}`)
+      .then((response) => setLogs(response.data));
+  }, []);
+
+  const handleDelete = () => {
+    // make a delete request to /logs/:index
+    axios.delete(`${URL}/logs/${index}`).then(() => navigate("/logs"));
+    // redirect them to back to /logs
+  };
+
+  return (
+    <article>
+      <h3>Captains Log</h3>
+      <p>
+        {logs.title}-by{logs.captainName}
+         {/*title by captain name*/}
+      </p>
+      <p>post:{logs.post}</p>
+       {/*log post*/}
+      <p>
+        {logs.mistakesWereMadeToday ? (
+          <span>Mistakes were made today</span>
+        ) : (
+          <span>No mistakes today</span>
+        )}
+         {/*if true display mistakes were made, if not display no mistakes today*/}
+      </p>
+      <p>Days since last crisis: {logs.daysSinceLastCrisis}</p>
+      <div className="showNavigation">
+        <div>
+          {" "}
+          {/*two buttons*/}
+          <Link to={`/logs`}>
+            <button>Back</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <Link to={`/logs/${index}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      </div>
+    </article>
+  );
 }
 
 export default LogDetails;

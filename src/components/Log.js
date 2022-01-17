@@ -1,9 +1,12 @@
-import React from "react"
+import { Link } from "react-router-dom";
 
-const Log = () => {
-    return(
-        null
-    )
- }
+function Log({ log, index }) {
+return (
+    <tr>
+    <Link to={`/logs/${index}`}>{log.title}</Link>
+    </tr>
+);
+}
+//Displays a list of `log.title` that are clickable to take the user to `/logs/:index`.
 
 export default Log;
