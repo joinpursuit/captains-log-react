@@ -12,15 +12,13 @@ function NewLog() {
     mistakesWereMadeToday: false,
     daysSinceLastCrisis: "",
   });
-
+  // update state item with each change to the form
   const handleChange = (event) => {
-    event.target.id === "daysSinceLastCrisis"
-      ? setLog({ ...log, [event.target.id]: Number(event.target.value) })
-      : setLog({ ...log, [event.target.id]: event.target.value });
+    setLog({ ...log, [event.target.id]: event.target.value });
 
     // console.log(log);
   };
-
+  // Slightly different for the checkbox
   const handleCheckbox = (event) => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };

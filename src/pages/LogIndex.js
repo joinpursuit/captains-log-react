@@ -20,7 +20,7 @@ function LogIndex() {
     axios.delete(URL).then(() => navigate("/logs"));
   };
 
-  // navigating back to logs, some reason Link is importing on this file
+  // navigating back to logs, some reason test isn't reading link
   const backButton = () => {
     navigate("/logs");
   };
