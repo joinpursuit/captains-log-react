@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
-import NavBar from "./Components/NavBar";
+import NavBar from "./src/Components/NavBar";
 
 function App() {
   return (
@@ -9,8 +9,10 @@ function App() {
       <Router>
       {/* NavBar */}
         <NavBar />
+      {/* Routes */}
         <Routes>
-          <Route path="/"></Route>
+          <Route path="/" />
+          <Route path= "/logs" />
         </Routes>
       </Router>
     </div>
