@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 
 function LogEditForm() {
+    const URL = process.env.REACT_APP_API_URL_FROM_OUR_BACKEND;
+
     let { index } = useParams();
 
     const [log, setLog] = useState({
@@ -23,21 +25,22 @@ function LogEditForm() {
         setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
     }
 
+    // EDIT
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs/${index}`)
+        axios.get(`${URL}/logs/${index}`)
             .then((res)=>{
                 setLog(res.data);
             }).catch((err)=>{
-                navigate("/not-found");
+                console.log(err);
             })
-    }, [index]);
+    }, []);
 
+
+    // UPDATE
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("log:", log);
-        axios.post(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs/${index}`, log)
-            .then((res)=>{
-                navigate(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs/`);
+        axios.put(`${URL}/logs/${index}`, log)
+            .then(() => { navigate(`/logs/${index}`)
             }).catch((err)=>{
                 console.log(err);
             })

@@ -1,8 +1,11 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 
 function LogNewForm() {
+    const { index } = useParams;
+    const navigate = useNavigate();
+
     const [log, setLog] = useState({
         captainName: "",
         title: "",
@@ -11,7 +14,13 @@ function LogNewForm() {
         daysSinceLastCrisis: "",
     })
 
-    const navigate = useNavigate();
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs/${index}`)
+          .then((response) => {
+            setLog(response.data)
+        })
+        .catch((e) => console.log('catch', e))
+      }, []);
 
     const handleTextChange = (event) => {
         setLog({ ...log, [event.target.id]: event.target.value});
@@ -26,7 +35,7 @@ function LogNewForm() {
         console.log("log:", log);
         axios.post(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs`, log)
             .then((res)=>{
-                navigate("/logs");
+                navigate(`/logs`);
             }).catch((err)=>{
                 console.log(err);
             })

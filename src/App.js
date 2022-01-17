@@ -19,7 +19,7 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/logs" element={<LogIndex />} />
           <Route path="/logs/new" element={<New />} /> 
           <Route path="/logs/:index" element={<ShowDetails />} />
