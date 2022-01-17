@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,12 +21,21 @@ function LogNewForm() {
         setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("log:", log);
+        axios.post(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs`, log)
+            .then((res)=>{
+                navigate("/logs");
+            }).catch((err)=>{
+                console.log(err);
+            })
+    }
 
     return (
         <div className="New">
-            <form>
-            {/* <form onSubmit={handleSubmit}> */}
-                <label htmlFor="captainName">Captain Name</label>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="captainName">Captain's Name</label>
                 <input
                     id="captainName"
                     value={log.captainName}
@@ -51,28 +60,24 @@ function LogNewForm() {
                     onChange={handleTextChange}
                     placeholder="Name of Post"           
                 />
-                <label htmlFor="mistakesWereMadeToday">Mistakes Were Made Today?</label>
+                <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
                 <input
                     id="mistakesWereMadeToday"
                     type="checkbox"
                     onChange={handleCheckboxChange}
                     checked={log.mistakesWereMadeToday}
                 />
-                <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+                <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
                 <input
                     id="daysSinceLastCrisis"
                     value={log.daysSinceLastCrisis}
-                    type="text"
+                    type="number"
                     onChange={handleTextChange}
                     placeholder="Days Since Last Crisis"           
                 />
                 <input type="submit" />
             </form>
-
-            Hello Log New Form
         </div>
-
-
     )
 }
 

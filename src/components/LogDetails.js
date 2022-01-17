@@ -14,7 +14,7 @@ function LogDetails() {
         }).catch(()=>{
             navigate("/not-found");
         })  
-    }, [index]);
+    }, [index, navigate]);
 
     const handleDelete = () =>{
       axios.delete(`${process.env.REACT_APP_API_URL_FROM_OUR_BACKEND}/logs/${index}`)

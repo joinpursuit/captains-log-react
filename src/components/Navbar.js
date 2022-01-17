@@ -8,9 +8,9 @@ function Navbar() {
         <Link to="/logs">Captain's Log</Link>
       </h1>
       <div id="new-log-button-container">
-        <button>
-          <Link to="/logs/new">New Log</Link>
-        </button>
+        <Link to="/logs/new">
+          <button>New Log</button>
+        </Link>
       </div>
     </nav>
   );

@@ -15,7 +15,6 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-  
     <div className="App">
       {/* Hello World - This is App.js */}
       <Navbar />
@@ -29,10 +28,7 @@ function App() {
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </main>
-    
-    
-    </div>
-    
+    </div> 
     );
 }
 
