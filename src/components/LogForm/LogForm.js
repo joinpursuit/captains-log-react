@@ -50,42 +50,49 @@ const LogForm = () => {
 
   return (
     <form className="LogForm" onSubmit={handleSubmit}>
-      <div className="main">
-        <label htmlFor="captainName">Captain's Name</label>
-        <input
-          type="text"
-          id="captainName"
-          value={log.captainName}
-          onChange={handleInputChange}
-        />
+      <label htmlFor="captainName">Captain's Name</label>
+      <input
+        type="text"
+        id="captainName"
+        value={log.captainName}
+        onChange={handleInputChange}
+        required
+      />
 
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          value={log.title}
-          onChange={handleInputChange}
-        />
+      <label htmlFor="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        value={log.title}
+        onChange={handleInputChange}
+        required
+      />
 
-        <label htmlFor="post">Post</label>
-        <textarea id="post" value={log.post} onChange={handleInputChange} />
+      <label htmlFor="post">Post</label>
+      <textarea
+        id="post"
+        value={log.post}
+        onChange={handleInputChange}
+        required
+      />
 
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
-        <input
-          type="number"
-          id="daysSinceLastCrisis"
-          value={log.daysSinceLastCrisis}
-          onChange={handleInputChange}
-        />
+      <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
+      <input
+        type="number"
+        id="daysSinceLastCrisis"
+        value={log.daysSinceLastCrisis}
+        onChange={handleInputChange}
+        required
+      />
 
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
-        <input
-          type="checkbox"
-          id="mistakesWereMadeToday"
-          checked={log.mistakesWereMadeToday}
-          onChange={handleCheckChange}
-        />
-      </div>
+      <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
+      <input
+        type="checkbox"
+        id="mistakesWereMadeToday"
+        checked={log.mistakesWereMadeToday}
+        onChange={handleCheckChange}
+        required
+      />
       <Buttons buttonsNeeded={buttonsNeeded} />
     </form>
   );

@@ -1,4 +1,4 @@
-.LogForm .main {
+.LogForm {
   background-color: rgb(237, 250, 252);
   width: 75%;
   margin: 25px auto 40px;
@@ -10,19 +10,19 @@
   font-weight: bold;
 }
 
-.LogForm .main input {
+.LogForm input {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
 }
 
-.LogForm .main textarea {
+.LogForm textarea {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
 }
 
-.LogForm .main #mistakesWereMadeToday {
+.LogForm #mistakesWereMadeToday {
   height: 20px;
   width: 10px;
 }
