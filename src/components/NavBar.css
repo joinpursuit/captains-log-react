@@ -1,6 +1,18 @@
 .nav-bar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: skyblue;
-  min-height: 40px;
+  background-color: blue;
+  min-height: 50px;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+.nav-bar h1,
+h2 {
+  color: black;
+}
+.nav-bar h2 {
+  text-align: right;
 }

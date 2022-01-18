@@ -1,4 +1,29 @@
 .log-details {
   display: grid;
   grid-template-columns: 1fr;
+  width: 50%;
+  margin: 50px auto;
+}
+.log-details-head {
+  background-color: skyblue;
+  border: 2px solid bisque;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  box-shadow: 10px 5px 5px black;
+}
+.log-details-buttons {
+  width: 75%;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.yellow {
+  background-color: burlywood;
+  border-radius: 5px;
+}
+.gray {
+  background-color: gray;
+}
+.red {
+  background-color: red;
 }

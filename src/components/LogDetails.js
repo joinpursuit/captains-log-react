@@ -27,13 +27,7 @@ const LogDetails = () => {
     navigate(`/logs/${id}/edit`);
   };
 
-  const {
-    captainName,
-    title,
-    post,
-    mistakesWereMadeToday,
-    //daysSinceLastCrisis,
-  } = log;
+  const { captainName, title, post, daysSinceLastCrisis } = log;
   return (
     <section className="log-details">
       <div className="log-details-head">
@@ -41,12 +35,18 @@ const LogDetails = () => {
           {title}- by {captainName}
         </h3>
         <div>{post}</div>
-        <div>{`Days since last crisis: ${mistakesWereMadeToday}`}</div>
+        <div>{`Days since last crisis: ${daysSinceLastCrisis}`}</div>
       </div>
       <div className="log-details-buttons">
-        <button onClick={handleBack}>Back</button>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button className="gray" onClick={handleBack}>
+          Back
+        </button>
+        <button className="yellow" onClick={handleEdit}>
+          Edit
+        </button>
+        <button className="red" onClick={handleDelete}>
+          Delete
+        </button>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./UpdateLog.css";
 
 function UpdateLog() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function UpdateLog() {
     daysSinceLastCrisis: 0,
     mistakesWereMadeToday: false,
   });
-  const [checked, setChecked] = useState(log.mistakesWereMadeToday);
+  const [checked, setChecked] = useState(false);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/logs/${id}`)
@@ -21,10 +22,11 @@ function UpdateLog() {
       .catch(() => navigate(`/logs/${id}`));
   }, [id]);
 
-  const handleCheckBox = () => {
-    setChecked(!checked);
+  const handleCheckBox = (e) => {
+    setChecked(e.target.checked);
   };
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const newLog = { ...log, mistakesWereMadeToday: checked };
     axios
       .put(`${process.env.REACT_APP_API_URL}/logs/${id}`, newLog)
@@ -36,8 +38,10 @@ function UpdateLog() {
   };
   const { post, captainName, title, daysSinceLastCrisis } = log;
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="updatedCaptain">Captain's name: </label>
+    <form onSubmit={handleSubmit} className="form">
+      <label htmlFor="updatedCaptain">
+        <strong>Captain's name: </strong>
+      </label>
       <br />
       <input
         id="updatedCaptain"
@@ -47,7 +51,9 @@ function UpdateLog() {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="updatedTitle">Title</label>
+      <label htmlFor="updatedTitle">
+        <strong>Title</strong>
+      </label>
       <br />
       <input
         id="updatedTitle"
@@ -57,7 +63,9 @@ function UpdateLog() {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="updatedPost">Post:</label>
+      <label htmlFor="updatedPost">
+        <strong>Post:</strong>
+      </label>
       <br />
       <textarea
         id="updatedPost"
@@ -67,21 +75,27 @@ function UpdateLog() {
         placeholder="What happened today?"
       />
       <br />
-      <label htmlFor="update-days">Days Since Last Crisis</label>
+      <label htmlFor="update-days">
+        <strong>Days Since Last Crisis</strong>
+      </label>
       <br />
       <input
         id="update-days"
         type="number"
-        name="daySince"
+        name="daysSinceLastCrisis"
         value={daysSinceLastCrisis}
         onChange={handleChange}
       />
       <br />
-      <label>Mistakes were made today: </label>
+      <label>
+        <strong>Mistakes were made today: </strong>
+      </label>
       <br />
       <input type="checkbox" checked={checked} onChange={handleCheckBox} />
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit">
+        <strong>Submit</strong>
+      </button>
     </form>
   );
 }

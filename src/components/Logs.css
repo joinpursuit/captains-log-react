@@ -3,6 +3,12 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .logs {
+  width: 75%;
   display: grid;
   grid-template-columns: 1fr;
+  margin: 50px auto;
+  background-color: skyblue;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px black;
 }

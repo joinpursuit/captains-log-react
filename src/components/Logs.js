@@ -13,9 +13,9 @@ const Logs = () => {
   return (
     <section className="logs">
       <div className="logs-header">
-        <span>Mistakes</span>
-        <span>Captain Name</span>
-        <span>See this log</span>
+        <h2>Mistakes</h2>
+        <h2>Captain Name</h2>
+        <h2>See this log</h2>
       </div>
       {logs.map((log, i) => (
         <Log key={"log" + i} id={i} log={log} />

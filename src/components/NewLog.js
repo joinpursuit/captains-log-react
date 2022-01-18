@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./NewLog.css";
 
 function NewLog() {
   const [checked, setChecked] = useState(false);
@@ -12,23 +13,28 @@ function NewLog() {
     mistakesWereMadeToday: false,
   });
   const navigate = useNavigate();
-  const handleCheckBox = () => {
-    setChecked(!checked);
+  const handleCheckBox = (e) => {
+    setChecked(e.target.checked);
   };
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const newLog = { ...state, mistakesWereMadeToday: checked };
+    console.log(newLog);
+    console.log(`${process.env.REACT_APP_API_URL}/logs`);
     axios
       .post(`${process.env.REACT_APP_API_URL}/logs`, newLog)
       .then(() => navigate("/logs"))
-      .catch(() => navigate("/logs"));
+      .catch(() => navigate("/not_found"));
   };
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
-  const { post, captainName, title, daySince } = state;
+  const { post, captainName, title, daysSinceLastCrisis } = state;
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="captain">Captain's name: </label>
+    <form onSubmit={handleSubmit} className="new-form">
+      <label htmlFor="captain">
+        <strong>Captain's name: </strong>
+      </label>
       <br />
       <input
         id="captain"
@@ -38,7 +44,9 @@ function NewLog() {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="title">Title</label>
+      <label htmlFor="title">
+        <strong>Title</strong>
+      </label>
       <br />
       <input
         id="title"
@@ -48,7 +56,9 @@ function NewLog() {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="post">Post:</label>
+      <label htmlFor="post">
+        <strong>Post:</strong>
+      </label>
       <textarea
         id="post"
         name="post"
@@ -57,21 +67,27 @@ function NewLog() {
         placeholder="What happened today?"
       />
       <br />
-      <label htmlFor="days-since">Days Since Last Crisis</label>
+      <label htmlFor="days-since">
+        <strong>Days Since Last Crisis</strong>
+      </label>
       <br />
       <input
         id="days-since"
         type="number"
-        name="daySince"
-        value={daySince}
+        name="daysSinceLastCrisis"
+        value={daysSinceLastCrisis}
         onChange={handleChange}
       />
       <br />
-      <label>Mistakes were made today: </label>
+      <label>
+        <strong>Mistakes were made today: </strong>
+      </label>
       <br />
       <input type="checkbox" checked={checked} onChange={handleCheckBox} />
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit">
+        <strong>Submit</strong>
+      </button>
     </form>
   );
 }
