@@ -36,7 +36,7 @@ describe("Edit Page", () => {
 
       // for this label/input use htmlFor/id: 'post'
       cy.get("label").contains("Post");
-      cy.get("form > textarea").should("have.attr", "id", "post");
+      cy.get("form textarea").should("have.attr", "id", "post");
 
       // for this label/input use htmlFor/id: 'daysSinceLastCrisis'
       cy.get("label").contains("Days Since Last Crisis");
@@ -65,7 +65,7 @@ describe("Edit Page", () => {
       } else {
         cy.get("#captainName").clear().type("Karolin");
         cy.get("#title").clear().type("Silver Rocket");
-        cy.get("form > textarea").type("!!!!!!");
+        cy.get("form textarea").type("!!!!!!");
         cy.get("form").submit();
 
         // confirm correct routing after submission
@@ -75,7 +75,7 @@ describe("Edit Page", () => {
         // go back to index to see the edit as well
         cy.visit(`${URL}/logs`);
         // confirm update is on the index
-        cy.get("td").eq(4).contains("Karolin");
+        cy.get("td").eq(3).contains("Karolin");
       }
     });
   });

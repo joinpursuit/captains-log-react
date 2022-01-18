@@ -22,7 +22,7 @@ describe("Delete functionality", () => {
     it("can create a log", () => {
       cy.get("#captainName").type("Captain Beefheart");
       cy.get("#title").type("Alice in Blunderland");
-      cy.get("form > textarea").type("Ice cream for crows");
+      cy.get("form textarea").type("Ice cream for crows");
       cy.get("#mistakesWereMadeToday").check();
       cy.get("form").submit();
     });

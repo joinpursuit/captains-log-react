@@ -27,7 +27,7 @@ describe("New Page", () => {
 
       // for this label/input use htmlFor/id: 'post'
       cy.get("label").contains("Post");
-      cy.get("form > textarea").should("have.attr", "id", "post");
+      cy.get("form textarea").should("have.attr", "id", "post");
 
       // for this label/input use htmlFor/id: 'daysSinceLastCrisis'
       cy.get("label").contains("Days Since Last Crisis");
@@ -46,7 +46,7 @@ describe("New Page", () => {
       }
       cy.get("#captainName").type("Mashu");
       cy.get("#title").type("Testing Voyages");
-      cy.get("form > textarea").type(
+      cy.get("form textarea").type(
         "T'was a hard day of writing tests, but remain calm lets!"
       );
       it("can change the checkbox to checked'", () => {
