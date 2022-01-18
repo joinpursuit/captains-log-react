@@ -4,7 +4,7 @@ import "./Index.css";
 const Index = () => {
     return (
         <div className="index-page">
-            <h2>Index Page</h2>
+            <h2>Iɴᴅᴇx Pᴀɢᴇ</h2>
             <Logs/>
         </div>
     )

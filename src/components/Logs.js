@@ -15,7 +15,7 @@ const Logs = () => {
             }).catch((err) => {
                 throw err;
             });
-    });
+    }, []);
 
     return (
         <section className="Log">
