@@ -10,14 +10,22 @@ const Logs = () => {
     useEffect(() => {
         axios.get(`${API_URL}/logs`)
             .then((res)=> {
-                console.log(res);
-            })
-    })
+                // console.log(res);
+                setLogs(res.data);
+            }).catch((err) => {
+                throw err;
+            });
+    });
 
     return (
         <section className="logs">
             <div>Take me there</div>
-            <Log/>
+            <div>See this log</div>
+            <div> 
+                {logs.map((log, index)=> {
+                    return <Log key={index} log={log} index={index} />;
+                })}
+            </div>
         </section>
     );
 }

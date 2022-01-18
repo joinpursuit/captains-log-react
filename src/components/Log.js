@@ -4,8 +4,9 @@ const Log = ({log, index}) => {
     return (
         <section>
             <span>⭐️</span>
-            {/* {log.title} */}
-            {/* {log.post} */}
+            <div>{log.title}:</div>
+
+            <div> {log.post} </div>
             <Link to={`/logs/${index}`}> ✏️ </Link>
         </section>
     );
