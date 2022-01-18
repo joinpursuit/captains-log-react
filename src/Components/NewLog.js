@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import LogDetails from "./LogDetails";
 
 function NewLog() {
   const URL = process.env.REACT_APP_API_URL;
@@ -17,25 +16,29 @@ function NewLog() {
   });
 
   useEffect(() => {
-    axios.get(`${URL}/logs`).then((response) => setNewLog(response.data));
+    axios
+    .get(`${URL}/logs`)
+    .then((response) => setNewLog(response.data));
   }, []);
-
-  const handleCheckbox = () => {
-    setNewLog({ ...newLog, mistakesWereMadeToday: !newLog.mistakesWereMadeToday });
-  };
 
   const handleText = (event) => {
     setNewLog({ ...newLog, [event.target.id]: event.target.value });
   };
 
+  const handleCheckbox = () => {
+    setNewLog({ ...newLog, mistakesWereMadeToday: !newLog.mistakesWereMadeToday });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${URL}/logs`, newLog).then(() => navigate("/logs"));
+    axios
+    .post(`${URL}/logs`, newLog)
+    .then(() => navigate("/logs"));
   };
 
   return (
     <>
-      <div className="new-log">
+      <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="captainName">Captain's Name</label>
           <input
@@ -81,7 +84,6 @@ function NewLog() {
           <br />
           <input type="submit" />
         </form>
-        <button>Delete</button>
       </div>
     </>
   );
