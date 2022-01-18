@@ -1,4 +1,5 @@
 import axios from "axios"
+import Log from "./Log"
 import {useState, useEffect} from "react"
 import {Link} from 'react-router-dom'
 
@@ -6,20 +7,36 @@ const URL = process.env.REACT_APP_URL
 console.log(URL)
 
 const Logs = () => {
-    const [logs, useLogs] = useState([])
+    const [logs, setLogs] = useState([])
 
     useEffect(()=>{
         async function FetchData(){
             const {data} = await axios.get(`${URL}/logs`)
             console.log(data)
-            useLogs(data)
+            setLogs(data)
         }
         FetchData()
     }, [])
     return (
-        <div>
-            {logs.map((log, i)=> <Link key={i} to={`/logs/${i}`}>{log.title}</Link>)}
-        </div>
+        <div className="Logs">
+        <h1>Index</h1>
+        <section>
+        <table>
+          <thead>
+          <tr>
+                <th>Mistakes</th>
+                <th>Captain Name</th>
+                <th>See this log</th>
+          </tr>
+          </thead>
+            <tbody>
+              {logs.map((log, index) => {
+                return <Log key={index} log={log} index={index} />;
+              })}
+            </tbody>
+        </table>
+        </section>
+      </div>
     )
 }
 
