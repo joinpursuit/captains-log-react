@@ -1,5 +1,31 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+nav {
+  background: #2b17dd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  box-shadow: 2px 2px 4px grey;
+  margin-bottom: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.log {
+  color: black;
+}
+
+table {
+  width: 50%;
+}
+
+table a {
+  text-decoration: none;
+  color: black;
+}
+
+td {
+  text-align: center;
 }
