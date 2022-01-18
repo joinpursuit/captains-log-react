@@ -1,9 +1,11 @@
+import Logs from "../components/Logs";
 import "./Index.css";
 
 const Index = () => {
     return (
-        <div>
-            Index Page
+        <div className="index-page">
+            <h2>Index Page</h2>
+            <Logs/>
         </div>
     )
 }
