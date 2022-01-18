@@ -11,7 +11,7 @@ function LogDetails() {
     //Get Request for the index of the array. It will render on each chance in order to present the most recent/accurate information 
     useEffect(() => {
         //make a get request to the url
-        //use setbookmarks to update the data we're getting
+        //use setLog to update the data we're getting
         axios
         .get(`${URL}/logs/${index}`)
         .then((response) => {
