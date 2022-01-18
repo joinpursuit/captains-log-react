@@ -18,9 +18,7 @@ const Logs = () => {
     });
 
     return (
-        <section className="logs">
-            <div>Take me there</div>
-            <div>See this log</div>
+        <section className="Log">
             <div> 
                 {logs.map((log, index)=> {
                     return <Log key={index} log={log} index={index} />;
