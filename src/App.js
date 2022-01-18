@@ -14,12 +14,13 @@ function App() {
         <NavBar/>
         <main>
           <Routes>
-            <Route exact path="/" element={<Home />}/>
             <Route path="/logs" element={<AllLogs />} />
             <Route path="/logs/new" element={<NewLogForm />} />
             <Route path="/logs/:index" element={<ShowIndexedLog />} />
             <Route path="/logs/:index/edit" element={<EditLog />} />
             <Route path="*" element={<ErrorMsg />} />
+            <Route exact path="/" element={<Home />}/>
+
           </Routes>
         </main>
       </Router>
