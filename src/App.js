@@ -1,12 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Components
-import NavBar from "./src/Components/NavBar";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <Router>
       {/* NavBar */}
         <NavBar />
       {/* Routes */}
@@ -14,7 +13,6 @@ function App() {
           <Route path="/" />
           <Route path= "/logs" />
         </Routes>
-      </Router>
     </div>
   );
 }
