@@ -34,16 +34,16 @@ function LogDetails() {
             Post: {log.post}
         </p>
        
-        <h2>
+        <h3>
             Mistakes Made today:
             {log.mistakesWereMadeToday ? 
-            (<span><input type="checkbox" checked disabled/>💥 Yes</span>) : 
-            (<span><input type="checkbox" disabled/>🙅‍♂‍ No</span>)}
-        </h2>
+            (<span>💥 Yes</span>) : 
+            (<span>🙅‍♂‍ No</span>)}
+        </h3>
 
-        <h5>
+        <h4>
             Days since last crisis: {log.daysSinceLastCrisis}
-        </h5>
+        </h4>
         <div className="showNavigation">
           <div>
             {" "}
