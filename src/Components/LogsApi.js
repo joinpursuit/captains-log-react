@@ -19,10 +19,6 @@ function LogsApi() {
             <section>
                 <table>
                     <thead>
-                        <tr>
-                            <th>Take me there</th>
-                            <th>See this Log</th>
-                        </tr>
                     </thead>
                     <tbody>
                         {logs.map((log, index) => {
