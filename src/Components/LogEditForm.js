@@ -44,7 +44,7 @@ function LogEditForm() {
     return (
         <div className="Edit">
         <form onSubmit={handleSubmit}>
-            <label htmlFor="captainName">Name:</label>
+            <label htmlFor="captainName">Captain's Name:</label>
             <input
             id="captainName"
             value={log.captainName}
@@ -54,9 +54,9 @@ function LogEditForm() {
             required
             />
             <label htmlFor="title">Title:</label>
-            <input
-            id="url"
-            type="title"
+            <textarea
+            id="title"
+            type="text"
             // pattern="http[s]*://.+"
             required
             value={log.title}
@@ -64,9 +64,9 @@ function LogEditForm() {
             onChange={handleTextChange}
             />
             <label htmlFor="post">Post:</label>
-            <input
+            <textarea
             id="post"
-            type="text"
+            // type="text"
             name="post"
             value={log.post}
             placeholder="Today ..."
@@ -91,7 +91,7 @@ function LogEditForm() {
             <input type="submit" />
         </form>
         <Link to={`/logs/${index}`}>
-            <button>Nevermind!</button>
+            <button>Back</button>
         </Link>
         </div>
     );
