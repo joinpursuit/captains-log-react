@@ -1,3 +1,4 @@
+import Logs from "../Components/Logs";
 
 function Index() {
     return(
@@ -7,3 +8,5 @@ function Index() {
         </div>
     )
 }
+
+export default Index;
