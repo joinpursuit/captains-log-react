@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Log from "./Log";
 
-function Logs() {
+function LogsApi() {
     const [logs, setLogs] = useState([]);
     const URL = process.env.REACT_APP_API_URL;
     
@@ -16,10 +16,22 @@ function Logs() {
 
     return (
         <div>
-            {logs.map((log, index) => {
-                return <Log key={index} log={log} index={index}/>; 
-            })}
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Take me there</th>
+                            <th>See this Log</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {logs.map((log, index) => {
+                            return <Log key={index} log={log} index={index} />;
+                        })}
+                    </tbody>
+                </table>
+            </section>
         </div>
     );
 }
-export default Logs;
+export default LogsApi;
