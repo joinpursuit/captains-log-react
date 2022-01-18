@@ -83,9 +83,6 @@ function LogEdit() {
             <br />
             <input type="submit" />
           </form>
-          <Link to={`/logs/${index}`}>
-              <button>Back</button>
-          </Link>
         </div>
     );
 }
