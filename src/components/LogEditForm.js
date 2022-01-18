@@ -1,15 +1,30 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
+
 
 function LogEditForm() {
     let { index } = useParams();
+    const navigate = useNavigate();
+    const [ log, setLog ] = useState({
+        captainName: "",
+        title: "",
+        post: "",
+        mistakesWereMadeToday: null,
+        daysSinceLastCrisis: null,
+    });
 
-    // const [ log, setLog ] = useState({
+    const handleSubmit = (event) => {
+        
+    }
 
-    // })
     return (
-        <div>
-            
+        <div className='Edit'>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="captainName">Captain Name:</label>
+
+            </form>
         </div>
     );
 }

@@ -13,7 +13,7 @@ const NavBar = () => {
                 <Link to="/logs/new">New Log</Link>
             </h4>
         </nav>
-    )
-}
+    );
+};
 
 export default NavBar;

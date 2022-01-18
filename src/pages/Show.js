@@ -5,7 +5,7 @@ import LogDetails from "../components/LogDetails.js";
 const Show = () => {
     return (
         <div>
-            <h2> Sʜᴏᴡ  </h2>
+            <h2> Show  </h2>
             <LogDetails/>
         </div>
     )
