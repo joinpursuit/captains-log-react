@@ -10,11 +10,11 @@ function LogEditForm() {
     const navigate = useNavigate();
 
     const [log, setLog] = useState({
-        name: "",
-        url: "",
-        category: "",
-        description: "",
-        isFavorite: false,
+        captainName: "",
+        title: "",
+        post: "",
+        daysSinceLastCrisis: 0,
+        mistakesWereMadeToday: false,
     });
 
     // make an API call to our back end
@@ -31,7 +31,7 @@ function LogEditForm() {
     };
 
     const handleCheckboxChange = () => {
-        setLog({ ...log, isFavorite: !log.isFavorite });
+        setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
     };
 
     const handleSubmit = (event) => {
@@ -44,51 +44,50 @@ function LogEditForm() {
     return (
         <div className="Edit">
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="captainName">Name:</label>
             <input
-            id="name"
-            value={log.name}
+            id="captainName"
+            value={log.captainName}
             type="text"
             onChange={handleTextChange}
-            placeholder="Name of Website"
+            placeholder="Name"
             required
             />
-            <label htmlFor="url">URL:</label>
+            <label htmlFor="title">Title:</label>
             <input
             id="url"
-            type="text"
-            pattern="http[s]*://.+"
+            type="title"
+            // pattern="http[s]*://.+"
             required
-            value={log.url}
-            placeholder="http://"
+            value={log.title}
+            // placeholder="http://"
             onChange={handleTextChange}
             />
-            <label htmlFor="category">Category:</label>
+            <label htmlFor="post">Post:</label>
             <input
-            id="category"
+            id="post"
             type="text"
-            name="category"
-            value={log.category}
-            placeholder="educational, inspirational, ..."
+            name="post"
+            value={log.post}
+            placeholder="Today ..."
             onChange={handleTextChange}
             />
-            <label htmlFor="isFavorite">Favorite:</label>
+            <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+            <textarea
+            id="daysSinceLastCrisis"
+            name="daysSinceLastCrisis"
+            value={log.daysSinceLastCrisis}
+            onChange={handleTextChange}
+            placeholder="0"
+            />
+            <label htmlFor="mistakesWereMadeToday">Mistakes Were Made Today:</label>
             <input
-            id="isFavorite"
+            id="mistakesWereMadeToday"
             type="checkbox"
             onChange={handleCheckboxChange}
-            checked={log.isFavorite}
-            />
-            <label htmlFor="description">Description:</label>
-            <textarea
-            id="description"
-            name="description"
-            value={log.description}
-            onChange={handleTextChange}
-            placeholder="Describe why you Logged this site"
+            checked={log.mistakesWereMadeToday}
             />
             <br />
-
             <input type="submit" />
         </form>
         <Link to={`/logs/${index}`}>

@@ -28,17 +28,22 @@ function LogDetails() {
     return (
         <article>
         <h3>
-            {log.isFavorite ? <span>⭐️</span> : null} {log.name}
+            {log.mistakesWereMadeToday 
+                ? <span>💥</span> 
+                : null
+            } 
+            {log.captainName}
         </h3>
         <h5>
             <span>
-            <a href={log.url}>{log.name}</a>
+            <a href={log.title}>{log.captainName}</a>
             </span>{" "}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {log.url}
+            {log.title}
         </h5>
-        <h6>{log.category}</h6>
-        <p>{log.description}</p>
+        <h6>{log.post}</h6>
+        <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
+
         <div className="showNavigation">
             <div>
             {" "}
