@@ -11,14 +11,7 @@ function Log({ log, index }) {
         )}
       </td>
       <td>
-      <br />
-        Name: {log.captainName}<br />
-        Title: {log.title}<br />
-        {/* Post: {log.post}<br /> */}
-        {/* Days Since Last Crisis: {log.daysSinceLastCrisis}<br /> */}
-      </td>
-      <td>
-        <Link to={`/logs/${index}`}></Link>
+        <Link to={`/logs/${index}`}>{log.title}<br/></Link>
       </td>
     </tr>
   );
