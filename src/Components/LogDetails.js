@@ -18,11 +18,11 @@ function LogDetails() {
     }, []);
 
     const handleDelete = () => {
-        // make a delete request to /bookmarks/:index
+        // make a delete request to /logs/:index
         axios
         .delete(`${URL}/logs/${index}`)
         .then(() => navigate("/logs"));
-        // redirect them to back to /bookmarks
+        // redirect them to back to /logs
     };
 
     return (

@@ -16,22 +16,22 @@ function Logs() {
 
     return (
         <div className="Logs">
-        <section>
-            <table>
-            <thead>
-                <tr>
-                <th>Mistakes</th>
-                <th>Captain Name</th>
-                <th>See this log</th>
-                </tr>
-            </thead>
-            <tbody>
-                {logs.map((log, index) => {
-                    return <Log key={index} log={log} index={index} />;
-                })}
-            </tbody>
-            </table>
-        </section>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Mistakes</th>
+                        <th>Captain Name</th>
+                        <th>See this log</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {logs.map((log, index) => {
+                            return <Log key={index} log={log} index={index} />;
+                        })}
+                    </tbody>
+                </table>
+            </section>
         </div>
     );
 }
