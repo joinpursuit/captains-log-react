@@ -2,11 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
-function LogEditForm() {
+function LogEdit() {
   let { index } = useParams();
   const URL = process.env.REACT_APP_API_URL;
-
-
   const navigate = useNavigate();
 
   const [logsEdit, setLogsEdit] = useState({
@@ -16,6 +14,12 @@ function LogEditForm() {
     mistakesWereMadeToday: false,
     daysSinceLastCrisis: "",
   });
+
+  useEffect(() => {
+    axios
+    .get(`${URL}/logs/${index}`)
+    .then((response) => setLogsEdit(response.data));
+  }, []);
 
   const handleText = (event) => {
     setLogsEdit({ ...logsEdit, [event.target.id]: event.target.value });
@@ -85,4 +89,4 @@ function LogEditForm() {
         </div>
     );
 }
-export default LogEditForm;
+export default LogEdit;
