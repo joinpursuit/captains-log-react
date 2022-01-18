@@ -15,14 +15,7 @@ function AllLogs(){
         }).catch((err)=>{
             throw err;
         });
-        // fetch(`${API}/logs`)
-        // .then((res)=>res.json())
-        // .then((data)=>{
-        //   setallLogs(data)
-        // }).catch((err)=>{
-        //   throw err;
-        // });
-  
+      
     },[])
 
     console.log(allLogs)
@@ -34,7 +27,7 @@ function AllLogs(){
         )
     })
     return(
-        <section>
+        <section className="ShowAll">
             <h1>Welcome to the Logs Page</h1>
             <table>
                 <thead>

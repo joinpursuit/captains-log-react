@@ -10,7 +10,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
 }
 h1{
   font-size: 3rem;
@@ -128,4 +128,21 @@ input[type=submit]{
 }
 #button{
   text-align: center;
+  margin: 10px;
+}
+.Details{
+  text-align: center;
+}
+.ShowLog{
+  border: solid 2px purple;
+  margin: 0.5rem;
+  align-items: center;
+  font-size: 125%;
+  background-color: rgb(202, 213, 228);
+}
+.ShowAll{
+  background-color: rgb(196, 176, 194);
+  padding: 1rem;
+  text-transform: uppercase;
+  font-weight: 800;
 }

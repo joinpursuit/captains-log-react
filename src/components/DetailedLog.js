@@ -31,16 +31,17 @@ const handleDelete =()=>{
 };
 
     return(
-        <div>
-            
-            <h2>Captain's Log: {indexedlog.captainName}</h2>
-            <h3>Show: {indexedlog.title}</h3>
-            <h4>Mistakes were made? {indexedlog.mistakesWereMadeToday}</h4>
-            <h4>Days since last crisis: {indexedlog.daysSinceLastCrisis}</h4>
-            <p>{indexedlog.post}</p>
-            <Link to={`/logs`}><button>Back</button></Link>
-            <Link to={`/logs/${index}/edit`}><button>Edit</button></Link>
-            <Link to={`/logs`}><button onClick={handleDelete}>Delete</button></Link>
+        <div className="Details">
+            <div className="ShowLog">
+                <h2>Captain's Log: {indexedlog.captainName}</h2>
+                <h3>Show: {indexedlog.title}</h3>
+                <h4>Mistakes were made? {indexedlog.mistakesWereMadeToday ? (<span>True</span>) : (<span>False</span>)}</h4>
+                <h4>Days since last crisis: {indexedlog.daysSinceLastCrisis}</h4>
+                <p>{indexedlog.post}</p>
+            </div>
+                <Link to={`/logs`}><button>Back</button></Link>
+                <Link to={'/logs/0/edit'}><button>Edit</button></Link>
+                <Link to={`/logs`}><button onClick={handleDelete}>Delete</button></Link>    
         </div>
     )
 }
