@@ -4,11 +4,11 @@ import axios from "axios";
 
 function LogsEdit() {
 	let { index } = useParams();
-	const [log, setLog] = useState({
+	const [log, SetLog] = useState({
 		captainName: "",
 		title: "",
 		post: "",
-		mistakesWereMadeToday: false,
+		mistakesWereMadeToday: "",
 		daysSinceLastCrisis: "",
 	});
 	const navigate = useNavigate();
@@ -17,19 +17,19 @@ function LogsEdit() {
 		axios
 			.get(`${process.env.REACT_APP_API_URL}/logs/${index}`)
 			.then((res) => {
-				setLog(res.data);
+				SetLog(res.data);
 			})
-			.catch((err) => {
+			.catch(() => {
 				navigate("/not-found");
 			});
 	}, [index]);
 
 	const handleTextChange = (event) => {
-		setLog({ ...log, [event.target.id]: event.target.value });
+		SetLog({ ...log, [event.target.id]: event.target.value });
 	};
 
 	const handleCheckboxChange = () => {
-		setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
+		SetLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
 	};
 
 	const handleSubmit = (event) => {
@@ -47,7 +47,7 @@ function LogsEdit() {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="captainName">Captain's Name : </label>
+				<label htmlFor="captainName">Captain's Name </label>
 				<input
 					id="captainName"
 					value={log.captainName}
@@ -90,11 +90,9 @@ function LogsEdit() {
 					type="number"
 					placeholder="daysSinceLastCrisis"
 				/>
-				<br />
 				<input type="submit" />
-				<br />
 			</form>
-			<Link to="/logs">
+			<Link to={`/logs/${index}`}>
 				<button>Back</button>
 			</Link>
 		</div>
