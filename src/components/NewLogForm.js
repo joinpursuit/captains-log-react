@@ -38,7 +38,7 @@ const API = process.env.REACT_APP_API_URL
 
     return(
         <div className="New">
-            <h1>New Log Form</h1>
+            <h2>New Log Form</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="captainName">Captain's Name: </label>
                 <input

@@ -10,9 +10,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
+  border: solid 0.25px purple;
+
 }
-h1{
+ h1{
   font-size: 3rem;
   text-align: center;
 }
@@ -132,6 +134,8 @@ input[type=submit]{
 }
 .Details{
   text-align: center;
+  width: 85%;
+  margin: auto;
 }
 .ShowLog{
   border: solid 2px purple;
@@ -145,4 +149,10 @@ input[type=submit]{
   padding: 1rem;
   text-transform: uppercase;
   font-weight: 800;
+  width: 85%;
+  margin: auto;
+}
+.New{
+  width: 75%;
+  margin: auto;
 }
