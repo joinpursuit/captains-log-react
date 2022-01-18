@@ -1,10 +1,9 @@
 const Home = () => {
     return (
-      <div className="Home">
+    <div className="Home">
         <h1>Welcome to the Captain's Log App</h1>
-      </div>
+    </div>
     );
-  }
-  
-  export default Home;
-  
+}
+
+export default Home;
