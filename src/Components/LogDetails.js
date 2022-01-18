@@ -23,7 +23,6 @@ function LogDetails() {
     .then(() => navigate("/logs"));
   };
 
-
   return (
     <article>
       <h3>
@@ -36,23 +35,11 @@ function LogDetails() {
       <p>"{log.post}"</p>
       <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
       <div>
-        <div>
-          <a href={"/logs"}>
-            <button>Back</button>
-          </a>
-        </div>
-        <div>
-          <a href={`/logs/${index}/edit`}>
-            <button>Edit</button>
-          </a>
-        </div>
-      </div>
-      <div>
         {" "}
         <button onClick={handleDelete}>Delete</button>
       </div>
     </article>
-          );
+  );
 }
 
 export default LogDetails;
