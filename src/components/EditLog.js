@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
-function EditLog() {
+const EditLog = () => {
   const { index } = useParams();
   const URL = `http://localhost:3003/logs/${index}`;
   const navigate = useNavigate();
@@ -15,7 +15,10 @@ function EditLog() {
   });
 
   useEffect(() => {
-    axios.get(URL).then((response) => setLog(response.data));
+    (async () => {
+      let response = axios.get(URL);
+      setLog(response.data);
+    })();
   }, []);
 
   const handleChange = (evt) => {
@@ -104,6 +107,6 @@ function EditLog() {
       </Link>
     </div>
   );
-}
+};
 
 export default EditLog;

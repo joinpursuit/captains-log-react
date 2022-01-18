@@ -3,10 +3,10 @@ import { useParams, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function LogIndex() {
+const LogIndex = () => {
   const params = useParams();
   const [log, setLog] = useState([]);
-  const URL = `http://localhost:3003/logs/${params.index}`;
+  const URL = `${process.env.REACT_APP_URL}${params.index}`;
 
   useEffect(() => {
     axios.get(URL).then((response) => {
@@ -41,6 +41,6 @@ function LogIndex() {
       <button onClick={handleDelete}>{`Delete`}</button>
     </div>
   );
-}
+};
 
 export default LogIndex;
