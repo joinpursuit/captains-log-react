@@ -30,8 +30,8 @@ function Logs(){
                         </tr>
                     </thead>
                     <tbody>
-                        {logs.map((log, i) => {
-                            return <Log key={i} log={log} index={i} />;
+                        {logs.map((log, index) => {
+                            return <Log key={index} log={log} index={index} />;
                         })}
                     </tbody>
                 </table>
