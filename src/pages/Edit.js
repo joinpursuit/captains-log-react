@@ -1,13 +1,13 @@
 import "./Edit.css";
-import "../components/LogEditForm.js";
-
+import LogEditForm from "../components/LogEditForm";
 
 const Edit = () => {
     return (
-        <div>
+        <div className="New Edit">
             Edit Page
+            <LogEditForm/>
         </div>
-    )
+    );
 }
 
 export default Edit;

@@ -21,7 +21,7 @@ const LogDetails = () => {
     const handleDelete = () => {
         axios.delete(`${API_URL}/logs/${index}`)
         .then((res)=> {
-            navigate("/logs")
+            navigate("/logs");
         }).catch((err)=> {
             console.log(err);
         });
