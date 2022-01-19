@@ -7,7 +7,7 @@ function Nav() {
                 <Link to="/logs">Captain's Log</Link>
             </h1>
             <button>
-                <Link to="/logs/new">NEW LOG</Link>
+                <Link to="/logs/new">New Log</Link>
             </button>
         </nav>
     )
