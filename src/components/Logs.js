@@ -18,13 +18,23 @@ const Logs = () => {
     }, []);
 
     return (
-        <section className="Log">
-            <div> 
-                {logs.map((log, index)=> {
+        <div className="Logs">
+            <section>
+                <table>
+                <thead>
+                    <tr>
+                        <th>Captain's Name</th>
+                        <th>View Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {logs.map((log, index) => {
                     return <Log key={index} log={log} index={index} />;
-                })}
-            </div>
-        </section>
+                    })}
+                </tbody>
+                </table>
+            </section>
+        </div>
     );
 }
 export default Logs;

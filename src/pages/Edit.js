@@ -1,4 +1,3 @@
-import "./Edit.css";
 import LogEditForm from "../components/LogEditForm";
 
 const Edit = () => {

@@ -1,9 +1,10 @@
-import "./New.css";
+import LogNewForm from "../components/LogNewForm";
 
 const New = () => {
     return (
         <div>
-            New Page
+            <h2> New </h2>
+            <LogNewForm/>
         </div>
     )
 }

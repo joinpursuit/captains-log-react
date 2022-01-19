@@ -1,4 +1,3 @@
-import "./Show.css";
 import LogDetails from "../components/LogDetails.js";
 
 

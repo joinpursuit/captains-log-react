@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
-import "./Log.css"
 
-//http://localhost:3000/logs
+
 const Log = ({log, index}) => {
     return (
-        <section className="log">
-            <span>⭐️</span>
-            <div>{log.title}:</div>
-
-            <div> {log.post} </div>
-            <a href={`http://localhost:3000/logs/${index}`} target="_blank" rel="noreferrer">
-                <Link to={`/logs/${index}`}> 🔶View</Link>
-            </a>
-            
-        </section>
+        <tr className="Log">
+        <td>
+          <div>{log.captainName}</div>
+        </td>
+        <td>
+          <a href={`/logs/${index}`} rel="noreferrer">
+            {log.title}
+          </a>
+        </td>
+      </tr>
     );
 }
 export default Log;

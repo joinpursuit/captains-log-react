@@ -32,13 +32,14 @@ function LogEditForm() {
         }).catch((err) => {
             navigate("/not-found");
         });
-    }, []);
+    }, [index]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.put(`${API_URL}/logs/${index}`, log)
         .then((res)=> {
-            navigate("/logs");
+            setLog(res.data)
+            navigate(`/logs/${index}`);
         }).catch((err)=> console.log(err))
     };
 
@@ -82,7 +83,7 @@ function LogEditForm() {
                 <br/>
                 <input type="submit" />
             </form>
-            <Link to={`/logs/${index}`}>
+            <Link to={`/logs`}>
                 <button>Back</button>
             </Link>
         </div>

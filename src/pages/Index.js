@@ -1,5 +1,4 @@
 import Logs from "../components/Logs";
-import "./Index.css";
 
 const Index = () => {
     return (
