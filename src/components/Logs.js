@@ -23,6 +23,7 @@ const Logs = () => {
                 <table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Captain's Name</th>
                         <th>View Log</th>
                     </tr>

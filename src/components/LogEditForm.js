@@ -14,7 +14,7 @@ function LogEditForm() {
         title: "",
         post: "",
         mistakesWereMadeToday: false,
-        daysSinceLastCrisis: null,
+        daysSinceLastCrisis: "",
     });
 
     const handleTextChange = (event) => {
@@ -30,7 +30,7 @@ function LogEditForm() {
         .then((res) => {
             setLog(res.data);
         }).catch((err) => {
-            navigate("/not-found");
+            console.log(err);
         });
     }, [index]);
 
@@ -83,7 +83,7 @@ function LogEditForm() {
                 <br/>
                 <input type="submit" />
             </form>
-            <Link to={`/logs`}>
+            <Link to={`/logs${index}`}>
                 <button>Back</button>
             </Link>
         </div>
