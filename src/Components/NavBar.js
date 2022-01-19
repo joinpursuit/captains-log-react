@@ -7,7 +7,7 @@ export default function NavBar() {
         <Link to="/logs">Captain's Log</Link>
       </h1>
       <button>
-        <Link to="/log/new">New Log</Link>
+        <Link to="/logs/new">New Log</Link>
       </button>
     </nav>
   );
