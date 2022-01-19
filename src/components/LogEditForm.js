@@ -57,10 +57,10 @@ function LogEditForm() {
                         <input className="input-text" id="title" value={log.title} type="text" onChange={handleText} required />
                     </div>
 
-                    <div className="form-section">
+                    {/* <div className="form-section"> */}
                         <label htmlFor="post">Post</label>
                         <textarea id="post" value={log.post} type="text" onChange={handleText} required> </textarea>
-                    </div>
+                    {/* </div> */}
 
                     <div className="form-section">
                         <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
