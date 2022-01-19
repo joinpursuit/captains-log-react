@@ -48,10 +48,8 @@ function LogNewForm() {
             <input
             id="title"
             type="text"
-            // pattern="http[s]*://.+"
             required
             value={log.title}
-            // placeholder="http://"
             onChange={handleTextChange}
             />
             <label htmlFor="post">Post</label>
