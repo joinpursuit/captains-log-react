@@ -3,12 +3,14 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <nav className="nav-bar">
-      <Link to="/logs">
-        <h1>Captain's Logs</h1>
-      </Link>
-      <Link to="/logs/new">
-        <h2>NEW LOG</h2>
-      </Link>
+      <h1>
+        <Link to="/logs">Captain's Logs</Link>
+      </h1>
+      <h4>
+        <Link to="/logs/new" id="link-to-new">
+          New Log
+        </Link>
+      </h4>
     </nav>
   );
 };

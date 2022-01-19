@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import Log from "./Log";
-import "./Logs.css";
+
+// import "./Logs.css";
+
 const Logs = () => {
   const [logs, setLogs] = useState([]);
   useEffect(() => {
@@ -13,13 +16,21 @@ const Logs = () => {
   return (
     <section className="logs">
       <div className="logs-header">
-        <h2>Mistakes</h2>
-        <h2>Captain Name</h2>
-        <h2>See this log</h2>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Mistakes</th>
+              <th>Captain's Name</th>
+              <th>See this log</th>
+            </tr>
+          </thead>
+          <tbody>
+            {logs.map((log, i) => (
+              <Log key={"log" + i} id={i} log={log} />
+            ))}
+          </tbody>
+        </Table>
       </div>
-      {logs.map((log, i) => (
-        <Log key={"log" + i} id={i} log={log} />
-      ))}
     </section>
   );
 };

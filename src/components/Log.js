@@ -5,13 +5,15 @@ const Log = (props) => {
   const { captainName, mistakesWereMadeToday, title } = props.log;
   const { id } = props;
   return (
-    <div className="log">
-      <div>{`${mistakesWereMadeToday}`}</div>
-      <div>{captainName}</div>
-      <Link to={`/logs/${id}`}>
-        <h3>{title}</h3>
-      </Link>
-    </div>
+    <tr className="Log">
+      <td>{`${mistakesWereMadeToday}`}</td>
+      <td>{captainName}</td>
+      <td>
+        <Link to={`/logs/${id}`}>
+          <h3>{title}</h3>
+        </Link>
+      </td>
+    </tr>
   );
 };
 

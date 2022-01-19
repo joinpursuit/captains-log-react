@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./LogDetails.css";
@@ -20,29 +20,29 @@ const LogDetails = () => {
       .then(() => navigate("/logs"))
       .catch(() => navigate("/not_found"));
   };
-  const handleBack = () => {
-    navigate("/logs");
-  };
-  const handleEdit = () => {
-    navigate(`/logs/${id}/edit`);
-  };
+  //   const handleBack = () => {
+  //     navigate("/logs");
+  //   };
+  //   const handleEdit = () => {
+  //     navigate(`/logs/${id}/edit`);
+  //   };
 
   const { captainName, title, post, daysSinceLastCrisis } = log;
   return (
     <section className="log-details">
       <div className="log-details-head">
         <h3>
-          {title}- by {captainName}
+          {title} - By {captainName}
         </h3>
         <div>{post}</div>
         <div>{`Days since last crisis: ${daysSinceLastCrisis}`}</div>
       </div>
       <div className="log-details-buttons">
-        <button className="gray" onClick={handleBack}>
-          Back
+        <button className="gray">
+          <Link to="/logs">Back</Link>
         </button>
-        <button className="yellow" onClick={handleEdit}>
-          Edit
+        <button className="yellow">
+          <Link to={`/logs/${id}/edit`}>Edit</Link>
         </button>
         <button className="red" onClick={handleDelete}>
           Delete

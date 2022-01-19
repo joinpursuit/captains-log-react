@@ -32,12 +32,12 @@ function NewLog() {
   const { post, captainName, title, daysSinceLastCrisis } = state;
   return (
     <form onSubmit={handleSubmit} className="new-form">
-      <label htmlFor="captain">
-        <strong>Captain's name: </strong>
+      <label htmlFor="captainName">
+        <strong>Captain's Name: </strong>
       </label>
       <br />
       <input
-        id="captain"
+        id="captainName"
         type="text"
         name="captainName"
         value={captainName}
@@ -67,25 +67,30 @@ function NewLog() {
         placeholder="What happened today?"
       />
       <br />
-      <label htmlFor="days-since">
+      <label htmlFor="daysSinceLastCrisis">
         <strong>Days Since Last Crisis</strong>
       </label>
       <br />
       <input
-        id="days-since"
+        id="daysSinceLastCrisis"
         type="number"
         name="daysSinceLastCrisis"
         value={daysSinceLastCrisis}
         onChange={handleChange}
       />
       <br />
-      <label>
+      <label htmlFor="mistakesWereMadeToday">
         <strong>Mistakes were made today: </strong>
       </label>
       <br />
-      <input type="checkbox" checked={checked} onChange={handleCheckBox} />
+      <input
+        id="mistakesWereMadeToday"
+        type="checkbox"
+        checked={checked}
+        onChange={handleCheckBox}
+      />
       <br />
-      <button type="submit">
+      <button id="new-form-submit" type="submit">
         <strong>Submit</strong>
       </button>
     </form>

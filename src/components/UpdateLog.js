@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./UpdateLog.css";
@@ -30,7 +30,7 @@ function UpdateLog() {
     const newLog = { ...log, mistakesWereMadeToday: checked };
     axios
       .put(`${process.env.REACT_APP_API_URL}/logs/${id}`, newLog)
-      .then(() => navigate("/logs"))
+      .then(() => navigate(`/logs/${id}`))
       .catch(() => navigate("/logs"));
   };
   const handleChange = (e) => {
@@ -39,60 +39,68 @@ function UpdateLog() {
   const { post, captainName, title, daysSinceLastCrisis } = log;
   return (
     <form onSubmit={handleSubmit} className="form">
-      <label htmlFor="updatedCaptain">
-        <strong>Captain's name: </strong>
+      <label htmlFor="captainName">
+        <strong>Captain's Name: </strong>
+        <input
+          id="captainName"
+          type="text"
+          name="captainName"
+          value={captainName}
+          onChange={handleChange}
+        />
       </label>
       <br />
-      <input
-        id="updatedCaptain"
-        type="text"
-        name="captainName"
-        value={captainName}
-        onChange={handleChange}
-      />
-      <br />
-      <label htmlFor="updatedTitle">
+
+      <label htmlFor="title">
         <strong>Title</strong>
+        <input
+          id="title"
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
       </label>
       <br />
-      <input
-        id="updatedTitle"
-        type="text"
-        name="title"
-        value={title}
-        onChange={handleChange}
-      />
-      <br />
-      <label htmlFor="updatedPost">
+
+      <label htmlFor="post">
         <strong>Post:</strong>
       </label>
-      <br />
       <textarea
-        id="updatedPost"
+        id="post"
         name="post"
         value={post}
         onChange={handleChange}
         placeholder="What happened today?"
       />
       <br />
-      <label htmlFor="update-days">
+
+      <label htmlFor="daysSinceLastCrisis">
         <strong>Days Since Last Crisis</strong>
+        <input
+          id="daysSinceLastCrisis"
+          type="number"
+          name="daysSinceLastCrisis"
+          value={daysSinceLastCrisis}
+          onChange={handleChange}
+        />
       </label>
       <br />
-      <input
-        id="update-days"
-        type="number"
-        name="daysSinceLastCrisis"
-        value={daysSinceLastCrisis}
-        onChange={handleChange}
-      />
-      <br />
-      <label>
+
+      <label htmlFor="mistakesWereMadeToday">
         <strong>Mistakes were made today: </strong>
+        <input
+          id="mistakesWereMadeToday"
+          type="checkbox"
+          checked={checked}
+          onChange={handleCheckBox}
+        />
       </label>
       <br />
-      <input type="checkbox" checked={checked} onChange={handleCheckBox} />
-      <br />
+
+      <button>
+        <Link to="/logs">Back</Link>
+      </button>
       <button type="submit">
         <strong>Submit</strong>
       </button>

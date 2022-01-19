@@ -3,3 +3,8 @@
   width: 75%;
   margin: 50px auto;
 }
+#new-form-submit {
+  width: 10%;
+  background-color: grey;
+  box-shadow: 10px 5px 5px black;
+}

@@ -5,6 +5,8 @@ import Index from "./pages/Index";
 import New from "./pages/New";
 import Show from "./pages/Show";
 import Edit from "./pages/Edit";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (
