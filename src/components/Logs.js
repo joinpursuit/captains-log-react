@@ -19,7 +19,7 @@ function Logs(){
     }, [])
 
     return(
-        <div className="Logs">
+        <div className="Log">
             <Table striped bordered hover>
                 <thead>
                 <tr>
