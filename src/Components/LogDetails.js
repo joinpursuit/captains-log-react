@@ -27,21 +27,8 @@ function LogDetails() {
 
     return (
         <article>
-        <h3>
-            {log.mistakesWereMadeToday 
-                ? <span>💥</span> 
-                : null
-            } 
-            {log.captainName}
-        </h3>
-        <h5>
-            <span>
-            <a href={log.title}>{log.captainName}</a>
-            </span>{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {log.title}
-        </h5>
-        <h6>{log.post}</h6>
+        <h2>{`${log.title} - By ${log.captainName}`}</h2>
+        <h5>{log.post}</h5>
         <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
 
         <div className="showNavigation">
