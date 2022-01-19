@@ -39,9 +39,9 @@ const handleDelete =()=>{
                 <h4>Days since last crisis: {indexedlog.daysSinceLastCrisis}</h4>
                 <p>{indexedlog.post}</p>
             </div>
-                <Link to={`/logs`}><button>Back</button></Link>
-                <Link to={`/logs/${index}/edit`}><button>Edit</button></Link>
-                <Link to={`/logs`}><button onClick={handleDelete}>Delete</button></Link>
+                <button><Link to="/logs">Back</Link></button>
+                <button><Link to={`/logs/${index}/edit`}>Edit</Link></button>
+                <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
