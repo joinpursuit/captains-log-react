@@ -6,7 +6,8 @@ function Logs () {
     const [ allLogs, setAllLogs ] = useState([]);
     
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}`)
+        console.log(process.env.REACT_APP_API_URL)
+        axios.get(`${process.env.REACT_APP_API_URL}/logs`)
         .then(res => {
             console.log(res.data)
             setAllLogs(res.data);
