@@ -1,33 +1,27 @@
-import React, { Component} from 'react';
-import Logs from "./Components/Logs"
-// import {apiURL} from "./util/apiURL.js";
-// import axios from "axios";
-import {Route, Switch, Link } from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+// import{Switch} from "react-router-dom"
+import NavBar from "./components/Navbar.js"
+import Home from "./pages/Home.js"
+import LogsIndex from "./pages/LogsIndex.js";
+import Logs from "./components/Logs.js"
 
+function App() {
+  return (
+    <div className="app">
+      <Router>
+        <NavBar />
 
-export default class App extends Component {
-    render() {
-      return (
-        // <div>
-        //   <h1>Hi</h1>
-        // </div>
-        <div>
-          <nav>
-            <h1>
-              <Link to='/logs'>Captain's Log</Link>
-            </h1>
-            <button>
-              <Link to="/logs/new">New log</Link>
-            </button>
-          </nav>
-
-          <Switch>
-            <Route path='/logs' component= {Logs}/>
-            <Route path="/logs/new" component={Logs}/>
-            <Route path = '/logs/:index'/>
-          </Switch>
-       
-        </div>
-      )
-    }
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="/logs" elements={<LogsIndex />}></Route>
+          {/* <Route path="/logs/new" element={ <New/> }/>
+          <Route path="/logs/:index" element={ <Show/> }/>
+          <Route path="/logs/:index/edit" element={ <Edit/> }/>
+          <Route path="*" element={ <Error/> }/> */}
+        </Routes>
+      </Router>
+    </div>
+  );
 }
+
+export default App;
