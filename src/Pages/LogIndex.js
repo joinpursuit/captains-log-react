@@ -4,13 +4,14 @@ import axios from "axios";
 
 function LogIndex () {
     const [log, setLog ] = useState([]);
-    const { index } = useParams;
+    const { index } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/logs/${index}`)
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setLog(data)
             })
     },[index])
@@ -32,8 +33,8 @@ function LogIndex () {
                 <h3>{log.post}</h3>
                 <h4>Days since last crisis: <div>{log.daysSinceLastCrisis}</div></h4>
             </div>
-            <Link to={`/logs`}><button>BACK</button></Link>
-            <Link to={`/logs/${index}/edit`}><button>Edit</button></Link>
+            <button><Link to="/logs">Back</Link></button>
+            <button><Link to={`/logs/${index}/edit`}>Edit</Link></button>
             <button onClick={handleDelete}>Delete</button>
         </div>
     )

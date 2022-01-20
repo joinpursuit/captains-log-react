@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Log ({log,index}) {
 
     return (
-        <tr>
+        <tr className="Log">
             <td>{log.mistakesWereMadeToday ? "💥" : null}</td>
             <td>{log.captainName}</td>
             <td>

@@ -4,7 +4,7 @@ import axios from "axios";
 
 function NewLog () {
     const { index } = useParams;
-    const URL = `${process.env.REACT_APP_API_URL}/${index}`
+    const URL = process.env.REACT_APP_API_URL
     const [ log, setLog ] = useState ({
         captainName: "",
         title: "",
@@ -14,15 +14,15 @@ function NewLog () {
     })
     const navigate = useNavigate();
 
-    useEffect(() => {
-        axios.get(URL)
-        .then(res => {
-            setLog(res.data)
-        })
-    }, [index])
+    // useEffect(() => {
+    //     axios.get(URL)
+    //     .then(res => {
+    //         setLog(res.data)
+    //     })
+    // }, [index])
 
     const handleTextChange = (e) => {
-        setLog({...log, [e.target.id]:[e.target.value]})
+        setLog({...log, [e.target.id]: e.target.value})
     }
 
     const handleCheckboxChange = (e) => {
@@ -31,7 +31,7 @@ function NewLog () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(URL, log)
+        axios.post(`${URL}/logs`, log)
         .then(res => navigate(`/logs`))
     }
 

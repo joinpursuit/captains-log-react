@@ -1,10 +1,10 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function EditLog () {
-    const { index } = useParams;
-    const URL = `${process.env.REACT_APP_API_URL}/${index}`
+    const { index } = useParams();
+    const URL = `${process.env.REACT_APP_API_URL}/logs/${index}`
     const [ log, setLog ] = useState ({
         captainName: "",
         title: "",
@@ -22,17 +22,17 @@ function EditLog () {
     }, [index])
 
     const handleTextChange = (e) => {
-        setLog({...log, [e.target.id]:[e.target.value]})
+        setLog({...log, [e.target.id]:e.target.value})
     }
 
     const handleCheckboxChange = (e) => {
-        setLog({...log}, {mistakesWereMadeToday: !log.mistakesWereMadeToday})
+        setLog({...log, mistakesWereMadeToday: !log.mistakesWereMadeToday})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.put(URL, log)
-        .then(res => navigate(`/logs${index}`))
+        .then(res => navigate(`/logs/${index}`))
     }
 
     return (
@@ -50,7 +50,8 @@ function EditLog () {
                 <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
                 <input type="checkbox" id="mistakesWereMadeToday" value={log.mistakesWereMadeToday} onCheck={handleCheckboxChange} />
                 
-                <input type="submit" />
+                <input type="submit" value="submit"/>
+                <button><Link to="/logs">Back</Link></button>
             </form>
         </div>
     )

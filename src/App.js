@@ -13,11 +13,11 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/logs" element={<Logs />} />
           <Route path="/logs/new" element={<NewLog />} />
-          <Route path="/logs/:index/edit" element={<EditLog />} />
           <Route path="/logs/:index" element={<LogIndex />} />
+          <Route path="/logs/:index/edit" element={<EditLog />} />
         </Routes>
       </Router>
     </div>
