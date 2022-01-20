@@ -17,22 +17,20 @@ function Logs(){
             })
     },[]);
     return(
-        <div classname="Logs">
+        <div className="Logs">
             <section>
-                <table>
-                    <thed>
-                        <tr>
-                            <th>Mistakes</th>
-                            <th>Captain's Name</th>
-                            <th>See this log</th>
-                        </tr>
-                    </thed>
-                    <tbody>
+                        <div>
+                            <span>Mistakes</span>
+                            <span>Captain's Name</span>
+                            <span>See this log</span>
+                        </div>
+                   
+                    <div>
                         {logs.map((log, index)=>{
                             return <Log key={index} log={log} index={index}/>
                         })}
-                    </tbody>
-                </table>
+                    </div>
+                
             </section>
         </div>
     )

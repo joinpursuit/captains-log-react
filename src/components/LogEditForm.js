@@ -37,7 +37,7 @@ function LogEditForm() {
       event.preventDefault();
       axios.put(`${process.env.REACT_APP_API_URL}/logs/${index}`, log)
         .then((res)=>{
-          navigate("/logs");
+          navigate(`/logs/${index}`);
         }).catch((err)=>{
           console.log(err)
         })
