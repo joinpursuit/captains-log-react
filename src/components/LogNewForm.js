@@ -46,15 +46,16 @@ function LogNewForm(){
             <input
             id="title"
             type="text"
+            name="title"
             value={log.title}
             placeholder="Name of Title"
             onChange={handleTextChange}
             />
             <label htmlFor="post">Post:</label>
-            <input
+            <textarea
             id="post"
             type="text"
-            name="post"
+            
             value={log.post}
             placeholder="Name of Post"
             onChange={handleTextChange}
@@ -66,10 +67,11 @@ function LogNewForm(){
             onChange={handleCheckboxChange}
             checked={log.mistakesWereMadeToday}
             />
-            <label htmlFor="daysSinceLastCrisis">Days since last crisis:</label>
+            <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
             <input
             id="daysSinceLastCrisis"
             value={log.daysSinceLastCrisis}
+            type="number"
             onChange={handleTextChange}
             placeholder="Days Since Last Crisis"
             />
