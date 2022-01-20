@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 // Components
+import Home from "./Pages/Home"
 import NavBar from "./Components/NavBar";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
@@ -15,7 +16,7 @@ function App() {
         <NavBar />
       {/* Routes */}
         <Routes>
-          <Route path="/" />
+          <Route path="/" element={<Home />}/>
           <Route path="/logs" element={<Index />} />
           <Route path="/logs/:index" element={<Show />} />
           <Route path="/logs/new" element={<New />} />

@@ -29,7 +29,7 @@ function LogEditForm() {
        axios
        .get(`${API}/logs/${index}`)
        .then((res) => {
-         console.log(res.data);
+        //  console.log(res.data);
          setLog(res.data);
        })
        .catch(
@@ -71,9 +71,9 @@ function LogEditForm() {
           type="text"
         />
 
-        <label htmlFor="post">Post</label>
+        <label htmlFor="post">Post:</label>
         <textarea
-          id="title"
+          id="post"
           value={log.post}
           onChange={handleTextChange}
           placeholder="Post"
@@ -82,18 +82,19 @@ function LogEditForm() {
 
         <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
         <input
-          id="#mistakesWereMadeToday"
+          id="mistakesWereMadeToday"
           value={log.mistakesWereMadeToday}
           onChange={handleCheckBoxChange}
           checked={log.mistakesWereMadeToday}
+          type="checkbox"
         />
 
-        <label htmlFor="daysSinceLastCrisis">Days since last crisis:</label>
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
         <input
           id="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder="Days since last crisis"
+          placeholder="Days Since Last Crisis"
           type="number"
         />
         <br />
