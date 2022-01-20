@@ -16,6 +16,7 @@ function LogEditForm() {
     daysSinceLastCrisis: 0,
   });
 
+
   // on change, change the state log to value that is being input by user
   const handleTextChange = (e) => {
     setLog({ ...log, [e.target.id]: e.target.value });
@@ -35,25 +36,23 @@ function LogEditForm() {
        .catch(
          (err) => {
            navigate("/not-found");
-         },
-         [index, navigate]
+         }
        );
-   })
-
-
- 
+   }, [index, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${API}/logs/${index}`, log).then(() => {
+    axios.put(`${API}/logs/${index}`, log).then((res) => {
       navigate(`/logs/${index}`);
-    });
+    }).catch((err) => {
+        console.log(err)
+    })
   };
 
   return (
-    <div className="New">
+    <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainName">Captain's Name</label>
+        <label htmlFor="captainName">Captain's Name:</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -80,7 +79,7 @@ function LogEditForm() {
           type="text"
         />
 
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
         <input
           id="mistakesWereMadeToday"
           value={log.mistakesWereMadeToday}
