@@ -3,6 +3,7 @@
 const Log = ({log, index}) => {
     return (
         <tr className="Log">
+        <td></td>
         <td>
           <div>{log.captainName}</div>
         </td>

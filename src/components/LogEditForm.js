@@ -40,7 +40,9 @@ function LogEditForm() {
         .then((res)=> {
             setLog(res.data)
             navigate(`/logs/${index}`);
-        }).catch((err)=> console.log(err))
+        }).catch((err)=> {
+            navigate(`/logs/${index}`);
+        })
     };
 
     return (
