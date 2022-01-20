@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Index from "./pages/Index";
 import New from "./pages/New";
 import Show from "./pages/Show";
+import Edit from "./pages/Edit";
 // import FourOFour from "./Pages/FourOFour";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path= "/logs" element ={<Index/>}/>
           <Route path = "/logs/new" element = {<New/>}/>
           <Route path ="/logs/:index" element ={<Show/>}/>
+          <Route path="/logs/:index/edit" element={<Edit/>} />
           {/* <Route path="*" element={<FourOFour />} /> */}
         </Routes>
       </main>

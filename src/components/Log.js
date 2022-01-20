@@ -4,7 +4,7 @@ function Log({log, index}){
 return(
         <tr>
             <td>
-                {log.mistakesWereMadeToday?(<span>Yes</span>) : (<span>No</span>)}
+                {log.mistakesWereMadeToday}
             </td>
             <td>
                 {/* <a href={log.url} target="_blank" rel="noreferrer"> */}

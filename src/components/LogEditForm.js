@@ -1,40 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-
-function LogNewForm(){
-    const[log, setLog] = useState({
-      captainName: "",
-      title: "",
-      post: "",
-      mistakesWereMadeToday: false,
-      daysSinceLastCrisis: "",
-    })
-
+function LogEditForm() {
+    let { index } = useParams();
+  
+    const [log, setLog] = useState({
+        captainName: "",
+        title: "",
+        post: "",
+        mistakesWereMadeToday: false,
+        daysSinceLastCrisis: "",
+    });
+  
     const navigate = useNavigate();
-
+  
     const handleTextChange = (event) => {
-        setLog({ ...log, [event.target.id]: event.target.value });
+      setLog({ ...log, [event.target.id]: event.target.value });
     };
-    
+  
     const handleCheckboxChange = () => {
-        setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday});
+      setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
     };
-
+  
+    useEffect(() => {
+      axios.get(`${process.env.REACT_APP_API_URL}/logs/${index}`)
+        .then((res)=>{
+          setLog(res.data);
+        }).catch((err)=>{
+          navigate("/not-found");
+        })
+    }, []);
+  
     const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post(`${process.env.REACT_APP_API_URL}/logs`, log)
-          .then((res)=>{
-            navigate("/logs");
-          }).catch((err)=>{
-            console.log(err);
-          })
-    };  
-    return(
-        <div className="New">
+      event.preventDefault();
+      axios.put(`${process.env.REACT_APP_API_URL}/logs/${index}`, log)
+        .then((res)=>{
+          navigate("/logs");
+        }).catch((err)=>{
+          console.log(err)
+        })
+    };
+    return (
+      <div className="Edit">
         <form onSubmit={handleSubmit}>
-            <label htmlFor="captainName">Captain's Name</label>
+        <label htmlFor="captainName">Captain's Name</label>
             <input
             id="captainName"
             value={log.captainName}
@@ -42,7 +53,7 @@ function LogNewForm(){
             onChange={handleTextChange}
             placeholder="Name of Captain"
             />
-            <label htmlFor="title">Title:</label>
+           <label htmlFor="title">Title:</label>
             <input
             id="title"
             type="text"
@@ -75,10 +86,13 @@ function LogNewForm(){
             placeholder="Days Since Last Crisis"
             />
             <br />
-            <input type="submit" />
-      </form>
-    </div>
-    )
-}
-
-export default LogNewForm;
+          <input type="submit" />
+        </form>
+        <Link to={`/logs/${index}`}>
+          <button>Back</button>
+        </Link>
+      </div>
+    );
+  }
+  
+  export default LogEditForm;
