@@ -1,5 +1,5 @@
 import Home from "./Pages/Home";
-import NavBar from "./Pages/NavBar";
+import NavBar from "./Components/NavBar";
 import EditLog from "./Pages/EditLog";
 import LogIndex from "./Pages/LogIndex";
 import Logs from "./Pages/Logs";
