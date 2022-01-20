@@ -39,7 +39,6 @@ function LogEditForm() {
     }).catch((err)=>{
       console.log(err);
     })
-    navigate(`/logs/${index}`);
   };
   
   return (
