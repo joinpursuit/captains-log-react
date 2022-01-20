@@ -10,6 +10,7 @@ function Logs() {
   useEffect(()=>{
     axios.get(`${API_URL}/logs`)
     .then((res)=>{
+      console.log(res.data);
       setLogs(res.data);
     })
     .catch((err)=>{
@@ -25,13 +26,13 @@ function Logs() {
           <thead>
             <tr>
               <th></th>
-              <th>Take me there</th>
-              <th>See this log</th>
+              <th>Captain Name</th>
+              <th>Log Entry</th>
             </tr>
           </thead>
           <tbody>
             {logs.map((log, index) => {
-              return <Log key={index} log={log} index={index} />;
+              return <Log key={index}log={log} index={index} />;
             })}
           </tbody>
         </table>

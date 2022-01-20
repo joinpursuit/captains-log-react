@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
@@ -12,7 +12,7 @@ import NavBar from "./Components/NavBar";
 function App() {
   return (
   <div className="App">
-    <h1>hello</h1>
+    <BrowserRouter>
     <NavBar/>
     <main>
       <Routes>
@@ -24,6 +24,7 @@ function App() {
         <Route path="*" element={<FourOFour />} />
       </Routes>
     </main>
+    </BrowserRouter>
   </div>
   )
 }
