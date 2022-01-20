@@ -57,17 +57,13 @@ function LogEditForm() {
             <input
             id="title"
             type="text"
-            // pattern="http[s]*://.+"
             required
             value={log.title}
-            // placeholder="http://"
             onChange={handleTextChange}
             />
             <label htmlFor="post">Post</label>
             <textarea
             id="post"
-            // type="text"
-            // name="post"
             value={log.post}
             placeholder="Today ..."
             onChange={handleTextChange}
