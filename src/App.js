@@ -1,5 +1,13 @@
-function App() {
-  return <div>Hello World</div>;
-}
+import Routing from "./components/Routing";
+import Nav from "./components/Nav";
 
-export default App;
+const App = () => {
+  return (
+    <div className="App">
+      <Nav />
+      <main>
+        <Routings />
+      </main>
+    </div>
+  )
+}
