@@ -14,6 +14,7 @@ function Logs() {
 			.then((data) => {
 				// adding the data from the api to a state ..
 				setLogs(data);
+				console.log(data);
 			})
 			.catch((err) => {
 				return err;
