@@ -4,8 +4,8 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 
 function LogEditForm() {
     const URL = process.env.REACT_APP_API_URL_FROM_OUR_BACKEND;
-
     let { index } = useParams();
+    const navigate = useNavigate();
 
     const [log, setLog] = useState({
         captainName: "",
@@ -14,8 +14,6 @@ function LogEditForm() {
         mistakesWereMadeToday: false,
         daysSinceLastCrisis: "",
     })
-
-    const navigate = useNavigate();
 
     const handleTextChange = (event) => {
         setLog({ ...log, [event.target.id]: event.target.value});
@@ -34,7 +32,6 @@ function LogEditForm() {
                 console.log(err);
             })
     }, []);
-
 
     // UPDATE
     const handleSubmit = (event) => {
