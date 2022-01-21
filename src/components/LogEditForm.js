@@ -105,7 +105,6 @@ function LogEditForm() {
                 </Button>
             </form>
             <Button as={Link} to={`/logs/${index}`} variant="secondary">Back</Button>
-
             {/* <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" >
                     <Form.Label>Captain's Name</Form.Label>
@@ -159,7 +158,8 @@ function LogEditForm() {
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
-                </Button>
+                </Button> {""}
+                <Button as={Link} to={`/logs/${index}`} variant="secondary">Back</Button>
             </Form> */}
         </div>
     )
