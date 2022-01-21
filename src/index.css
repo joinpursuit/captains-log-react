@@ -18,3 +18,9 @@
   text-align: center;
   margin: 20px auto;
 }
+.article {
+  width: 500px;
+  background-color: aquamarine;
+  margin: 0 auto;
+  padding: 10px;
+}

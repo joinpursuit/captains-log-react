@@ -1,10 +1,11 @@
 import Logs from "../components/Logs.js"
 
-export default function LogsIndex({logs}) {
+function LogsIndex() {
     return (
         <div>
             <h2>Index</h2>
-            <Logs logs={logs}/>
+            <Logs/>
         </div>
     )
 }
+export default LogsIndex;
