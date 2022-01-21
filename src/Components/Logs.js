@@ -34,7 +34,7 @@ function Logs() {
             <tbody>
                 {logs.map((log, index)=>{
                     return <Log key={index} log={log} index={index} />
-                })}
+                })};
             </tbody>
             </table>
         </div>

@@ -8,6 +8,8 @@ import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 
 import NavBar from './Components/NavBar';
+
+
 function App() {
   return (
     <div className="App">
