@@ -1,12 +1,10 @@
-import Routing from "./components/Routing";
-import Home from "./components/Home";
-import NavBar from "./components/NavBar";
+import Nav from "./pages/Nav";
+import Routing from "./routing/Routing";
 
 function App() {
   return (
     <div>
-      <div>Home Page</div>
-      <NavBar />
+      <Nav />
       <Routing />
     </div>
   );

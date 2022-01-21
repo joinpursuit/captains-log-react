@@ -1,5 +1,7 @@
+import LogCreate from "../components/LogCreate";
+
 const New = () => {
-  return <h1>Create New Log</h1>;
+  return <LogCreate />;
 };
 
 export default New;
