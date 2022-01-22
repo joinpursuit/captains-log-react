@@ -17,7 +17,7 @@ function LogNewForm() {
   };
 
   const handleCheckboxChange = () => {
-    setLog({ ...log, isMistakes: !log.isMistakes });
+    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
   const handleSubmit = (event) => {
