@@ -15,6 +15,9 @@ describe("Index page", () => {
   });
 
   it("Has a link to each log's show page", () => {
+    console.log(CI_ENV);
+    console.log("intercepted");
+
     const regex = /logs\/(\d+)/;
     cy.get(".Log a").each(($item) => {
       cy.wrap($item).invoke("attr", "href").should("match", regex);
