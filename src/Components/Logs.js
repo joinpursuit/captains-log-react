@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import FormatLog from "./FormatLog.js";
 import axios from "axios";
 
-function Logs() {
+const Logs = () => {
   const [logs, setLogs] = useState([]);
   const [filter, setFilter] = useState({
-    order: "",
+    order:"",
     mistakesWereMadeToday:"",
     daysSinceLastCrisis:""
   })
@@ -59,8 +59,8 @@ function Logs() {
         <table>
           <thead></thead>
           <tbody className="list-group">
-            {logs.map((log, index) => {
-              return <FormatLog key={index} log={log} index={index} />;
+            {logs.map((log) => {
+              return <FormatLog key={log.id} log={log} />;
             })}
           </tbody>
         </table>

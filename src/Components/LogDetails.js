@@ -21,11 +21,15 @@ function LogDetails() {
     const handleDelete = () => {
         deleteLog()
     };
+
+    const display = (daysSinceLastCrisis) => {
+        return Number(daysSinceLastCrisis) > 0 ? <span className="badge bg-primary mt-3">{daysSinceLastCrisis}</span> : <span className="badge bg-danger mt-3">{daysSinceLastCrisis}</span>
+    }
     
     return (
         <article className="container p-5 my-5 bg-warning text-dark rounded">
             <h2>{log.title} - By {log.captainName}</h2>
-            <p>Days since last crisis: {Number(log.daysSinceLastCrisis) > 0 ? <span className="badge bg-primary mt-3">{log.daysSinceLastCrisis}</span> : <span className="badge bg-danger mt-3">{Number(log.daysSinceLastCrisis)}</span>}</p>
+            <p>Days since last crisis: {display(log.daysSinceLastCrisis)}</p>
             <p>Any Mistakes? {log.mistakesWereMadeToday ? <span className="badge bg-danger">Yes</span> : <span className="badge bg-primary">No</span>}</p>
             <p className="container p-3 bg-secondary text-white rounded"><span className="badge bg-warning text-dark">Post</span><span className=""> {log.post}</span></p>
             <div className="showNavigation btn-group mt-2 gap-3">

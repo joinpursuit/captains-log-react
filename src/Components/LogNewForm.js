@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
-function LogNewForm() {
+const LogNewForm = () => {
     const navigate = useNavigate();
     const URL = process.env.REACT_APP_API_URL;
+    const newID = uuidv4();
     const [log, setLog] = useState({
+        id: newID,
         captainName: "",
         title: "",
         post: "",
