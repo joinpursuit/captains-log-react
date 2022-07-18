@@ -27,7 +27,7 @@ Use these user stories to build your app
 - A user can update a log using a form
 - A user can delete a log through a button on the show page
 
-### Build the Following Components/Pages/Routes
+### Build the Following Frontend Components/Pages/Routes
 
 ### Nav Bar
 
@@ -114,8 +114,8 @@ Or else your test(s) will not pass
   - mistakesWereMadeToday
   - daysSinceLastCrisis
 - Displays two buttons
-  - <kbd>back</kbd>, takes the user back to the `/logs` view
-  - <kbd>delete</kbd>, deletes the log and takes the user back to the `/logs` view
+  - <kbd>back</kbd>, takes the user back to the `/logs` index view
+  - <kbd>delete</kbd>, deletes the log and takes the user back to the `/logs` index view
 
 ### NEW:  GET `/logs/new`
 
@@ -127,19 +127,28 @@ Or else your test(s) will not pass
   - daysSinceLastCrisis (number)
   - submit (submit)
 
-### Create POST `/logs`
-- Your New form creates a new log
 
-### Edit: GET `/logs/edit`
+### Edit: GET `/logs/:index/edit`
 
 - Add an edit route
 - Add an edit form that is prefilled with the log to edit
 
+### Your App Should Rely on the following Backend routes from the Captains Log API Lab:
+
+### INDEX: GET `/logs`
+- Your Index page uses this route to display a list of all logs
+
+### SHOW: GET `/logs/:index`
+- Your Show page uses this route to display details for a single log
+
+### Create POST `/logs`
+- Your New form uses this route to create a new log
+
 ### Update: PUT `/logs/:index`
-- Your Update form updates a log
+- Your Update form uses this route to update a log
 
 ### Delete: DELETE `/logs/:index`
-- From the show page, it is possible to delete a log
+- Your show page provides a button that uses this route to delete a log
 
 
 ### Add Basic CSS Styling
