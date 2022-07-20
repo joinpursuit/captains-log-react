@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
@@ -16,14 +16,21 @@ function LogsDetail() {
 
   return (
     <section>
-      <div>captainName : {log.captainName}</div>
-      <div>title : {log.title}</div>
+      <div>
+        {log.title} - By {log.captainName}
+      </div>
       <div>post : {log.post}</div>
       <div>
         mistakesWereMadeToday : {log.mistakesWereMadeToday ? "true" : "false"}
       </div>
-      <div>daysSinceLastCrisis : {log.daysSinceLastCrisis}</div>
-      <button>Back</button>
+      <div>Days since last crisis: {log.daysSinceLastCrisis}</div>
+      <Link to="/logs">
+        <button>Back</button>
+      </Link>
+      <Link to={`/logs/${index}/edit`}>
+        <button>Edit</button>
+      </Link>
+
       <button>Delete</button>
     </section>
   );
