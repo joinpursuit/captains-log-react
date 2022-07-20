@@ -26,30 +26,30 @@ function Logs() {
     //     );
     //   })}
     // </div>
-    <div className="Logs">
-      <section>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this bookmark</th>
-            </tr>
-          </thead>
-          <tbody>
-            {logs.map((log, index) => {
-              return (
-                <div className="Log">
-                  <Link to={`/logs/${index}`}>
-                    <Log log={log} index={index} key={index} />
-                  </Link>
-                </div>
-              );
-            })}
-          </tbody>
-        </table>
-      </section>
-    </div>
+    // <div className="Logs">
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Take me there</th>
+            <th>See this bookmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          {logs.map((log, index) => {
+            return (
+              <div className="Log">
+                <Link to={`/logs/${index}`}>
+                  <Log log={log} index={index} key={index} />
+                </Link>
+              </div>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
+    // </div>
   );
 }
 

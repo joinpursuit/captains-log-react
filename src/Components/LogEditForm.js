@@ -95,7 +95,7 @@ function LogEditForm() {
         <input type="submit" />
       </form>
 
-      <Link to={`/bookmarks/${index}`}>
+      <Link to={`/logs/${index}`}>
         <button>Nevermind!</button>
       </Link>
     </div>

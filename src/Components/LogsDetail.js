@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
@@ -7,12 +7,23 @@ function LogsDetail() {
   const { index } = useParams();
   const [log, setLog] = useState({});
 
+  let navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`${API}/logs/${index}`)
       .then((response) => setLog(response.data))
       .catch((error) => console.error("catch", error));
   }, [index]);
+
+  const handleDelete = () => {
+    axios
+      .delete(`${API}/logs/${index}`)
+      .then(() => {
+        navigate(`/logs`);
+      })
+      .catch((e) => console.error(e));
+  };
 
   return (
     <section>
@@ -31,7 +42,7 @@ function LogsDetail() {
         <button>Edit</button>
       </Link>
 
-      <button>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </section>
   );
 }
