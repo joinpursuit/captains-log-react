@@ -1,0 +1,33 @@
+.LogHeader {
+  background-color: paleturquoise;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+
+  #NavTitle {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+
+    &:hover {
+      color: grey;
+    }
+  }
+
+  ul {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+
+  .NavLink {
+    text-decoration: none;
+    color: blue;
+    font-size: 25px;
+
+    &:hover {
+      color: blueviolet;
+    }
+  }
+}

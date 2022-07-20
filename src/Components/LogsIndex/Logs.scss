@@ -1,0 +1,34 @@
+.logsSection {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  text-align: center;
+  overflow: auto;
+}
+
+table {
+  width: 75%;
+  margin: auto;
+  overflow: auto;
+}
+
+tbody td:not(td:first-of-type):hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+
+  &:hover {
+    color: red;
+  }
+}
+
+tbody tr:nth-child(even) {
+  background: lightcyan;
+}
+
+tbody tr:nth-child(odd) {
+  background: lightblue;
+}
+
+.logTableHead {
+  background: coral;
+}
