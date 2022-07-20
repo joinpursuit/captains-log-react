@@ -5,10 +5,10 @@ function Nav() {
   return (
     <nav className="nav">
       <div>
-        <Link to="/">Captain's Log</Link>
+        <Link to="/logs">Captain's Log</Link>
       </div>
       <div>
-        <Link to="/logs">NEW LOG</Link>
+        <Link to="/logs/new">New Log</Link>
       </div>
     </nav>
   );

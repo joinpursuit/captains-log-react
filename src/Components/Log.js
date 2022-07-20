@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Log(props) {
   const { log, index } = props;
   return (

@@ -18,9 +18,11 @@ function Logs() {
     <div>
       {logs.map((log, index) => {
         return (
-          <Link to={`/logs/${index}`} key={index}>
-            <Log log={log} index={index} key={index} />
-          </Link>
+          <div className="Log">
+            <Link to={`/logs/${index}`}>
+              <Log log={log} index={index} key={index} />
+            </Link>
+          </div>
         );
       })}
     </div>
