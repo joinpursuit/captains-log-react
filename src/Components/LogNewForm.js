@@ -39,7 +39,7 @@ function LogNewForm() {
         <label htmlFor="name">Captain's Name:</label>
         <input
           id="captainName"
-          value={log.name}
+          value={log.captainName}
           type="text"
           onChange={handleTextChange}
           placeholder="Name"

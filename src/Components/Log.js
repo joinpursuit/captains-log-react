@@ -10,10 +10,10 @@ function Log({ log, index }) {
           <span>&nbsp; &nbsp; &nbsp;</span>
         )}
       </td>
+      <td>{log.captainName}</td>
       <div className="Log">
-        <Link to={`/logs/${index}`}>{log.captainName}</Link>
+        <Link to={`/logs/${index}`}>{log.title}</Link>
       </div>
-      <td>{log.title}</td>
     </tr>
   );
 }

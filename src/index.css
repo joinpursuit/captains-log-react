@@ -14,10 +14,13 @@ nav {
   margin-bottom: 1em;
 }
 
+td {
+  font-size: larger;
+}
+
 a {
   text-decoration: none;
   color: whitesmoke;
-  font-size: xx-large;
 }
 
 button {
