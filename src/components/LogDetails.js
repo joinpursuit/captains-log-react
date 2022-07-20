@@ -32,9 +32,10 @@ function LogDetails() {
 
   return (
     <article>
-      <h3>{log.captainName}</h3>
-      <h6>{log.title}</h6>
+      <h2>Captain's Log</h2>
+      <h3>{`${log.title} - By ${log.captainName}`}</h3>
       <p>{log.post}</p>
+      <p>{`Days since last crisis: ${log.daysSinceLastCrisis}`}</p>
       <div className="showNavigation">
         <div>
           {" "}
