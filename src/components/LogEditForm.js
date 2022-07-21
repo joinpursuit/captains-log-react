@@ -66,7 +66,7 @@ export default function LogEditForm() {
           onChange={handleTextChange}
         />
         <label>Post:</label>
-        <input
+        <textarea
           id="post"
           type="text"
           name="Post"
@@ -74,7 +74,7 @@ export default function LogEditForm() {
           placeholder="Post Here"
           onChange={handleTextChange}
         />
-        <label>Mistakes Were Made Today:</label>
+        <label>Mistakes were made today:</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -83,7 +83,7 @@ export default function LogEditForm() {
         />
         <br></br>
         <label>Days Since Last Crisis:</label>
-        <textarea
+        <input
           id="daysSinceLastCrisis"
           name="daysSinceLastCrisis"
           type="number"

@@ -58,7 +58,7 @@ export default function LogNewForm() {
         />
         <br></br>
         <label>Post:</label>
-        <input
+        <textarea
           id="post"
           type="text"
           name="post"
@@ -67,7 +67,7 @@ export default function LogNewForm() {
           onChange={handleTextChange}
         />
         <br></br>
-        <label>Mistakes Were Made Today:</label>
+        <label>Mistakes were made today:</label>
         <input
           id="mistakesWereMadeToday"
           type="checkbox"
@@ -76,9 +76,10 @@ export default function LogNewForm() {
         />
         <br></br>
         <label>Days Since Last Crisis:</label>
-        <textarea
-          id="post"
+        <input
+          id="daysSinceLastCrisis"
           name="daysSinceLastCrisis"
+          type="number"
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
           placeholder="Days Since Last Crisis"
