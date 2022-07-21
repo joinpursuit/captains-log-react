@@ -17,9 +17,9 @@ function Logs() {
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this Captain's Log</th>
+              <th>Mistakes</th>
+              <th>Captain Name</th>
+              <th>Captain's Log</th>
             </tr>
           </thead>
           <tbody>

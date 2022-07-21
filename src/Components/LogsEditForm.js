@@ -1,101 +1,85 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
-const API = process.env.REACT_APP_API_URL
-
-function LogsEditForm() {
-  let { index } = useParams()
-  const navigate = useNavigate()
-
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+const API = process.env.REACT_APP_API_URL;
+function LogEditForm() {
+  let { index } = useParams();
+  let navigate = useNavigate();
   const [log, setLog] = useState({
-    captainName: '',
-    title: '',
-    post: '',
+    captainName: "",
+    title: "",
+    post: "",
     mistakesWereMadeToday: false,
-    daysSinceLastCrisis: '',
-  })
-
-  useEffect(() => {
-    //Let's autopopulate form fields with existing bookmark data
-    axios
-      .get(`${API}/logs/ ${index}`)
-      .then((res) => {
-        //load existing bookmook data into component state!
-        setLog(res.data)
-      })
-      .catch((err) => {
-        console.warn(err)
-      })
-  }, [index])
-
+    daysSinceLastCrisis: "",
+  });
   const handleTextChange = (event) => {
-    setLog({ ...log, [event.target.id]: event.target.value })
-  }
-
+    setLog({ ...log, [event.target.id]: event.target.value });
+  };
   const handleCheckboxChange = () => {
-    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday })
-  }
-
+    setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
+  };
+  useEffect(() => {
+    axios.get(`${API}/logs/${index}`).then((res) => {
+      setLog(res.data);
+    });
+  }, [index]);
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     axios
-      .post(`${API}/logs`, log)
-      .then((res) => {
-        navigate(`/logs/${index}`)
+      .put(`${API}/logs/${index}`, log)
+      .then((response) => {
+        setLog(response.data);
+        navigate(`/logs/${index}`);
       })
-      .catch((err) => {
-        console.warn(err)
-      })
-  }
+      .catch((err) => console.warn(err));
+  };
   return (
-    <div className='New'>
+    <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor='captainName'>Captain's Name:</label>
+        <label htmlFor="captainName">Captain's Name</label>
         <input
-          id='captainName'
+          id="captainName"
           value={log.captainName}
-          type='text'
+          type="text"
           onChange={handleTextChange}
-          placeholder='Name'
+          placeholder="Captain Name"
           required
         />
-        <label htmlFor='title'>Title:</label>
+        <label htmlFor="title">Title</label>
         <input
-          id='title'
-          type='text'
+          id="title"
+          type="text"
           required
-          value={log.post}
-          placeholder='title'
+          value={log.title}
+          placeholder="Title"
           onChange={handleTextChange}
         />
-        <label htmlFor='post'>Post:</label>
+        <label htmlFor="post">Post</label>
         <textarea
-          id='post'
-          type='text'
-          required
+          id="post"
+          type="text"
+          name="post"
           value={log.post}
-          placeholder='post'
+          placeholder="write your post here"
           onChange={handleTextChange}
         />
-
-        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today:</label>
+        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
         <input
-          id='mistakesWereMadeToday'
-          type='checkbox'
+          id="mistakesWereMadeToday"
+          type="checkbox"
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis:</label>
+        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
         <input
-          id='daysSinceLastCrisis'
-          type='number'
+          id="daysSinceLastCrisis"
+          type="number"
+          name="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder='...'
         />
-
         <br />
-        <input type='submit' />
+        <input type="submit" />
       </form>
       <div>
         <Link to={`/logs`}>
@@ -103,7 +87,26 @@ function LogsEditForm() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
+export default LogEditForm;
 
-export default LogsEditForm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 const API = process.env.REACT_APP_API_URL
-
-function LogsNewForm() {
+function LogNewForm() {
   const navigate = useNavigate()
   const [log, setLog] = useState({
     captainName: '',
@@ -12,60 +11,54 @@ function LogsNewForm() {
     mistakesWereMadeToday: false,
     daysSinceLastCrisis: '',
   })
-
   const handleTextChange = (event) => {
     setLog({ ...log, [event.target.id]: event.target.value })
   }
-
   const handleCheckboxChange = () => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday })
   }
-
   const handleSubmit = (event) => {
     event.preventDefault()
     axios
       .post(`${API}/logs`, log)
-      .then((res) => {
-      
-        navigate('/logs')
+      .then(() => {
+        navigate(`/logs`)
       })
-      .catch((err) => {
-       
-        console.warn(err)
+      .catch((e) => {
+        console.warn(e)
       })
   }
   return (
     <div className='New'>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='captainName'>Captain's Name:</label>
+        <label htmlFor='captainName'>Captain's Name</label>
         <input
           id='captainName'
           value={log.captainName}
           type='text'
           onChange={handleTextChange}
-          placeholder='Name'
+          placeholder='Captain Name'
           required
         />
-        <label htmlFor='title'>Title:</label>
+        <label htmlFor='title'>Title</label>
         <input
           id='title'
           type='text'
           required
-          value={log.post}
-          placeholder='post'
+          value={log.title}
+          placeholder='Title'
           onChange={handleTextChange}
         />
-        <label htmlFor='post'>Post:</label>
+        <label htmlFor='post'>Post</label>
         <textarea
           id='post'
           type='text'
-          required
+          name='post'
           value={log.post}
-          placeholder='post'
+          placeholder='write your post here'
           onChange={handleTextChange}
         />
-
-        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today:</label>
+        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today</label>
         <input
           id='mistakesWereMadeToday'
           type='checkbox'
@@ -76,9 +69,9 @@ function LogsNewForm() {
         <input
           id='daysSinceLastCrisis'
           type='number'
+          name='daysSinceLastCrisis'
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder='...'
         />
         <br />
         <input type='submit' />
@@ -86,5 +79,4 @@ function LogsNewForm() {
     </div>
   )
 }
-
-export default LogsNewForm
+export default LogNewForm
