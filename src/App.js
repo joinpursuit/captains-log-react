@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import Logs from './Components/Logs'
 import LogsForm from './Components/LogsForm'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
 
 
 class App extends React.Component {
