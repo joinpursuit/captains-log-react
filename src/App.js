@@ -1,13 +1,12 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Navbar from "./components/Navbar";
-import Home from "./Pages/Home";
-import Edit from "./Pages/Edit";
-import Index from "./Pages/Index";
-import New from "./Pages/New";
-import Show from "./Pages/Show";
-import FourOFour from "./Pages/FourOFour";
-
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import Edit from './Pages/Edit';
+import Index from './Pages/Index';
+import New from './Pages/New';
+import Show from './Pages/Show';
+import FourOFour from './Pages/FourOFour';
 
 function App() {
   return (
@@ -28,6 +27,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

@@ -1,8 +1,8 @@
-import LogDetails from "../Components/LogDetails";
+import LogDetails from '../Components/LogDetails';
 
 function Show() {
   return (
-    <div >
+    <div>
       <h2>Show</h2>
       <LogDetails />
     </div>
