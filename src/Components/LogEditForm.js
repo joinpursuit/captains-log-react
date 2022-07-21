@@ -5,10 +5,10 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 function LogEditForm() {
-const { index } = useParams();
-const navigate = useNavigate();
+  const { index } = useParams();
+  const navigate = useNavigate();
 
-const [log, setLog] = useState({
+  const [log, setLog] = useState({
     captainName: "",
     title: "",
     post: "",
@@ -25,72 +25,74 @@ const [log, setLog] = useState({
   };
 
   useEffect(() => {
-      axios.get(`${API}/logs/${index}`)
-      .then(response => setLog(response.data))
-      .catch(error => console.log(error))
+    axios
+      .get(`${API}/logs/${index}`)
+      .then((response) => setLog(response.data))
+      .catch((error) => console.log(error));
   }, [index]);
 
   const updateLog = () => {
-      axios.put(`${API}/logs/${index}`, log)
-      .then(response => { 
-      setLog(response.data)
-      navigate(`/logs/${index}`)
-    })
-    .catch(error => console.log(error))
-  }
+    axios
+      .put(`${API}/logs/${index}`, log)
+      .then((response) => {
+        setLog(response.data);
+        navigate(`/logs/${index}`);
+      })
+      .catch((error) => console.log(error));
+  };
 
-const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     updateLog();
   };
 
   return (
-    <div classcaptainName="Edit">
+    <div className='Edit'>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainsName">Captain's Name</label>
+        <label htmlFor='captainName'>Captain's Name</label>
         <input
-          id="captainName"
+          id='captainName'
           value={log.captainName}
-          type="text"
+          type='text'
           onChange={handleTextChange}
-          placeholder="Captain Name"
+          placeholder='Captain Name'
         />
-        <label htmlFor="title">Title:</label>
+        <label htmlFor='title'>Title:</label>
         <input
-          id="title"
-          type="text"
+          id='title'
+          type='text'
           value={log.title}
-          placeholder="Title"
+          placeholder='Title'
           onChange={handleTextChange}
         />
-        <label htmlFor="post">Post:</label>
+        <label htmlFor='post'>Post:</label>
         <textarea
-          id="post"
-          type="text"
-          name="post"
+          id='post'
+          type='text'
+          name='post'
           value={log.post}
           onChange={handleTextChange}
         />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
+        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today</label>
         <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
+          id='mistakesWereMadeToday'
+          type='checkbox'
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
+        <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis</label>
         <input
-          id="daysSinceLastCrisis"
-          type="number"
+          id='daysSinceLastCrisis'
+          type='number'
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder="Days Since Last Crisis"
+          placeholder='Days Since Last Crisis'
         />
         <br />
-        <input type="submit" />
-        <a> <Link to={`/logs`}>
-            <button>Back</button>
-          </Link></a>
+        <input type='submit' />
+        <Link to={`/logs`}>
+          <button>Back</button>
+        </Link>
       </form>
     </div>
   );

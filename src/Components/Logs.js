@@ -7,27 +7,32 @@ const API = process.env.REACT_APP_API_URL;
 // otherwise we have a RACE condition  - page might be done before data arrives;
 function Logs() {
   const [logs, setLogs] = useState([]);
-  
+
   useEffect(() => {
-    axios.get(`${API}/logs`)
-      .then((response) => { setLogs(response.data) })
-      .catch((error) => { console.error(error) })
-  },[])
+    axios
+      .get(`${API}/logs`)
+      .then((response) => {
+        setLogs(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
-    <div className="Logs">
+    <div className='Log'>
       <section>
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th>Captain's Log</th>
-              <th>?</th>
+              <th>Mistakes</th>
+              <th>Captain Name</th>
+              <th>See this log</th>
             </tr>
           </thead>
           <tbody>
             {logs.map((log, index) => {
-              return <a className="Log"> <Log key={index} log={log} index={index} /> </a> ;
+              return <Log key={index} log={log} index={index} />;
             })}
           </tbody>
         </table>

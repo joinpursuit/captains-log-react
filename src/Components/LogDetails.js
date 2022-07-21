@@ -8,32 +8,29 @@ function LogDetails() {
   const [log, setLog] = useState([]);
   let { index } = useParams();
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-useEffect(() => {
-    axios.get(`${API}/logs/${index}`)
+  useEffect(() => {
+    axios
+      .get(`${API}/logs/${index}`)
       .then((response) => setLog(response.data))
-      .catch((error) => navigate(`/404`))
-  }, [index]);
-  
+      .catch((error) => navigate(`/404`));
+  }, [index,navigate]);
+
   const handleDelete = () => {
-      axios.delete(`${API}/logs/${index}`)
+    axios
+      .delete(`${API}/logs/${index}`)
       .then((response) => navigate(`/logs`))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   };
-  
+
   return (
     <article>
-      <h3>
-        {log.captainName}
-      </h3>
-      <h5>
-        {log.title}
-      </h5>
-      <h5>{log.post}</h5>
-      <h5>{log.mistakesWereMadeToday}</h5>
-      <h5>{log.daysSinceLastCrisis}</h5>
-      <div className="showNavigation">
+      <h3>{log.title} - By {log.captainName}</h3>
+      <p>{log.post}</p>
+      <p>{log.mistakesWereMadeToday}</p>
+      <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
+      <div className='showNavigation'>
         <div>
           {" "}
           <Link to={`/logs`}>
@@ -54,6 +51,5 @@ useEffect(() => {
     </article>
   );
 }
-
 
 export default LogDetails;

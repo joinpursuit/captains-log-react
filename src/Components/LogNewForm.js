@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API = process.env.REACT_APP_API_URL
+const API = process.env.REACT_APP_API_URL;
 
 function LogNewForm() {
   const [log, setLog] = useState({
@@ -14,13 +14,14 @@ function LogNewForm() {
   });
 
   const navigate = useNavigate();
-  
+
   const addLog = () => {
-      axios.post(`${API}/logs`, log)
-      .then(res => navigate(`/logs`))
-      .catch(error => console.log(error))
-  }
-  
+    axios
+      .post(`${API}/logs`, log)
+      .then((res) => navigate(`/logs`))
+      .catch((error) => console.log(error));
+  };
+
   const handleTextChange = (event) => {
     setLog({ ...log, [event.target.id]: event.target.value });
   };
@@ -35,50 +36,49 @@ function LogNewForm() {
   };
 
   return (
-    <div classcaptainName="New">
+    <div classcaptainName='New'>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="captainName">Captain Name:</label>
+        <label htmlFor='captainName'>{`Captain's Name`}</label>
         <input
-          id="captainName"
+          id='captainName'
           value={log.captainName}
-          type="text"
+          type='text'
           onChange={handleTextChange}
-          placeholder="Captain Name"
+          placeholder='Captain Name'
         />
-        <label htmlFor="title">Title:</label>
+        <label htmlFor='title'>Title:</label>
         <input
-          id="title"
-          type="text"
+          id='title'
+          type='text'
           value={log.title}
-          placeholder="Title"
+          placeholder='Title'
           onChange={handleTextChange}
         />
-        <label htmlFor="post">Post:</label>
-        <input
-          id="post"
-          type="text"
-          name="post"
+        <label htmlFor='post'>Post:</label>
+        <textarea
+          id='post'
+          type='text'
           value={log.post}
-          placeholder="educational, inspirational, ..."
+          placeholder='educational, inspirational, ...'
           onChange={handleTextChange}
         />
-        <label htmlFor="mistakesWereMadeToday">MistakesWereMadeToday:</label>
+        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today</label>
         <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
+          id='mistakesWereMadeToday'
+          type='checkbox'
           onChange={handleCheckboxChange}
           checked={log.mistakesWereMadeToday}
         />
-        <label htmlFor="daysSinceLastCrisis">DaysSinceLastCrisis:</label>
-        <textarea
-          id="daysSinceLastCrisis"
-          name="daysSinceLastCrisis"
+        <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis</label>
+        <input
+          id='daysSinceLastCrisis'
+          type='number'
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
-          placeholder="Days Since Last Crisis"
+          placeholder='0'
         />
         <br />
-        <input type="submit" />
+        <input type='submit' />
       </form>
     </div>
   );

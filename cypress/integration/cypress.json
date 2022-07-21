@@ -1,4 +1,4 @@
-e{
+{
   "baseUrl": "http://localhost:3000",
   "numTestsKeptInMemory": 0,
   "reporter": "junit",
