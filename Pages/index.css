@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+  }
+
+  nav {
+    background: darkblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    box-shadow: 2px 2px 4px grey;
+    margin-bottom: 1em;
+  }
+  
+  td {
+    font-size: larger;
+  }
+  
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  
+  button {
+    background-color: blue;
+    color: whitesmoke;
+  }
+  
+  .Log a {
+    color: black;
+  }
+  .showNavigation {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+  }
+  
+  .New form {
+    margin: auto;
+    width: 95%;
+  }
+  
+  input[type],
+  textarea {
+    display: block;
+    width: 90%;
+    margin: auto;
+  }
