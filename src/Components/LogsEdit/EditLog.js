@@ -108,7 +108,6 @@ const EditLog = () => {
           onChange={(e) => setDaysSinceLastCrisis(e.target.value)}
         />
         <br />
-
         <section className="editButtons">
           <Button type="submit" className="btn btn-primary">
             Submit
