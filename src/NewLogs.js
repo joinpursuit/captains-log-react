@@ -1,5 +1,3 @@
-const NewLogs = () => {
+const NewLogs = () => {};
 
-}
-
-export default NewLogs
+export default NewLogs;
