@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-const LogsNewForm = () => {
+const LogEditForm = () => {
   const navigate = useNavigate();
+  const { index } = useParams();
   const [log, setLog] = useState({
     captainName: "",
     title: "",
@@ -21,12 +22,23 @@ const LogsNewForm = () => {
     setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
   };
 
+  useEffect(() => {
+    axios
+      .get(`${API}/logs/${index}`)
+      .then((res) => {
+        setLog(res.data);
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  }, [index]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API}/logs`, log)
+      .put(`${API}/logs/${index}`, log)
       .then((res) => {
-        navigate("/logs");
+        navigate(`/logs/${index}`);
       })
       .catch((err) => {
         console.warn(err);
@@ -35,7 +47,6 @@ const LogsNewForm = () => {
 
   return (
     <div>
-      <h2>Captain's Log</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="captainName">Captain's Name:</label>
         <input id="captainName" type="text" onChange={handleTextChange}></input>
@@ -56,9 +67,12 @@ const LogsNewForm = () => {
           onChange={handleTextChange}
         ></input>
         <input type="submit" />
+        <Link to={`/logs/${index}`}>
+          <button>Back</button>
+        </Link>
       </form>
     </div>
   );
 };
 
-export default LogsNewForm;
+export default LogEditForm;

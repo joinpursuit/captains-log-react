@@ -32,7 +32,6 @@ function LogDetails() {
 
   return (
     <article>
-      <h2>Captain's Log</h2>
       <h3>{`${log.title} - By ${log.captainName}`}</h3>
       <p>{log.post}</p>
       <p>{`Days since last crisis: ${log.daysSinceLastCrisis}`}</p>

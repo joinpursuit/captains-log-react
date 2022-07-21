@@ -4,6 +4,8 @@ import Home from "./pages/Home.js";
 import Index from "./pages/Index.js";
 import Show from "./pages/Show.js";
 import New from "./pages/New.js";
+import Edit from "./pages/Edit.js";
+
 function App() {
   return (
     <div>
@@ -15,6 +17,7 @@ function App() {
             <Route path="/logs" element={<Index />} />
             <Route path="/logs/:index" element={<Show />} />
             <Route path="/logs/new" element={<New />} />
+            <Route path="/logs/:index/edit" element={<Edit />} />
           </Routes>
         </main>
       </Router>
