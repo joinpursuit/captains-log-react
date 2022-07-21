@@ -8,22 +8,17 @@ function Logs() {
   const [logs, setLogs] = useState([]);
   useEffect(() => {
     axios.get(`${API}/logs`).then((res) => {
-      console.log(res);
       setLogs(res.data);
     });
   }, []);
   return (
-    <div>
-      {console.log(API)}
+    <div className="Log">
       <section>
         <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this bookmark</th>
-            </tr>
-          </thead>
+          <tr>
+            <th>Captain Name</th>
+            <th>Entry</th>
+          </tr>
           <tbody>
             {logs.map((log, idx) => {
               return <Log key={idx} log={log} idx={idx} />;
