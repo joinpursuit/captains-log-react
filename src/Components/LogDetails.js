@@ -13,7 +13,9 @@ export default function LogDetails() {
     // fetch a list of logs from our API
     axios
       .get(`${API}/logs/${index}`)
+      
       .then((res) => {
+        console.log(res)
         setlog(res.data);
       })
       .catch(() => {
