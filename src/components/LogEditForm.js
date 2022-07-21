@@ -48,7 +48,7 @@ export default function LogEditForm() {
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label>Captain Name:</label>
+        <label>Captain's Name</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -86,6 +86,8 @@ export default function LogEditForm() {
         <textarea
           id="daysSinceLastCrisis"
           name="daysSinceLastCrisis"
+          type="number"
+          // type="number"
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
           placeholder="Days Since Last Crisis"
@@ -93,8 +95,8 @@ export default function LogEditForm() {
         <br />
         <input type="submit" />
       </form>
-      <Link to={`/bookmarks/${index}`}>
-        <button>Nevermind!</button>
+      <Link to={`/logs`}>
+        <button>Back</button>
       </Link>
     </div>
   );

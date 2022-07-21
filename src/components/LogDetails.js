@@ -33,16 +33,16 @@ export default function LogDetails() {
       </h3>
       <h5>
         <span>
-         Title:  </span>{" "}
+        </span>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        {log.title}
+        {log.title} - By {log.captainName}
       </h5>
       <h6>Post: {log.post}</h6>
 
 {`Mistakes Were Made Today: ${log.mistakesWereMadeToday ? "True" : "False"}`}
 
       {/* missing day */}
-      <p>Days Since Last Crisis: {log.daysSinceLastCrisis}</p>
+      <p>Days since last crisis: {log.daysSinceLastCrisis}</p>
 
 
 

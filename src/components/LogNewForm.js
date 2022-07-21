@@ -37,7 +37,7 @@ export default function LogNewForm() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label>Captain Name:</label>
+        <label>Captain's Name</label>
         <input
           id="captainName"
           value={log.captainName}
@@ -77,7 +77,7 @@ export default function LogNewForm() {
         <br></br>
         <label>Days Since Last Crisis:</label>
         <textarea
-          id="daysSinceLastCrisis"
+          id="post"
           name="daysSinceLastCrisis"
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
