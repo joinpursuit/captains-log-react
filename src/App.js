@@ -5,7 +5,7 @@ import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import New from "./Pages/New";
 import Edit from "./Pages/Edit";
-import Delete from "./Pages/Delete";
+import FourOFour from "./Pages/FourOFour";
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/logs" element={<Index />} />
         <Route path="/logs/new" element={<New />} />
-        <Route path="/logs/:index/edit" element={<Edit />} />
-        <Route path="/logs/:index/delete" element={<Delete />} />
         <Route path="/logs/:index" element={<Show />} />
+        <Route path="/logs/:index/edit" element={<Edit />} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </div>
   );

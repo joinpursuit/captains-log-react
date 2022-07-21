@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
@@ -51,24 +50,32 @@ function LogEditForm() {
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Captain's Name</label>
-        <input
-          id="captainName"
-          value={log.captainName}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Captain"
-          required
-        />
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          required
-          value={log.title}
-          placeholder="Title"
-          onChange={handleTextChange}
-        />
+        <div className="form-group">
+          <label htmlFor="captainName">Captain's Name</label>
+          <input
+            id="captainName"
+            value={log.captainName}
+            type="text"
+            onChange={handleTextChange}
+            placeholder="Name of Captain"
+            required
+          />
+        </div>
+        <br />
+
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            required
+            value={log.title}
+            placeholder="Title"
+            onChange={handleTextChange}
+          />
+        </div>
+        <br />
+
         <label htmlFor="post">Post:</label>
         <textarea
           id="post"
@@ -78,25 +85,37 @@ function LogEditForm() {
           placeholder="post..."
           onChange={handleTextChange}
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
-        <input
-          id="daysSinceLastCrisis"
-          type="number"
-          onChange={handleCheckboxChange}
-          checked={log.daysSinceLastCrisis}
-        />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
-        <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
-          value={log.mistakesWereMadeToday}
-          onChange={handleTextChange}
-        />
+
+        <br />
+
+        <div className="form-group">
+          <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+          <input
+            id="daysSinceLastCrisis"
+            type="number"
+            value={log.daysSinceLastCrisis}
+            onChange={handleTextChange}
+          />
+        </div>
+        <br />
+
+        <div className="form-group">
+          <label htmlFor="mistakesWereMadeToday">
+            Mistakes were made today:
+          </label>
+          <input
+            id="mistakesWereMadeToday"
+            type="checkbox"
+            checked={log.mistakesWereMadeToday}
+            onChange={handleCheckboxChange}
+          />
+        </div>
+        <br />
         <input type="submit" />
       </form>
 
       <Link to={`/logs/${index}`}>
-        <button>Nevermind!</button>
+        <button>Back</button>
       </Link>
     </div>
   );

@@ -39,24 +39,31 @@ function LogNewForm() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Captain's Name</label>
-        <input
-          id="captainName"
-          value={log.captainName}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Captain"
-          required
-        />
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          required
-          value={log.title}
-          placeholder="Title"
-          onChange={handleTextChange}
-        />
+        <div className="form-group">
+          <label htmlFor="captainName">Captain's Name</label>
+          <input
+            id="captainName"
+            value={log.captainName}
+            type="text"
+            onChange={handleTextChange}
+            placeholder="Name of Captain"
+            required
+          />
+        </div>
+        <br />
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            required
+            value={log.title}
+            placeholder="Title"
+            onChange={handleTextChange}
+          />
+        </div>
+        <br />
+
         <label htmlFor="post">Post:</label>
         <textarea
           id="post"
@@ -66,20 +73,29 @@ function LogNewForm() {
           placeholder="post..."
           onChange={handleTextChange}
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
-        <input
-          id="daysSinceLastCrisis"
-          type="number"
-          onChange={handleCheckboxChange}
-          checked={log.daysSinceLastCrisis}
-        />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
-        <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
-          value={log.mistakesWereMadeToday}
-          onChange={handleTextChange}
-        />
+
+        <br />
+        <div className="form-group">
+          <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+          <input
+            id="daysSinceLastCrisis"
+            type="number"
+            onChange={handleTextChange}
+            value={log.daysSinceLastCrisis}
+          />
+        </div>
+        <br />
+        <div className="form-group">
+          <label htmlFor="mistakesWereMadeToday">
+            Mistakes were made today:
+          </label>
+          <input
+            id="mistakesWereMadeToday"
+            type="checkbox"
+            value={log.mistakesWereMadeToday}
+            onChange={handleCheckboxChange}
+          />
+        </div>
         <br />
         <input type="submit" />
       </form>
