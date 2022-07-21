@@ -11,7 +11,7 @@ function LogDetails() {
 
   useEffect(() => {
     axios
-      .get(`${API}/logs/${index}`)
+      .get(`http://localhost:3003/logs/${index}`)
       .then((res) => {
         setLogs(res.data);
       })

@@ -25,7 +25,7 @@ function LogNewForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API}/logs`, log)
+      .post(`http://localhost:3003/logs`, log)
       .then((res) => {
         navigate("/logs");
       })

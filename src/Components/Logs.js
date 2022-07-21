@@ -3,13 +3,14 @@ import Log from "./Log";
 
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
+console.log(API,"API")
 
 function Logs() {
   const [logs, setLogs] = useState([]);
-
+console.log(logs)
   useEffect(() => {
-    axios.get(`${API}/logs`).then((res) => {
-      setLogs(res.data);
+    axios.get(`http://localhost:3003/logs`).then((res) => {
+      console.log(setLogs(res.data));
     });
   }, []);
 

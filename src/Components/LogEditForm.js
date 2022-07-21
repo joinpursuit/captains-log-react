@@ -25,7 +25,7 @@ function LogEditForm() {
 
   useEffect(() => {
     axios
-      .get(`${API}/logs/${index}`)
+      .get(`http://localhost:3003/logs/${index}`)
       .then((res) => {
         setLog(res.data);
       })
@@ -35,7 +35,7 @@ function LogEditForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`${API}/logs/${index}`, log)
+      .put(`http://localhost:3003/logs/${index}`, log)
       .then(() => {
         navigate(`/logs/${index}`);
       })
