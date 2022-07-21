@@ -10,10 +10,10 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <WelcomePage/>
         <Router>
         <NavBar/>
         <Routes>
+        <Route path="/" element={<WelcomePage/>}/>
           <Route path="/logs" element={<Logs/>}/>
           <Route path="/logs/new" element={<LogsForm/>}/>
         </Routes>

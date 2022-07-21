@@ -11,6 +11,9 @@ class NavBar extends React.Component {
             <h1>
                 <Link className="new-log-form" to="/logs/new">New Log</Link>
             </h1>
+            <h1>
+                <Link className="home" to="/">Home</Link>
+            </h1>
          </nav>
         )
     }
