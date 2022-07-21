@@ -19,7 +19,7 @@ function Logs() {
             <tr>
               <th></th>
               <th>Take me there</th>
-              <th>See this bookmark</th>
+              <th>See this Captain's Log</th>
             </tr>
           </thead>
           <tbody>
