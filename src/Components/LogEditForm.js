@@ -89,7 +89,6 @@ function LogEditForm() {
       </form>
 
       <div>
-        {" "}
         <Link to={`/logs`}>
           <button>Back</button>
         </Link>

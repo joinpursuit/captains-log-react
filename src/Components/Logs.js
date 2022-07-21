@@ -15,10 +15,13 @@ function Logs() {
     <div className="Log">
       <section>
         <table>
-          <tr>
-            <th>Captain Name</th>
-            <th>Entry</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Mistakes</th>
+              <th>Captain Name</th>
+              <th>Entry</th>
+            </tr>
+          </thead>
           <tbody>
             {logs.map((log, idx) => {
               return <Log key={idx} log={log} idx={idx} />;

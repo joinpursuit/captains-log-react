@@ -50,7 +50,6 @@ function LogDetails() {
           </Link>
         </div>
         <div>
-          {" "}
           <Link to={`/logs/${idx}/edit`}>
             <button>Edit</button>
           </Link>
