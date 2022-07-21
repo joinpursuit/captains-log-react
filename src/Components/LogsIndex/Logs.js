@@ -25,6 +25,7 @@ const Logs = () => {
       <table>
         <thead>
           <tr className="logTableHead">
+            <th>Mistakes</th>
             <th>Captains Name</th>
             <th>Captains Logs</th>
           </tr>
