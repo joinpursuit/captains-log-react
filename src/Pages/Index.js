@@ -3,7 +3,7 @@ import Logs from "../Components/Logs";
 function Index() {
   return (
     <div className='Index'>
-      <h2>Captain's Log</h2>
+      <h3>Index</h3>
       <Logs />
     </div>
   );

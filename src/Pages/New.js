@@ -3,7 +3,7 @@ import LogNewForm from "../Components/LogNewForm";
 function New() {
   return (
     <div className="New">
-      <h2>Captain's Log</h2>
+      <h3>New</h3>
       <LogNewForm />
     </div>
   );

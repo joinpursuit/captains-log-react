@@ -25,7 +25,7 @@ function LogDetails() {
   };
 
   return (
-    <article>
+    <article className="Show">
       <h3>{log.title} - By {log.captainName}</h3>
       <p>{log.post}</p>
       <p>{log.mistakesWereMadeToday}</p>

@@ -2,8 +2,8 @@ import LogEditForm from "../Components/LogEditForm";
 
 function Edit() {
   return (
-    <div className="New Edit">
-      <h2>Edit Captain's Log</h2>
+    <div className="Edit">
+      <h3>Edit</h3>
       <LogEditForm />
     </div>
   );

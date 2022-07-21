@@ -49,7 +49,7 @@ function LogEditForm() {
   return (
     <div className='Edit'>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='captainName'>Captain's Name</label>
+        <label htmlFor='captainName'>{`Captain's Name:`}</label>
         <input
           id='captainName'
           value={log.captainName}
@@ -73,20 +73,20 @@ function LogEditForm() {
           value={log.post}
           onChange={handleTextChange}
         />
-        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today</label>
-        <input
-          id='mistakesWereMadeToday'
-          type='checkbox'
-          onChange={handleCheckboxChange}
-          checked={log.mistakesWereMadeToday}
-        />
-        <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis</label>
+        <label htmlFor='daysSinceLastCrisis'>Days Since Last Crisis:</label>
         <input
           id='daysSinceLastCrisis'
           type='number'
           value={log.daysSinceLastCrisis}
           onChange={handleTextChange}
           placeholder='Days Since Last Crisis'
+        />
+        <label htmlFor='mistakesWereMadeToday'>Mistakes were made today:</label>
+        <input
+          id='mistakesWereMadeToday'
+          type='checkbox'
+          onChange={handleCheckboxChange}
+          checked={log.mistakesWereMadeToday}
         />
         <br />
         <input type='submit' />
