@@ -33,14 +33,19 @@ const Logs = () => {
 			});
 	};
 };
-    return (
-	<div>
+return (
+	<article>
 		<h1>
-			{theLogs.title}  {theLogs.captain}
+			{theLogs.title} {theLogs.captain}
 		</h1>
 		<h2>{theLogs.post}</h2>
-		<h3>Days since last crisis: {theLogs.daysSinceLastCrisis}</h3>
-        <button>View This Log</button>
-	</div>
+		<p>Days since last crisis: {theLogs.daysSinceLastCrisis}</p>
+		<div className='showNavigation'>
+			<Link to={'/logs'}>
+				<button>Back</button>
+			</Link>
+		</div>
+		<div>{/* <Link to={`/logs`} */}</div>
+	</article>
 );
 export default Logs;
