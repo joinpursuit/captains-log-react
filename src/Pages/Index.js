@@ -1,6 +1,7 @@
-import Logs from "../Components/Logs.js";
+import React from "react";
+import Logs from "../Components/Logs";
 
-function Index() {
+export default function Index() {
   return (
     <div className="Index">
       <h2>Index</h2>
@@ -9,4 +10,3 @@ function Index() {
   );
 }
 
-export default Index;

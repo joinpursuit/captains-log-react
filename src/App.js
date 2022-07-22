@@ -1,8 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./Components/Nav";
-import Home from "./Pages/Home";
-import Index from "./Pages/Index";
-import New from "./Pages/New";
+import Nav from "./Components/Nav.js";
+import Home from "./Pages/Home.js";
+import Index from "./Pages/Index.js";
+import New from "./Pages/New.js";
+import Show from "./Pages/Show.js";
+import Edit from "./Pages/Edit.js";
+import FourOFour from "./Pages/FourOFour.js";
 
 function App() {
   return (
@@ -14,9 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/logs" element={<Index />} />
         <Route path="/logs/new" element={<New />} />
-        {/* <Route path="/logs/:index" element={<Show />} /> */}
-        {/* <Route path="/logs/:index/edit" element={<Edit />} />
-        <Route path="*" element={<FourOFour />} /> */}
+        <Route path="/logs/:index" element={<Show />} />
+        <Route path="/logs/:index/edit" element={<Edit />} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </main>
   </Router>
