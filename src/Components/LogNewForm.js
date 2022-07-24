@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LogNewForm() {
   const [log, setLog] = useState({
@@ -8,6 +10,14 @@ function LogNewForm() {
     mistakesWereMadeToday: false,
     daysSinceLastCrisis: "",
   });
+
+  const navigate = useNavigate(); 
+  
+  const addLog = () => {
+    axios.post(`${API}/logs`, log)
+    .then ((res) => navigate(`/logs`))
+    .catch ((error) => console.log(error))
+  }
 
   const handleTextChange = (event) => {
     setLog({ ...log, [event.target.id]: event.target.value });
@@ -19,7 +29,9 @@ function LogNewForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    addLog();
   };
+
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
@@ -48,7 +60,7 @@ function LogNewForm() {
           value={log.post}
           onChange={handleTextChange}
         />
-        <label htmlFor="isFavorite">mistakesWereMadeToday:</label>
+        <label htmlFor="mistakesMade">mistakesWereMadeToday:</label>
         <input
           id="isFavorite"
           type="checkbox"
@@ -60,7 +72,7 @@ function LogNewForm() {
           id="daysSince"
           name="daysSince"
           type="number"
-          value={log.description}
+          value={log.daysSince}
           onChange={handleTextChange}
           placeholder="Days Since Last Crisis"
         />

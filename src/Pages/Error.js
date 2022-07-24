@@ -1,9 +1,9 @@
 function Error() {
-    return (
-      <div>
-        <h1>Sorry, no page found</h1>
-      </div>
-    );
-  }
-  
+  return (
+    <div>
+      <h1>Sorry matey, no page found!</h1>
+    </div>
+  );
+}
+
 export default Error;
