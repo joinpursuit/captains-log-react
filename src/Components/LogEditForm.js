@@ -37,7 +37,7 @@ function LogEditForm() {
       2. Send a request to the DB
       3. < What do if it succeeds ? >
     */
-	}, []);
+	}, [index]);
 
 	const updateLog = () => {
 		axios
