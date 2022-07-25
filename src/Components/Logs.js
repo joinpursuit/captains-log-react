@@ -20,7 +20,7 @@ function Logs() {
 				console.log(response.data);
 			})
 			.catch((error) => {
-				console.error('catch', error);
+				console.error(error);
 			});
 	}, []);
 

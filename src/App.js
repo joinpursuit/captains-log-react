@@ -4,7 +4,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // PAGES
-
 import Edit from './Pages/Edit';
 import FourOFour from './Pages/FourOFour';
 import Home from './Pages/Home';
