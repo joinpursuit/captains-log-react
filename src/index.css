@@ -60,22 +60,28 @@ table {
 	/* gap: 7; 
 } */
 
+th,
 td {
 	text-align: center;
-	background-color: rgb(236, 190, 190);
 }
 
-tbody td:not(td:first-of-type):hover {
+.animated-cell a {
+	font-weight: 600;
+	color: rgb(255, 123, 0);
+}
+
+.animated-cell a:hover {
 	transform: scale(1.05);
 	opacity: 0.9;
+	color: olive;
 }
 
 tbody tr:nth-child(odd) {
-	background: #f4eafd;
+	background: #d2f9c8;
 }
 
 tbody tr:nth-child(even) {
-	background: #f5f9f4;
+	background: #90f976;
 }
 
 .New {

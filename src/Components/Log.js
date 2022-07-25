@@ -12,7 +12,7 @@ function Log({ log, index }) {
 					<span>&nbsp; &nbsp; &nbsp;</span>
 				)}
 			</td>
-			<td>{log.captainName}</td>
+			<td className='non-animated-cell'>{log.captainName}</td>
 			<td className='animated-cell'>
 				<Link to={`/logs/${index}`}>{log.title}</Link>
 			</td>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -60,7 +60,7 @@ function LogNewForm() {
 					type='text'
 					required
 					value={log.title}
-					placeholder='title'
+					placeholder='Title'
 					onChange={handleTextChange}
 				/>
 				<label htmlFor='post'>Post:</label>
@@ -69,7 +69,7 @@ function LogNewForm() {
 					type='text'
 					name='post'
 					value={log.post}
-					placeholder='famous quote'
+					placeholder='Famous Quote'
 					onChange={handleTextChange}
 				/>
 				<label htmlFor='mistakesWereMadeToday'>Mistakes Made Today:</label>
@@ -85,10 +85,18 @@ function LogNewForm() {
 					name='daysSinceLastCrisis'
 					value={log.daysSinceLastCrisis}
 					onChange={handleTextChange}
-					placeholder='Days since last crisis'
+					placeholder='Days Since Last Crisis'
 				/>
 				<br />
-				<input type='submit' />
+				<div className='showNavigation'>
+					<Link to={`/logs`}>
+						<button>
+							<h4>Back</h4>
+						</button>
+					</Link>
+					<input type='submit' />
+				</div>
+				<br />
 			</form>
 		</div>
 	);
