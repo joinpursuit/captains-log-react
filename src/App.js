@@ -9,7 +9,8 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
-
+import New from "./Pages/New";
+import NotFound from "./Pages/NotFound";
 
 export default function App() {
   return (
@@ -22,12 +23,8 @@ export default function App() {
             <Route path="/logs" element={<Index />} />
             <Route path="/logs/:index" element={<Show />} />
             <Route path="/logs/:index/edit" element={<Edit />} />
-
-            {/* <Route path="/bookmarks" element={<Index />} />
-            <Route path="/bookmarks/new" element={<New />} />
-            <Route path="/bookmarks/:index" element={<Show />} />
-            
-            <Route path="*" element={<FourOFour />} /> */}
+            <Route path="/logs/new" element={<New />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </Router>

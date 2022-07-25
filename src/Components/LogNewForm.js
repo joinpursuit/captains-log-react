@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-export default function LogEditForm() {
+export default function LogNewForm() {
   let { index } = useParams();
   
   // It returns a function that lets you navigate programmatically
@@ -18,13 +18,12 @@ export default function LogEditForm() {
     mistakesWereMadeToday: false,
   });
 
-  // UPDATE
-  const updateLog = () => {
+  // CREATE LOG
+  const newLog = (log) => {
     axios
-      .put(`${API}/logs/${index}`, log)
+      .post(`${API}/logs`, log)
       .then((res) => {
-        setLog(res.data);
-        navigate(`/logs/${index}`);
+        navigate(`/logs`);
       })
       .catch((c) => console.warn("catch", c));
   };
@@ -38,7 +37,7 @@ export default function LogEditForm() {
       .catch((e) => console.error(e));
   }, [index]);
 
-  // Handlers
+  // HANDLERS
   const handleTextChange = (event) => {
     setLog({ ...log, [event.target.id]: event.target.value });
   };
@@ -49,7 +48,7 @@ export default function LogEditForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateLog(log);
+    newLog(log);
   };
 
   return (
