@@ -6,15 +6,15 @@ export default function Log(props) {
   return (
     <tr className="Log">
       <td>
-        {log.mistakesWereMadeToday ? (
-          <span>⭐️</span>
-        ) : (
-          <span>&nbsp; &nbsp; &nbsp;</span>
-        )}
+        <Link to={`/logs/${index}`}>{log.title} </Link>
       </td>
       <td>{log.captainName}</td>
       <td>
-        <Link to={`/logs/${index}`}>{log.title} </Link>
+        {log.mistakesWereMadeToday ? (
+          <span>Yes</span>
+        ) : (
+          <span>No</span>
+        )}
       </td>
     </tr>
   );

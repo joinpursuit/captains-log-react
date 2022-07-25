@@ -20,9 +20,9 @@ export default function Logs() {
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">Mistakes</th>
+            <th scope="col">See this Log</th>
             <th scope="col">Captain Name</th>
-            <th scope="col">See this log</th>
+            <th scope="col">Mistakes</th>
           </tr>
         </thead>
         <tbody>
