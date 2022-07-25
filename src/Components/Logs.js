@@ -17,17 +17,17 @@ export default function Logs() {
 
   return (
     <section>
-      <table className="table table-striped">
-        <thead className="thead-dark">
+      <table>
+        <thead>
           <tr>
-            <th scope="col">See this Log</th>
-            <th scope="col">Captain Name</th>
-            <th scope="col">Mistakes</th>
+            <th>See this Log</th>
+            <th>Captain Name</th>
+            <th>Mistakes</th>
           </tr>
         </thead>
         <tbody>
           {logs.map((log, index) => {
-            return <Log log={log} index={index} key={index} />;
+            return <Log key={index} log={log} index={index} />;
           })}
         </tbody>
       </table>
