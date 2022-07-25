@@ -1,0 +1,20 @@
+form {
+  width: 50%;padding: 3rem;box-sizing: border-box; background-color: #ebfcfb;
+  border-radius: 3px;border: 1px solid #CDCDCD;
+}
+form .form__control {
+  padding: 0.5rem 0;
+}
+form label {
+  display: block;line-height: 1.5rem 
+}
+form input[type="text"], textarea {
+  width: 100%; padding: 0.5rem;box-sizing: border-box;
+}
+form input[type="number"] {
+  width: 10%; padding: 0.5rem;box-sizing: border-box;
+}
+form input[type="submit"], button {
+  padding: 1rem 2rem;margin: 0 1px; font-size: 1.2rem; font-weight: bold; 
+  background-color: #82c0cc;border: none;border-radius: 3px; color: #16697a;  
+}

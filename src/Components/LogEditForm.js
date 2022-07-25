@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
+import "./Styles/LogEditForm.css";
+
 const API = process.env.REACT_APP_API_URL;
 
 export default function LogEditForm() {
@@ -110,11 +112,10 @@ export default function LogEditForm() {
           />
         </div>
         <input type="submit" />
+        <Link to={`/logs/${index}`}>
+          <button>Back</button>
+        </Link>
       </form>
-
-      <Link to={`/logs/${index}`}>
-        <button>Back</button>
-      </Link>
     </section>
   );
 }

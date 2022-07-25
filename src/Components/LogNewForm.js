@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
+import "./Styles/LogNewForm.css"
+
 const API = process.env.REACT_APP_API_URL;
 
 export default function LogNewForm() {
@@ -109,11 +111,10 @@ export default function LogNewForm() {
           />
         </div>
         <input type="submit" />
+        <Link to={`/logs/${index}`}>
+          <button>Back</button>
+        </Link>
       </form>
-
-      <Link to={`/logs/${index}`}>
-        <button>Back</button>
-      </Link>
     </section>
   );
 }

@@ -1,0 +1,18 @@
+header {
+  padding: 1rem 0 0;
+  background-color: #82c0cc;
+  text-align: center;
+}
+header h1 {
+  font-size: 3rem;letter-spacing: 3px;
+  color: #16697a;
+}
+header nav {
+  padding: 1rem;
+  background-color: #16697a;
+}
+header nav a {
+  padding: 1rem 2rem;font-size: 1.5rem;font-weight: bold;text-decoration: none;
+  color: #FFF;
+}
+header nav a:hover { cursor: pointer; }

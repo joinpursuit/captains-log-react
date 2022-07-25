@@ -1,0 +1,31 @@
+table {
+  width:100%;padding:1rem;
+  border-collapse:collapse;border-radius: 3px;
+  
+}
+table th {
+  border:1px solid #b3adad;
+  padding: 1.8rem 1rem;
+  background: #c6e2e9;
+  font-size: 1.2rem;color: #16697a;
+}
+table tr:nth-child(even) td {
+  background-color: #eaf4f4;
+}
+table td {
+  text-align:center;
+  padding:1rem;font-weight: bold;
+  background: #ffffff;
+  color: #313030;
+}
+table td .success{
+  padding: 5px;display: inline-block; background-color: #2ec4b6;color: #FFF;
+  border-radius: 3px;
+}
+table td .error{
+  padding: 5px;display: inline-block;background-color: #e71d36;color: #FFF;
+  border-radius: 3px;
+}
+table td a { 
+  color: #006d77;
+}

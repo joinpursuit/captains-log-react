@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Log from "./Log";
+import "./Styles/Logs.css"
 
 const API = process.env.REACT_APP_API_URL;
 

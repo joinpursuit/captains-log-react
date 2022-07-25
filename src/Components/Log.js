@@ -11,9 +11,9 @@ export default function Log(props) {
       <td>{log.captainName}</td>
       <td>
         {log.mistakesWereMadeToday ? (
-          <span>Yes</span>
+          <span className="success">Yes</span>
         ) : (
-          <span>No</span>
+          <span className="error">No</span>
         )}
       </td>
     </tr>

@@ -12,6 +12,8 @@ import Edit from "./Pages/Edit";
 import New from "./Pages/New";
 import NotFound from "./Pages/NotFound";
 
+import "../src/App.css"
+
 export default function App() {
   return (
     <div className="App">
