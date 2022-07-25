@@ -14,6 +14,7 @@ function LogNewForm() {
 		mistakesWereMadeToday: false,
 		daysSinceLastCrisis: 0,
 	});
+
 	const navigate = useNavigate();
 
 	const addLog = () => {
@@ -32,7 +33,7 @@ function LogNewForm() {
 	};
 
 	const handleCheckboxChange = () => {
-		setLog({ ...log, mistakesWereMadetoday: !log.mistakesWereMadeToday });
+		setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
 	};
 
 	const handleSubmit = (event) => {
@@ -44,7 +45,8 @@ function LogNewForm() {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='captainName'>Name:</label>
 				<input
-					id='name'
+					id='captainName'
+					name='captainName'
 					value={log.captainName}
 					type='text'
 					onChange={handleTextChange}
@@ -54,6 +56,7 @@ function LogNewForm() {
 				<label htmlFor='title'>Title:</label>
 				<input
 					id='title'
+					name='title'
 					type='text'
 					required
 					value={log.title}
