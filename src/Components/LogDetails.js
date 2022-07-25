@@ -33,8 +33,7 @@ export default function LogDetails() {
   return(
     <section>
       <ul>
-        <li><span>Captain:</span> {log.captainName}</li>
-        <li><span>Title:</span> {log.title}</li>
+        <li><span>{log.title}</span> - By {log.captainName}</li>
         <li><span>Post:</span> {log.post}</li>
         <li><span>Mistakes were made today:</span> {log.mistakesWereMadeToday ? "Yes" : "No"}</li>
         <li><span>Days since last crisis:</span> {log.daysSinceLastCrisis}</li>
