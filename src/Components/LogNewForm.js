@@ -29,16 +29,7 @@ export default function LogNewForm() {
       })
       .catch((c) => console.warn("catch", c));
   };
-
-  useEffect(() => {
-    axios
-      .get(`${API}/logs/${index}`)
-      .then((res) => {
-        setLog(res.data);
-      })
-      .catch((e) => console.error(e));
-  }, [index]);
-
+  
   // HANDLERS
   const handleTextChange = (event) => {
     setLog({ ...log, [event.target.id]: event.target.value });
