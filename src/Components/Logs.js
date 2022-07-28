@@ -22,7 +22,7 @@ export default function Logs() {
 				console.log(error);
 				navigate("/error");
 			});
-	}, []);
+	}, [navigate, logs]);
 
 	return (
 		<div>
