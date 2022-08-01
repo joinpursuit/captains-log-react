@@ -1,0 +1,13 @@
+.homeBackgroundImg {
+    background-image: url("wallhaven-yjegvx.png");
+    height :900px;
+}
+
+.welcomeMessage{
+    font-size: 64px;
+    text-align: center;
+    padding-top: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(216,216,216);
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+ul {
+  padding: 0;list-style: none;
+}
+ul li {
+  padding: 1rem;margin: 0.5rem 0;
+}
+ul li:nth-child(even) {
+  background-color: #eaf4f4;
+}
+ul li span {
+  font-weight: bold;
+}
+button {
+  padding: 1rem 2rem;margin: 0 1px; font-size: 1.2rem; font-weight: bold; 
+  background-color: #82c0cc;border: none;border-radius: 3px; color: #16697a;
+}
+button:hover { cursor: pointer ;}
