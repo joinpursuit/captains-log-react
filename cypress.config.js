@@ -1,6 +1,7 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
+  projectId: '3vdztv',
   'cypress-watch-and-reload': {
     watch: 'src/**/*.js',
   },

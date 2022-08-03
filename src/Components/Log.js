@@ -1,28 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router";
 
-export default function Log() {
-	//const { logInfo } = props;
-	const { id } = useParams();
-	const [logInfo, setLogInfo] = useState({});
+export default function Log(props) {
+	const { logInfo, id, API } = props;
 	const navigate = useNavigate();
-	useEffect(() => {
+	const deleteThisLog = () => {
 		axios
-			.get(`${process.env.REACT_APP_API_URL}/logs/${id}`)
-			.then((response) => {
-				setLogInfo(response.data);
+			.delete(`${API}/logs/${id}`)
+			.then(() => {
+				navigate("/logs");
 			})
-			.catch(() => {
-				navigate("/error");
+			.catch((error) => {
+				console.log(error);
 			});
-	}, [logInfo, id, navigate]);
+	};
 	return (
-		<div>
-			<h2>{logInfo.captainName}</h2>
-			<h3>{logInfo.title}</h3>
-			<p>{logInfo.post}</p>
-			<p>{logInfo.daysSinceLastCrisis} days since last crisis.</p>
+		<div className="Log">
+			<tr>
+				<Link to={`/logs/${id}`}>
+					{" "}
+					<h3>{logInfo.title}</h3>
+				</Link>
+				<td>
+					<h2>{logInfo.captainName}</h2>
+				</td>
+				<p>{logInfo.post}</p>
+				<p>{logInfo.daysSinceLastCrisis} days since last crisis.</p>
+				<Link to={`/logs/${id}/edit`}>
+					<button>Edit</button>
+				</Link>
+				<button onClick={() => deleteThisLog()}>Delete</button>
+			</tr>
 		</div>
 	);
 }

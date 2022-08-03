@@ -2,10 +2,11 @@ import React from "react";
 import NavBar from "./Components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
-import Logs from "./Components/Logs";
-import NewLogForm from "./Components/NewLogForm";
+import Logs from "./Pages/Logs";
+import NewLogForm from "./Pages/NewLogForm";
 import Error from "./Components/Error";
-import Log from "./Components/Log";
+import ShowLog from "./Pages/ShowLog";
+import EditLogForm from "./Pages/EditLogForm";
 
 export default function App() {
 	return (
@@ -15,10 +16,11 @@ export default function App() {
 			</header>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/logs" element={<Logs />} />
-				<Route path="/logs/:id" element={<Log />} />
+				<Route path="/logs/:id" element={<ShowLog />} />
 				<Route path="/logs/new" element={<NewLogForm />} />
-				<Route path="/error" element={<Error />} />
+				<Route path="/logs/:id/edit" element={<EditLogForm />} />
+				<Route path="/logs" element={<Logs />} />
+				<Route path="*" element={<Error />} />
 			</Routes>
 		</div>
 	);
