@@ -3,3 +3,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.Home {
+  padding-top: 10%;
+  text-align: center;
+}
+
+nav {
+  background: #d1a4fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  box-shadow: 2px 2px 4px grey;
+  margin-bottom: 1em;
+}
+
+nav button {
+  size: 12px;
+  background-color: transparent;
+  color: black;
+  padding: 1.5%;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+}
+
