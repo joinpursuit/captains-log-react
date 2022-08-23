@@ -54,12 +54,6 @@ table {
 	background-color: lightgoldenrodyellow;
 }
 
-/* tr {
-	display: grid;
-	grid-template-columns: 1fr;
-	/* gap: 7; 
-} */
-
 th,
 td {
 	text-align: center;
@@ -85,9 +79,9 @@ tbody tr:nth-child(even) {
 }
 
 .New {
-	/* border: 1px solid gold;
-  margin: auto;
-  width: 95%; */
+	/* border: 1px solid gold; */
+	margin: auto;
+	width: 95%;
 }
 
 .New form {

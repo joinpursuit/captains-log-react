@@ -26,6 +26,7 @@ function LogEditForm() {
 	const handleCheckboxChange = () => {
 		setLog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
 	};
+
 	// we need a function to SEND our UPDATED bookmark to the DB
 	useEffect(() => {
 		axios
@@ -56,6 +57,7 @@ function LogEditForm() {
 		event.preventDefault();
 		updateLog();
 	};
+
 	return (
 		<div className='Edit'>
 			<form onSubmit={handleSubmit}>
